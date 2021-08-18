@@ -9,10 +9,25 @@ let routes = (
   <Router>
     <Switch>
       <Route exact path="/">
-        <div>Home</div>
+        <div>Todas as opções</div>
       </Route>
-      <Route path="/about">
-        <div>About</div>
+      <Route path="/pontosturisticos">
+        <div>Pontos Turisticos</div>
+      </Route>
+      <Route path="/restaurantes">
+        <div>Restaurantes</div>
+      </Route>
+      <Route path="/shoppings">
+        <div>Shoppings</div>
+      </Route>
+      <Route path="/eventos">
+        <div>Proximos Eventos</div>
+      </Route>
+      <Route path="/contatos">
+        <div>Contatos</div>
+      </Route>
+      <Route path="/hoteis">
+        <div>Hoteis</div>
       </Route>
     </Switch>
   </Router>
