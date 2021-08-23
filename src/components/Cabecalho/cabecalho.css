@@ -1,0 +1,90 @@
+.pm-cabecalho-info {
+  background-color: #F5FAFE;
+  width: 100%;
+}
+
+.pm-cabecalho-info-conteudo {
+  width: 80%;
+  height: 45px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Mulish', sans-serif;
+  align-items: center;
+  padding: 0 10px; 
+} 
+
+.pm-cabecalho-info-duvida {
+  font-size: 0.8em;
+}
+
+.pm-pesquisa {
+  display: flex;
+  flex-direction: row;
+}
+
+.pm-cabecalho-info span {
+  font-weight: bold
+}
+
+.pm-cabecalho-idioma img {
+  margin: 0 8px;
+}
+
+.pm-cabecalho {
+  background-color: #FFFF;
+  width: 100%;
+}
+
+.pm-cabecalho-conteudo {
+  display: flex;
+  width: 80%;
+  height: 120px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pm-logo {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 29px;
+}
+
+.pm-pesquisa {
+  height: 40px;
+  display: flex;
+}
+
+.pm-pesquisa input {
+  background-color: #F5FAFE;
+  height: 40px;
+  border: 0px;
+  width: 260px;
+  color: #3333;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.pm-pesquisa input:focus{
+  outline: none;
+}
+
+.pm-pesquisa-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 50px;
+  background-color: #EC1F46;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  color: #ffff;
+  cursor: pointer;
+  border: none;
+}
+
+.pm-pesquisa-search img {
+  width: 30px;
+  height: 30px;
+  color: #ffff;
+}

@@ -5,10 +5,15 @@ import {
   Route
 } from "react-router-dom";
 
+import Cabecalho from './components/Cabecalho/cabecalho';
+
 let routes = (
+  
   <Router>
+    <Cabecalho></Cabecalho>
     <Switch>
       <Route exact path="/">
+        
         <div>Todas as opções</div>
       </Route>
       <Route path="/pontosturisticos">
@@ -29,12 +34,17 @@ let routes = (
       <Route path="/hoteis">
         <div>Hoteis</div>
       </Route>
+      <Route>
+        <div>Todas as opções</div>
+      </Route>
     </Switch>
   </Router>
 );
 
 function App() {
-  return routes;
+  return (
+    routes
+  );
 }
 
 export default App;
