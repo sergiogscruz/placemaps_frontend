@@ -6,14 +6,17 @@ import {
 } from "react-router-dom";
 
 import Cabecalho from './components/Cabecalho/cabecalho';
-
+import Botao from "./components/UI/Utils/Botao/Botao";
+import { GiSeaCreature } from 'react-icons/gi/index'
 let routes = (
   
   <Router>
-    <Cabecalho></Cabecalho>
+    <Cabecalho />
     <Switch>
       <Route exact path="/">
-        
+        <Botao onClick={() => alert('Click no botão')}>
+          <GiSeaCreature />
+        </Botao>
         <div>Todas as opções</div>
       </Route>
       <Route path="/pontosturisticos">
