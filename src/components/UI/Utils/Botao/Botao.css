@@ -1,0 +1,17 @@
+.botao {
+  background-color: var(--cor-principal);
+  border: 1px solid;
+  border-color: var(--cor-principal);
+  color: var(--cor-antagonista-principal);
+  padding: 12px;
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.botao:hover {
+  background-color: var(--cor-antagonista-principal);
+  color: var(--cor-principal);
+  transition: 200ms;
+}
