@@ -1,5 +1,6 @@
 * {
   --cor-principal: #EC1F46;
   --cor-antagonista-principal: white;
-  --cor-background: #F5FAFE;
+  --cor-background-light: #F5FAFE;
+  --cor-background-dark: #0A223D;
 }

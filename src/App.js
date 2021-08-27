@@ -6,13 +6,14 @@ import {
 } from "react-router-dom";
 
 import Cabecalho from './components/Cabecalho/cabecalho';
-import Input from "./components/UI/Utils/Input/Input";
+import ListaNaoOrdenada from "./components/UI/Utils/ListaNaoOrdenada/ListaNaoOrdenada";
+
 let routes = (
   <Router>
     <Cabecalho />
     <Switch>
-      <Route exact path="/">
-        <Input placeholder="Texto aqui" className=""/>
+      <Route exact path="/">   
+        <div>Home</div>
       </Route>
       <Route path="/pontosturisticos">
         <div>Pontos Turisticos</div>
