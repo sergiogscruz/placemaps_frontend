@@ -1,0 +1,16 @@
+.container-icone-com-valor {
+  cursor: pointer;
+  display: flex;
+}
+.container-valor-do-icone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  background-color: var(--cor-principal);
+  border-radius: 50%;
+  color: white;
+  font-size: 10px;
+  font-weight: 100;
+}
