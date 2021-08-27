@@ -2,7 +2,7 @@
   border: none;
   border-radius: 6px;
   color: #525252bd;
-  background-color: var(--cor-background);
+  background-color: var(--cor-background-light);
   padding: 10px;
   text-indent: 8px;
 }

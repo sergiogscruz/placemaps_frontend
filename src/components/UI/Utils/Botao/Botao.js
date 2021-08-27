@@ -4,7 +4,8 @@ import './Botao.css';
 /**
  * props = {
  *  type,
- *  onClick
+ *  onClick,
+ *  children
  * }
  */
 export default (props) => {
