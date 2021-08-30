@@ -8,35 +8,47 @@ import {
 import Cabecalho from './components/Cabecalho/cabecalho';
 import IconeComValor from "./components/UI/Utils/IconeComValor/IconeComValor";
 import { AiOutlineCalendar } from 'react-icons/ai'
+import Entrar from './components/Entrar/entrar';
 let routes = (
   <Router>
-    <Cabecalho />
     <Switch>
-      <Route exact path="/"> 
+      <Route exact path="/">
+        <Cabecalho><Cabecalho/>
+        <div>Todas as opcoes</div>
         <IconeComValor valor="3" onClick={ () => alert('Click no calendario') } pxEsquerdaValor="-15"> 
           <AiOutlineCalendar size="2em"/>
         </IconeComValor>  
+
       </Route>
       <Route path="/pontosturisticos">
+        <Cabecalho></Cabecalho>
         <div>Pontos Turisticos</div>
       </Route>
       <Route path="/restaurantes">
+        <Cabecalho></Cabecalho>
         <div>Restaurantes</div>
       </Route>
       <Route path="/shoppings">
+        <Cabecalho></Cabecalho>
         <div>Shoppings</div>
       </Route>
       <Route path="/eventos">
+        <Cabecalho></Cabecalho>
         <div>Proximos Eventos</div>
       </Route>
       <Route path="/contatos">
+        <Cabecalho></Cabecalho>
         <div>Contatos</div>
       </Route>
       <Route path="/hoteis">
+        <Cabecalho></Cabecalho>
         <div>Hoteis</div>
       </Route>
-      <Route>
-        <div>Todas as opções</div>
+      <Route path="/entrar">
+        <Entrar></Entrar>
+      </Route>
+      <Route path="/cadastrar">
+        <div>CADASTRAR</div>
       </Route>
     </Switch>
   </Router>

@@ -1,19 +1,20 @@
 import React, { useState,setState } from 'react';
+import { Link } from 'react-router-dom';
 import './cabecalho.css';
 import bandEua from '../UI/imagens/band-eua.png';
 import bandBra from '../UI/imagens/band-brasil.png';
 import search from '../UI/imagens/search.svg';
 
 export default function Cabecalho() {
-  const [state, setCount] = useState({});
+  const [inputPesquisa, setInputPesquisa] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('Você clicou em enviar.');
+    alert("Ops! Ainda não foi implementado essa função");
   }
 
   function handleChange (e) {
-    console.log(e.target.value)
+    setInputPesquisa(e.target.value)
   }
 
   
@@ -25,8 +26,8 @@ export default function Cabecalho() {
             <span>Dúvidas? Precisa de ajuda?</span> Entre em contato com a gente (44) 9999-9999
           </div>
           <div className="pm-cabecalho-idioma">
-            <img src={bandBra} alt="Brasil" />
-            <img src={bandEua} alt="Usa" />
+            <img height="19px" width="28px" src={bandBra} alt="Brasil" />
+            <img height="19px" width="28px" src={bandEua} alt="Usa" />
           </div>
         </div>
       </div>
@@ -38,14 +39,15 @@ export default function Cabecalho() {
           </div>
           <div>
             <form className="pm-pesquisa" onSubmit={handleSubmit}>
-              <input type="text" onChange={handleChange}></input>
+              <input type="text" onChange={handleChange} placeholder="Pesquise por local"></input>
               <button className="pm-pesquisa-search" type="submit">
                 <img src={search}></img>
               </button>
             </form>
           </div>
           <div>
-            user
+            <Link to="/entrar" className="pm-cabecalho-entrar">Entrar</Link>
+            <Link to="/cadastrar" className="pm-cabecalho-cadastrar">Cadastrar</Link>
           </div>
         </div>
       </div>

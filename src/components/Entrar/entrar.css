@@ -1,0 +1,60 @@
+.pm-entrar-conteudo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.pm-entrar-info {
+  display: flex;
+  width: 40%;
+  height: 100vh;
+  background-color: #0F0101;
+  flex-direction: column;
+}
+
+.pm-entrar-credenciais {
+  display: flex;
+  width: 60%;
+  height: 100vh;
+  background-color: #fff;
+}
+.pm-logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.pm-logo-words {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 48px;
+}
+
+.pm-depoimento {
+  margin-top: 30px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.pm-depoimento-content {
+  padding: 30px;
+  background-color: transparent;
+  width: 60%;
+  height: 300px;
+  border: 1px #f5ececcc solid;
+  border-radius: 8px;
+}
+
+.pm-entrar-credenciais {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pm-credenciais-acesso {
+  font-family: 'Inter', sans-serif;
+  font-weight: bolder;
+  font-size: 40px;
+  margin-top: 110px
+}
