@@ -1,0 +1,13 @@
+.input {
+  border: none;
+  border-radius: 6px;
+  color: #525252bd;
+  background-color: var(--cor-background-light);
+  padding: 10px;
+  text-indent: 8px;
+}
+
+.input:focus {
+  outline-color: #DCE1E6;
+  outline-width: 1px;
+}
