@@ -39,14 +39,14 @@ export default function Entrar() {
               <Input type="password" setStatePai={setInputSenha}></Input>
             </div>
             <div className="pm-esquece-senha">
-              <a onClick={}>
+              <a>
                 <stong>Esqueceu a senha?</stong>
               </a>
             </div>
             <div >
-              <Botao className="pm-credenciais-botao" children="Entrar" onClick={}></Botao>
+              <Botao className="pm-credenciais-botao" children="Entrar"></Botao>
             </div>
-            <a className="pm-credenciais-cadastro" onClick={}>
+            <a className="pm-credenciais-cadastro">
               <stong>Faça seu cadastro</stong>
             </a>
           </div>
