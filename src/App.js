@@ -9,6 +9,7 @@ import Cabecalho from './components/Cabecalho/cabecalho';
 import IconeComValor from "./components/UI/Utils/IconeComValor/IconeComValor";
 import { AiOutlineCalendar } from 'react-icons/ai'
 import Entrar from './components/Entrar/entrar';
+import Footer from "./components/footer/Footer";
 
 let routes = (
   <Router>
@@ -18,7 +19,8 @@ let routes = (
         <div>Todas as opcoes</div>
         <IconeComValor valor="3" onClick={ () => alert('Click no calendario') } pxEsquerdaValor="-15"> 
           <AiOutlineCalendar size="2em"/>
-        </IconeComValor>  
+        </IconeComValor>
+        <Footer/>  
       </Route>
       <Route path="/pontosturisticos">
         <Cabecalho></Cabecalho>
