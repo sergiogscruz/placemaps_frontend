@@ -1,5 +1,5 @@
 .input {
-  border: none;
+  border: 1px #c0c5ca solid;
   border-radius: 6px;
   color: #525252bd;
   background-color: var(--cor-light);
