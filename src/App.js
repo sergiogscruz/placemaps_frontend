@@ -6,14 +6,31 @@ import {
 } from "react-router-dom";
 
 import Cabecalho from './components/Cabecalho/cabecalho';
-import ListaNaoOrdenada from "./components/UI/Utils/ListaNaoOrdenada/ListaNaoOrdenada";
+import ListaDescritiva from "./components/UI/Utils/ListaDescritiva/ListaDescritiva";
+
+const itensListaDescritiva = [
+  {
+    texto: 'Item 1',
+    preco: '12,00',
+  },
+  {
+    texto: 'Item 2',
+    preco: '2,00',
+  },
+  {
+    texto: 'Item 3',
+    preco: '10,75',
+  },
+]
 
 let routes = (
   <Router>
     <Cabecalho />
     <Switch>
       <Route exact path="/">   
-        <div>Home</div>
+        <ListaDescritiva className="w-75" titulo="Titulo" itens={itensListaDescritiva} considerarPreco={true}/>
+        <ListaDescritiva className="w-50 my-5" titulo="Titulo" itens={itensListaDescritiva} considerarPreco={true}/>
+        <ListaDescritiva className="w-50 my-5" titulo="Titulo" itens={itensListaDescritiva} considerarPreco={true}/>
       </Route>
       <Route path="/pontosturisticos">
         <div>Pontos Turisticos</div>
