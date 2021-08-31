@@ -18,6 +18,6 @@ export default (props) => {
   const className = "input " + classNameProps;
 
   return (
-    <input className={className} placeholder={props.placeholder} onChange={(e) => handleInput(e)}/>
+    <input type={props.type} className={className} placeholder={props.placeholder} onChange={(e) => handleInput(e)}/>
   );
 }

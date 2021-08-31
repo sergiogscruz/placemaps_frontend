@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
+  overflow: hidden;
 }
 
 .pm-entrar-info {
@@ -18,6 +19,7 @@
   width: 60%;
   height: 100vh;
   background-color: #fff;
+  justify-content: flex-start;
 }
 .pm-logo {
   display: flex;
@@ -46,6 +48,16 @@
   border-radius: 8px;
 }
 
+.pm-img-world {
+  background-image: url("../UI/imagens/world.png");
+  height: 300px;
+  width: 500px;
+}
+
+.pm-depoimento-content img {
+  height: 250px;
+}
+
 .pm-entrar-credenciais {
   display: flex;
   flex-direction: column;
@@ -55,6 +67,41 @@
 .pm-credenciais-acesso {
   font-family: 'Inter', sans-serif;
   font-weight: bolder;
-  font-size: 40px;
-  margin-top: 110px
+  font-size: 35px;
+  margin-top: 90px
+}
+
+.pm-credenciais-input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.pm-credenciais-botao {
+  margin-top: 50px;
+  height: 50px;
+  width: 100%;
+}
+
+.pm-center {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pm-credenciais-cadastro {
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Mulish', sans-serif;
+  color: #245C74;
+  margin-top: 50px;
+}
+
+.pm-esquece-senha {
+  display: flex;
+  justify-content: flex-end;
+  font-family: 'Mulish', sans-serif;
+  color: #245C74;
+  cursor: pointer;
 }

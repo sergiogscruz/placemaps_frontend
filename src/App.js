@@ -13,7 +13,7 @@ let routes = (
   <Router>
     <Switch>
       <Route exact path="/">
-        <Cabecalho><Cabecalho/>
+        <Cabecalho></Cabecalho>
         <div>Todas as opcoes</div>
         <IconeComValor valor="3" onClick={ () => alert('Click no calendario') } pxEsquerdaValor="-15"> 
           <AiOutlineCalendar size="2em"/>

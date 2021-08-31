@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState,setState } from 'react';
 import './entrar.css';
 import { ImQuotesLeft }  from 'react-icons/im';
-import world from '../UI/imagens/world.png'
+import world from '../UI/imagens/world.png';
+import Input from '../UI/Utils/Input/Input';
+import Botao from '../UI/Utils/Botao/Botao';
 
 export default function Entrar() {
+  const [inputEmail, setInputEmail] = useState('');
+  const [inputSenha, setInputSenha] = useState('');
+
   return (
     <div className="pm-entrar-conteudo">
       <div className="pm-entrar-info">
@@ -15,21 +20,36 @@ export default function Entrar() {
         </div>
         <div className="pm-depoimento">
           <div className="pm-depoimento-content">
-            <ImQuotesLeft size= "2em" style={{color: "#fff"}}/>
+            <ImQuotesLeft size= "2em" style={{color: "#fff", marginBottom: '10px'}}/>
             <p style={{color: "#f5ececcc", fontFamily: "'Mulish', sans-serif;"}}><i>PlaceMaps é uma plataforma que integra a demanda e oferta da cidade, é sensacional!</i></p>
             <p style={{color: "#EC1F46", fontFamily: "'Mulish', sans-serif;"}}><stong>Pedro Henrique</stong></p>
-            <img src={world}></img>
+            <div className="pm-img-world"></div>
           </div>
         </div>
       </div>
       <div className="pm-entrar-credenciais">
-          <div className="pm-credenciais-acesso">Acesso</div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div className="pm-center">
+            <div className="pm-credenciais-acesso">Acesse sua conta</div>
+            <div className="pm-credenciais-input">
+              <label>Seu email</label>
+              <Input setStatePai={setInputEmail}></Input>
+            </div>
+            <div className="pm-credenciais-input">
+              <label>Senha</label>
+              <Input type="password" setStatePai={setInputSenha}></Input>
+            </div>
+            <div className="pm-esquece-senha">
+              <a onClick={}>
+                <stong>Esqueceu a senha?</stong>
+              </a>
+            </div>
+            <div >
+              <Botao className="pm-credenciais-botao" children="Entrar" onClick={}></Botao>
+            </div>
+            <a className="pm-credenciais-cadastro" onClick={}>
+              <stong>Faça seu cadastro</stong>
+            </a>
+          </div>
       </div>
     </div>
   )
