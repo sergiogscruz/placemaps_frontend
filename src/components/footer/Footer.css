@@ -1,0 +1,126 @@
+.bg-footer {
+  background: url('../UI/imagens/background-footer.png') no-repeat;
+  display: block;
+  color: #fff;
+  height: 260px;
+}
+
+.bg-footer-seg {
+  background-color: #0A223D;
+  height: 650px;
+}
+
+.div-titulos-rodape {
+  color: #FFFFFF;
+  text-align: justify;
+  width: 250px;
+  float: left;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.categorias {
+  color: #FFFFFF;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.detalhes {
+  width: 20px;
+  height: 10px;
+  line-height: 20px;
+}
+
+.datalhes-contato {
+  color: #FFFFFF;
+  font-weight: 900;
+  font-size: 18px;
+  opacity: 10;
+}
+
+.datalhes-contato-sub {
+  position: absolute;
+  width: 394px;
+  height: 65.7px;
+  
+  font-family: Mulish;
+  font-size: 14px;
+  line-height: 160%;
+  color: #BDBDBD;
+}
+
+.tamanho-maximo-lista{
+  max-width: 150px;
+}
+
+.place-logo {
+  color: #FFFFFF;
+  font-weight: 1000;
+  text-align: justify;
+  width: 250px;
+  float:left;
+}
+
+.maps-logo {
+  color: #EC1F46;
+  font-weight: 1000;
+}
+
+.div-enviar-email {
+  height: 55px;
+  width: 350px;
+}
+
+.div-enviar-nome-completo input{
+  border-radius: 3px;
+  border: none;
+  text-indent: 20px;
+  width: 255px;
+  height: 47.61px;
+  margin-bottom: 15px;
+}
+
+.div-enviar-celular input{
+  border-radius: 3px;
+  border: none;
+  text-indent: 20px;
+  width: 255px;
+  height: 47.61px;
+  margin-bottom: 15px;
+}
+
+
+.div-enviar-email input{
+  border-radius: 3px;
+  border: none;
+  text-indent: 20px;
+  width: 285px;
+}
+
+.div-enviar-mensagem input{
+  padding-bottom: 55px;
+  border-radius: 3px;
+  border: none;
+  text-indent: 20px;
+  position: absolute;
+  width: 539px;
+  height: 117.12px;
+}
+
+.borda {
+  border: 2px black solid;
+}
+
+.texto-canal-noticia {
+  font-weight: 900;
+}
+
+.texto-inscreva-se {
+  font-weight: lighter;
+  opacity: 0.9;
+}
+
+
+.endereco-email {
+  opacity: 0.9;
+}
