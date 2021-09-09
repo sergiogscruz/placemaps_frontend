@@ -8,6 +8,7 @@
 .bg-footer-seg {
   background-color: #0A223D;
   height: 650px;
+  padding: 60px;
 }
 
 .div-titulos-rodape {
@@ -102,9 +103,6 @@
   border-radius: 3px;
   border: none;
   text-indent: 20px;
-  position: absolute;
-  width: 539px;
-  height: 117.12px;
 }
 
 .borda {
@@ -123,4 +121,11 @@
 
 .endereco-email {
   opacity: 0.9;
+}
+
+
+.teste-margin {
+  margin: 0 !important;
+  padding: 0 !important; 
+  height: fit-content;
 }
