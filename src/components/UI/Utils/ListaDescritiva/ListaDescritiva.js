@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 
 /**
  * props = {
- *  itensLista: [ { texto: String, preco: float } ],
+ *  itens: [ { texto: String, preco: float } ],
  *  considerarPreco: boolean,
  *  titulo: String,
  *  className: String
