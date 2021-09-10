@@ -1,6 +1,11 @@
 import react, { useEffect, useState } from 'react';
 import './Abas.css';
-
+/**
+ * props = {
+ *  abas: [ { titulo, conteudo } ],
+ *  className
+ * }
+ */
 export default (props) => {
   const conteudoInicial = props.abas.length > 0 && props.abas[0].conteudo ? props.abas[0].conteudo : '';
   const [abaAtiva, setAbaAtiva] = useState(0);
