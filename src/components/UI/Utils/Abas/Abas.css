@@ -1,0 +1,15 @@
+.aba {
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  padding: 10px 2px;
+}
+
+.abaAtiva {
+  border-bottom-color: var(--cor-principal);
+  color: var(--cor-principal);
+}
+
+.conteudoAtivo {
+  transition: 500ms;
+}

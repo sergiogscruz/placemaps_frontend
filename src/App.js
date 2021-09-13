@@ -10,17 +10,22 @@ import IconeComValor from "./components/UI/Utils/IconeComValor/IconeComValor";
 import { AiOutlineCalendar } from 'react-icons/ai'
 import Entrar from './components/Entrar/entrar';
 import Cadastrar from './components/Cadastrar/cadastrar';
+import Footer from "./components/footer/Footer";
+import Abas from "./components/UI/Utils/Abas/Abas";
+import ListaDescritiva from './components/UI/Utils/ListaDescritiva/ListaDescritiva'
 
 let routes = (
   <Router>
     <Switch>
       <Route exact path="/">
-        <Cabecalho></Cabecalho>
+        <Cabecalho/>
         <div>Todas as opcoes</div>
         <IconeComValor valor="3" onClick={ () => alert('Click no calendario') } pxEsquerdaValor="-15"> 
           <AiOutlineCalendar size="2em"/>
-        </IconeComValor>  
+        </IconeComValor>
 
+        <Abas className="mx-5 w-75" abas={conteudosAbas} />
+        <Footer/>  
       </Route>
       <Route path="/pontosturisticos">
         <Cabecalho></Cabecalho>
