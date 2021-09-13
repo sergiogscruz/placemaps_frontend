@@ -9,59 +9,10 @@ import Cabecalho from './components/Cabecalho/cabecalho';
 import IconeComValor from "./components/UI/Utils/IconeComValor/IconeComValor";
 import { AiOutlineCalendar } from 'react-icons/ai'
 import Entrar from './components/Entrar/entrar';
+import Cadastrar from './components/Cadastrar/cadastrar';
 import Footer from "./components/footer/Footer";
 import Abas from "./components/UI/Utils/Abas/Abas";
 import ListaDescritiva from './components/UI/Utils/ListaDescritiva/ListaDescritiva'
-
-const conteudosAbas = [
-  {
-    titulo: "Seg",
-    conteudo: 
-      <p>
-        Nunc porttitor risus porta cubilia viverra nostra est Nunc porttitor risus porta cubilia viverra nostra estNunc porttitor risus porta cubilia viverra nostra est Nunc porttitor risus porta cubilia viverra nostra estNunc porttitor risus porta cubilia viverra nostra estNunc porttitor risus porta cubilia viverra nostra est
-      </p>
-  },
-  {
-    titulo: "Ter",
-    conteudo: 
-      <ListaDescritiva titulo="Teste" itens={[{texto: "item 1"}, {texto: "item 2"}, {texto: "item 3"}, {texto: "item 4"}]}/>
-  },
-  {
-    titulo: "Qua",
-    conteudo: 
-      <p>
-        Odio justo odio bibendum torquent ullamcorper odio
-      </p>
-  },
-  {
-    titulo: "Qui",
-    conteudo: 
-      <p>
-        Odio justo odio bibendum torquent ullamcorper odio
-      </p>
-  },
-  {
-    titulo: "Sex",
-    conteudo: 
-      <p>
-        Odio justo odio bibendum torquent ullamcorper odio
-      </p>
-  },
-  {
-    titulo: "Sab",
-    conteudo: 
-      <p>
-        Odio justo odio bibendum torquent ullamcorper odio
-      </p>
-  },
-  {
-    titulo: "Dom",
-    conteudo: 
-      <p>
-        Odio justo odio bibendum torquent ullamcorper odio
-      </p>
-  }
-]
 
 let routes = (
   <Router>
@@ -104,7 +55,7 @@ let routes = (
         <Entrar></Entrar>
       </Route>
       <Route path="/cadastrar">
-        <div>CADASTRAR</div>
+        <Cadastrar></Cadastrar>
       </Route>
     </Switch>
   </Router>
