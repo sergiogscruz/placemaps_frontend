@@ -9,6 +9,8 @@ import Cabecalho from './components/Cabecalho/cabecalho';
 import IconeComValor from "./components/UI/Utils/IconeComValor/IconeComValor";
 import { AiOutlineCalendar } from 'react-icons/ai'
 import Entrar from './components/Entrar/entrar';
+import Cadastrar from './components/Cadastrar/cadastrar';
+
 let routes = (
   <Router>
     <Switch>
@@ -48,7 +50,7 @@ let routes = (
         <Entrar></Entrar>
       </Route>
       <Route path="/cadastrar">
-        <div>CADASTRAR</div>
+        <Cadastrar></Cadastrar>
       </Route>
     </Switch>
   </Router>

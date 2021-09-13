@@ -1,0 +1,111 @@
+.pm-cadastrar-conteudo {
+  width: 100%;
+  display: flex;
+  justify-content:space-around;
+  flex-direction: row;
+}
+
+.pm-cadastrar-info {
+  display: flex;
+  justify-content: center;
+  width: 35%;
+  height: 100vh;
+  background-color: #0F0101;
+  align-items: center;
+}
+.pm-cadastrar-logo {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 48px;
+}
+.pm-cadastrar-credenciais {
+  display: flex;
+  align-items: center;
+  width: 65%;
+  flex-direction: column;
+}
+
+.pm-cadastrar-registrar {
+  font-family: 'Inter', sans-serif;
+  font-weight: bolder;
+  font-size: 25px;
+  margin-top: 15px
+}
+
+.pm-cadastrar-input {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  margin-top: 15px;
+  color: #696F79;
+}
+
+.pm-cadastrar-input label {
+  margin-bottom: 5px;
+}
+
+.pm-cadastrar-input-largura {
+  width: 380px;
+}
+
+.pm-cadastrar-tipo-pessoa {
+  display: flex;
+  justify-content:space-between;
+  flex-direction: row;
+  width: 380px;
+  margin-top: 20px;
+}
+
+.pm-cadastrar-termos {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 380px;
+  margin-top: 10px;
+}
+
+.pm-cadastrar-termos label {
+  margin-left: 10px;
+}
+
+.pm-cadastrar-botao {
+  width: 380px;
+  margin-top: 20px;
+}
+
+.pm-cadastrar-tipo-pessoa label {
+  margin-left: 10px;
+}
+
+.pm-margin-right-5{
+  margin-right: 5px;
+}
+
+.pm-margin-right-10{
+  margin-right: 10px;
+}
+.pm-margin-right-15{
+  margin-right: 15px;
+}
+
+.pm-margin-right-25{
+  margin-right: 25px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #8692A6;
+  opacity: 0.5; /* Firefox */
+}
+
+.field {
+  border: 1px #c0c5ca solid;
+  border-radius: 6px;
+  color: #525252bd;
+  background-color: var(--cor-background-light);
+  padding: 10px;
+  text-indent: 8px;
+}
+
+.field:focus {
+  outline-color: #DCE1E6;
+  outline-width: 1px;
+}

@@ -1,9 +1,9 @@
 import React, { useState,setState } from 'react';
 import './entrar.css';
 import { ImQuotesLeft }  from 'react-icons/im';
-import world from '../UI/imagens/world.png';
 import Input from '../UI/Utils/Input/Input';
 import Botao from '../UI/Utils/Botao/Botao';
+import { Link } from 'react-router-dom';
 
 export default function Entrar() {
   const [inputEmail, setInputEmail] = useState('');
@@ -21,8 +21,8 @@ export default function Entrar() {
         <div className="pm-depoimento">
           <div className="pm-depoimento-content">
             <ImQuotesLeft size= "2em" style={{color: "#fff", marginBottom: '10px'}}/>
-            <p style={{color: "#f5ececcc", fontFamily: "'Mulish', sans-serif;"}}><i>PlaceMaps é uma plataforma que integra a demanda e oferta da cidade, é sensacional!</i></p>
-            <p style={{color: "#EC1F46", fontFamily: "'Mulish', sans-serif;"}}><stong>Pedro Henrique</stong></p>
+            <p style={{color: "#f5ececcc"}}><i>PlaceMaps é uma plataforma que integra a demanda e oferta da cidade, é sensacional!</i></p>
+            <p style={{color: "#EC1F46"}}><strong>Pedro Henrique</strong></p>
             <div className="pm-img-world"></div>
           </div>
         </div>
@@ -32,23 +32,21 @@ export default function Entrar() {
             <div className="pm-credenciais-acesso">Acesse sua conta</div>
             <div className="pm-credenciais-input">
               <label>Seu email</label>
-              <Input setStatePai={setInputEmail}></Input>
+              <Input setStatePai={setInputEmail} placeholder="Informe seu email"></Input>
             </div>
             <div className="pm-credenciais-input">
               <label>Senha</label>
-              <Input type="password" setStatePai={setInputSenha}></Input>
+              <Input type="password" placeholder="Informe sua senha" setStatePai={setInputSenha}></Input>
             </div>
             <div className="pm-esquece-senha">
-              <a onClick={}>
-                <stong>Esqueceu a senha?</stong>
+              <a onClick={()=> {}}>
+                <strong>Esqueceu a senha?</strong>
               </a>
             </div>
             <div >
-              <Botao className="pm-credenciais-botao" children="Entrar" onClick={}></Botao>
+              <Botao className="pm-credenciais-botao" children="Entrar" onClick={()=> {}}></Botao>
             </div>
-            <a className="pm-credenciais-cadastro" onClick={}>
-              <stong>Faça seu cadastro</stong>
-            </a>
+            <Link to="/cadastrar" style={{textDecoration: "none", marginTop: "20px"}}>Faça seu cadastro</Link>
           </div>
       </div>
     </div>
