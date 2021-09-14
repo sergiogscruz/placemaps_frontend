@@ -127,7 +127,6 @@ export default () => {
           <small>PLACEMAPS</small>
         </div>
       </div>
-
     </>
   )
 }
