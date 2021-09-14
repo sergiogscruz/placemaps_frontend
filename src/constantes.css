@@ -4,3 +4,35 @@
   --cor-light: #F5FAFE;
   --cor-dark: #0A223D;
 }
+
+.color-principal {
+  color: var(--cor-principal);
+}
+
+.color-antagonista-principal {
+  color: var(--cor-antagonista-principal);
+}
+
+.color-light {
+  color: var(--cor-light);
+}
+
+.color-dark {
+  color: var(--cor-dark);
+}
+
+.bg-principal {
+  background-color: var(--cor-principal);
+}
+
+.bg-antagonista-principal {
+  background-color: var(--cor-antagonista-principal);
+}
+
+.bg-light {
+  background-color: var(--cor-light);
+}
+
+.bg-dark {
+  background-color: var(--cor-dark);
+}
