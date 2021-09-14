@@ -11,8 +11,6 @@ import { AiOutlineCalendar } from 'react-icons/ai'
 import Entrar from './components/Entrar/entrar';
 import Cadastrar from './components/Cadastrar/cadastrar';
 import Footer from "./components/footer/Footer";
-import Abas from "./components/UI/Utils/Abas/Abas";
-import ListaDescritiva from './components/UI/Utils/ListaDescritiva/ListaDescritiva'
 
 let routes = (
   <Router>
