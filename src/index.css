@@ -16,3 +16,7 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.circulo {
+  border-radius: 50%;
+}
