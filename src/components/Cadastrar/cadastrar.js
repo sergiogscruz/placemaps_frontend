@@ -1,9 +1,12 @@
 import React, { useState,setState } from 'react';
 import './cadastrar.css';
+import api from "../services/api";
 import Botao from '../UI/Utils/Botao/Botao';
+import AlertUserCreated from './alertUserCreated';
+import Loading from '../UI/Utils/Loading/loading';
 import * as yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-
+import { useHistory } from "react-router-dom";
 
 export default function Cadastrar() {
   const [inputEmail, setInputEmail] = useState('');
@@ -12,6 +15,14 @@ export default function Cadastrar() {
   const [inputCPF, setInputCPF] = useState('');
   const [tipoPessoa, setTipoPessoa] = useState('');
   const [concordaTermos, setConcordaTermos] = useState(false);
+  const [userCreated, setUserCreated] = useState(false);
+  const [pendingRequest, setPendingRequest] = useState(false);
+
+  let history = useHistory();
+
+  function handleEntrar() {
+    history.push("/entrar");
+  }
 
   const validation = yup.object().shape({
       nome: yup.string().min(2, 'É necessário no mínimo 2 caracteres').required('Nome é um nome obrigatório'),
@@ -35,6 +46,8 @@ export default function Cadastrar() {
       </div>
       <div className="pm-cadastrar-credenciais">
         <div className="pm-cadastrar-registrar">Registrar</div>
+        {pendingRequest ? <Loading></Loading> : null}
+        {userCreated ? <AlertUserCreated></AlertUserCreated> : null}
         <Formik
           initialValues={{
             email: '',
@@ -45,7 +58,25 @@ export default function Cadastrar() {
           }}
           validationSchema={validation}
           onSubmit={values => {
-            console.log(values);
+
+            const user = {
+              nome: values.nome,
+              email: values.email,
+              senha: values.senha
+            };
+          setPendingRequest(true)
+          api.post('api/public/autenticacao/cadastrar-usuario', user )
+            .then((result) => {
+            setPendingRequest(false)
+              if(result.status == 200) {
+               setUserCreated(true)
+                setTimeout(() => {
+                  handleEntrar()
+                },2000)
+              }
+            }).catch((error) => {
+              
+          })
           }}>
             {({ errors, touched }) => (
               <Form>
@@ -78,11 +109,10 @@ export default function Cadastrar() {
                     className="pm-cadastrar-botao" 
                     children="Entrar" 
                     type="submit"
-                    disabled={!concordaTermos}
-                    onClick={() => alert(concordaTermos)}>
+                    disabled={!concordaTermos}>
                   </Botao>
                 </div>
-                <span>
+                <span className="pm-margin-bottom">
                   * Campos obrigatórios
                 </span>
               </Form>
