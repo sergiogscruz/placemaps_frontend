@@ -12,3 +12,7 @@ body {
   justify-content: center;
   width: 70%;
 }
+
+.circulo {
+  border-radius: 50%;
+}

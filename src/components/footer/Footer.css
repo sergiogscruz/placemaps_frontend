@@ -1,27 +1,26 @@
 .bg-footer {
   background: url('../UI/imagens/background-footer.png') no-repeat;
   display: block;
-  color: #fff;
+  color: var(--cor-antagonista-principal);
   height: 260px;
 }
 
 .bg-footer-seg {
-  background-color: #0A223D;
+  background-color: var(--cor-dark);
   height: 650px;
   padding: 60px;
 }
 
 .div-titulos-rodape {
-  color: #FFFFFF;
+  color: var(--cor-antagonista-principal);
   text-align: justify;
   width: 250px;
-  float: left;
   font-size: 16px;
   font-weight: 900;
 }
 
 .categorias {
-  color: #FFFFFF;
+  color: var(--cor-antagonista-principal);
   font-size: 14px;
   opacity: 0.9;
 }
@@ -33,21 +32,20 @@
 }
 
 .datalhes-contato {
-  color: #FFFFFF;
+  color: var(--cor-antagonista-principal);
   font-weight: 900;
   font-size: 18px;
   opacity: 10;
 }
 
+.mr-3 {
+  margin-right: 18px;
+}
+
 .datalhes-contato-sub {
-  position: absolute;
-  width: 394px;
-  height: 65.7px;
-  
-  font-family: Mulish;
-  font-size: 14px;
-  line-height: 160%;
-  color: #BDBDBD;
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: var(--cor-light);
 }
 
 .tamanho-maximo-lista{
@@ -55,54 +53,27 @@
 }
 
 .place-logo {
-  color: #FFFFFF;
+  color: var(--cor-antagonista-principal);
   font-weight: 1000;
   text-align: justify;
   width: 250px;
-  float:left;
 }
 
 .maps-logo {
-  color: #EC1F46;
+  color: var(--cor-principal);
   font-weight: 1000;
 }
 
-.div-enviar-email {
-  height: 55px;
-  width: 350px;
-}
-
 .div-enviar-nome-completo input{
-  border-radius: 3px;
-  border: none;
-  text-indent: 20px;
-  width: 255px;
   height: 47.61px;
-  margin-bottom: 15px;
 }
 
 .div-enviar-celular input{
-  border-radius: 3px;
-  border: none;
-  text-indent: 20px;
-  width: 255px;
   height: 47.61px;
-  margin-bottom: 15px;
-}
-
-
-.div-enviar-email input{
-  border-radius: 3px;
-  border: none;
-  text-indent: 20px;
-  width: 285px;
 }
 
 .div-enviar-mensagem input{
   padding-bottom: 55px;
-  border-radius: 3px;
-  border: none;
-  text-indent: 20px;
 }
 
 .borda {
