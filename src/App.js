@@ -24,7 +24,6 @@ let routes = (
           <AiOutlineCalendar size="2em"/>
         </IconeComValor>
 
-        <Abas className="mx-5 w-75" abas={conteudosAbas} />
         <Footer/>  
       </Route>
       <Route path="/pontosturisticos">
