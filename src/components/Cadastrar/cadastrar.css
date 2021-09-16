@@ -9,7 +9,8 @@
   display: flex;
   justify-content: center;
   width: 35%;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   background-color: #0F0101;
   align-items: center;
 }
@@ -22,6 +23,7 @@
   align-items: center;
   width: 65%;
   flex-direction: column;
+  padding: 20px 0 20px 0;
 }
 
 .pm-cadastrar-registrar {
@@ -80,16 +82,7 @@
   margin-right: 5px;
 }
 
-.pm-margin-right-10{
-  margin-right: 10px;
-}
-.pm-margin-right-15{
-  margin-right: 15px;
-}
 
-.pm-margin-right-25{
-  margin-right: 25px;
-}
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #8692A6;

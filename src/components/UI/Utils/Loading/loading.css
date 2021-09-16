@@ -1,0 +1,16 @@
+.pm-loading-container {
+    width: 100vw;
+    height: 100vh;
+    background-color:rgba(29, 29, 29, 0.808);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.pm-loading-conteudo {
+    position: absolute;
+    top: 50vh;
+    bottom: 50vh;
+    left: 50vw;
+    right: 50vw;
+}
