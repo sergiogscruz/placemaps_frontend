@@ -21,6 +21,8 @@
 .pm-pesquisa {
   display: flex;
   flex-direction: row;
+  height: 40px;
+  display: flex;
 }
 
 .pm-cabecalho-info span {
@@ -48,18 +50,14 @@
 .pm-logo {
   font-family: 'Luckiest Guy', cursive;
   font-size: 29px;
-}
-
-.pm-pesquisa {
-  height: 40px;
-  display: flex;
+  margin: 0;
 }
 
 .pm-pesquisa input {
   background-color: #F5FAFE;
   height: 40px;
   border: 0px;
-  width: 260px;
+  width: 300px;
   color: rgb(51, 51, 51);
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -74,7 +72,7 @@
   justify-content: center;
   align-items: center;
   height: 40px;
-  width: 50px;
+  width: 60px;
   background-color: #EC1F46;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -83,12 +81,38 @@
   border: none;
 }
 
-.pm-pesquisa-search img {
-  width: 30px;
-  height: 30px;
-  color: #ffff;
+.pm-pesquisa-search:hover {
+  background-color: #ffff;
+  color: #EC1F46;
+  border: 1px solid #EC1F46;
+  transition: 0.3s;
 }
 
+.pm-pesquisa-input {
+  width: 900px;
+}
+
+.pm-pesquisa-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #8d99a0;
+  opacity: 0.5; /* Firefox */
+  font-family: 'Mulish',sans-serif;
+  font-size: 0.9em;
+}
+
+.pm-pesquisa-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #8d99a0;
+  opacity: 0.5;
+  font-family: 'Mulish',sans-serif;
+  font-size: 0.9em;
+
+}
+
+.pm-pesquisa-input::-ms-input-placeholder { /* Microsoft Edge */
+  color: #8d99a0;
+  opacity: 0.5;
+  font-family: 'Mulish',sans-serif;
+  font-size: 0.9em;
+}
 
 .pm-cabecalho-entrar {
   text-decoration: none;
@@ -99,6 +123,7 @@
   background: none;
   cursor: pointer;
   border-bottom: 0.5px solid transparent;
+  margin-right: 5px;
 }
 
 .pm-cabecalho-cadastrar {
