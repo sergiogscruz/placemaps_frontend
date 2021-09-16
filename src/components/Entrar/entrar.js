@@ -21,7 +21,7 @@ export default function Entrar() {
   return (
     <div className="pm-entrar-conteudo">
       <div className="pm-entrar-info">
-        <div className="pm-logo">
+        <div className="pm-entrar-logo">
           <div className="pm-logo-words">
             <span style={{color: "#EC1F46"}}>PLACE </span>
             <span style={{color: "#EFE5E5"}}>MAPS</span>

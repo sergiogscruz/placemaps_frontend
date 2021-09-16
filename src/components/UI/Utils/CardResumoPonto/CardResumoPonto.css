@@ -1,0 +1,23 @@
+.cardResumoPonto {
+  --radius-cardResumo: 8px;
+  width: 90%;
+  max-width: 900px;
+  background-color: var(--cor-dark);
+  color: var(--cor-antagonista-principal);
+  border-radius: var(--radius-cardResumo);
+  margin: 25px 0;
+  min-height: 200px;
+}
+
+.cardResumoPonto .titulo {
+  border-right: 2px solid var(--cor-antagonista-principal);
+}
+
+.cardResumoPonto .img {
+  background-image: url('../../imagens/default-image.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-top-right-radius: var(--radius-cardResumo);
+  border-end-end-radius: var(--radius-cardResumo);
+} 
