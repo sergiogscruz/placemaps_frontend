@@ -6,22 +6,17 @@ import {
 } from "react-router-dom";
 
 import Cabecalho from './components/Cabecalho/cabecalho';
-import IconeComValor from "./components/UI/Utils/IconeComValor/IconeComValor";
-import { AiOutlineCalendar } from 'react-icons/ai'
 import Entrar from './components/Entrar/entrar';
 import Cadastrar from './components/Cadastrar/cadastrar';
 import Footer from "./components/footer/Footer";
+import PaginaInicial from "./components/PaginaInicial/PaginaInicial";
 
 let routes = (
   <Router>
     <Switch>
       <Route exact path="/">
         <Cabecalho/>
-        <div>Todas as opcoes</div>
-        <IconeComValor valor="3" onClick={ () => alert('Click no calendario') } pxEsquerdaValor="-15"> 
-          <AiOutlineCalendar size="2em"/>
-        </IconeComValor>
-
+        <PaginaInicial/>
         <Footer/>  
       </Route>
       <Route path="/pontosturisticos">
