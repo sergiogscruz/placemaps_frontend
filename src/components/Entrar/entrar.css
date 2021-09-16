@@ -64,6 +64,22 @@
   align-items: center;
 }
 
+.pm-entrar-input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  color: #696F79;
+}
+
+.pm-entrar-input-largura {
+  max-width: 320px;
+}
+
+.pm-entrar-botao {
+  width: 320px;
+  margin-top: 20px;
+}
+
 .pm-credenciais-acesso {
   font-family: 'Inter', sans-serif;
   font-weight: bolder;
@@ -82,13 +98,6 @@
   margin-top: 50px;
   height: 50px;
   width: 100%;
-}
-
-.pm-center {
-  width: 40%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
 }
 
 .pm-credenciais-cadastro {
