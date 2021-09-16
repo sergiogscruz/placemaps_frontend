@@ -3,6 +3,7 @@
   --cor-antagonista-principal: white;
   --cor-light: #F5FAFE;
   --cor-dark: #0A223D;
+  --cor-light-azul: #EEF7FF;
 }
 
 .color-principal {
@@ -19,6 +20,10 @@
 
 .color-dark {
   color: var(--cor-dark);
+}
+
+.bg-light-azul {
+  background-color: var(--cor-light-azul);
 }
 
 .bg-principal {
