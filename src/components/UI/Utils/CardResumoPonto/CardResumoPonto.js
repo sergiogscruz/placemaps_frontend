@@ -22,7 +22,7 @@ export default (props) => {
     if (props.itens)
       return props.itens.map((item) => {
         return (
-          <li className="row my-2">
+          <li className="row my-2" key={item}>
             <div className="col-2 p-0 m-0 d-flex justify-content-end align-items-center">
               <AiFillCheckCircle size="1.25em" className="mx-2" />
             </div>
