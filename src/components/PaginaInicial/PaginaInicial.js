@@ -28,7 +28,7 @@ export default () => {
     return (
       itens.map((item, i) => {
         return (
-          <CardResumoPonto id={`card_${i}`} titulo={item.nome} itens={item.dadoSemanalNomeList} srcImg={item.foto} />
+          <CardResumoPonto key={i} id={`card_${i}`} titulo={item.nome} itens={item.dadoSemanalNomeList} srcImg={item.foto} />
         )
       })
     );
