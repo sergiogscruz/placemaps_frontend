@@ -9,11 +9,6 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useHistory } from "react-router-dom";
 
 export default function Cadastrar() {
-  const [inputEmail, setInputEmail] = useState('');
-  const [inputSenha, setInputSenha] = useState('');
-  const [confirmSenha, setInputConfirmSenha] = useState('');
-  const [inputCPF, setInputCPF] = useState('');
-  const [tipoPessoa, setTipoPessoa] = useState('');
   const [concordaTermos, setConcordaTermos] = useState(false);
   const [userCreated, setUserCreated] = useState(false);
   const [pendingRequest, setPendingRequest] = useState(false);
@@ -64,30 +59,30 @@ export default function Cadastrar() {
               email: values.email,
               senha: values.senha
             };
-          setPendingRequest(true)
-          api.post('api/public/autenticacao/cadastrar-usuario', user )
-            .then((result) => {
-            setPendingRequest(false)
-              if(result.status == 200) {
-               setUserCreated(true)
-                setTimeout(() => {
-                  handleEntrar()
-                },2000)
-              }
-            }).catch((error) => {
-              
-          })
+            setPendingRequest(true)
+            api.post('api/public/autenticacao/cadastrar-usuario', user )
+              .then((result) => {
+              setPendingRequest(false)
+                if(result.status == 200) {
+                 setUserCreated(true)
+                  setTimeout(() => {
+                    handleEntrar()
+                  },2000)
+                }
+              }).catch((error) => {
+                
+            })
           }}>
             {({ errors, touched }) => (
               <Form>
                 <div className="pm-cadastrar-input">
                   <label>Nome*</label>
-                  <Field className="pm-cadastrar-input-largura field" name="nome" />
+                  <Field className="pm-cadastrar-input-largura field" placeholder="Ex: João da Silva" name="nome" />
                   {errors.nome && touched.nome ? ( <div style={{color: "#EC1F46"}}>{errors.nome}</div> ) : null}
                 </div>
                 <div className="pm-cadastrar-input">
                   <label>Seu email*</label>
-                  <Field className="pm-cadastrar-input-largura field" name="email" />
+                  <Field className="pm-cadastrar-input-largura field" placeholder="Ex: joao@email.com" name="email" />
                   {errors.email && touched.email ? ( <div style={{color: "#EC1F46"}}>{errors.email}</div> ) : null}
                 </div>
                 <div className="pm-cadastrar-input">

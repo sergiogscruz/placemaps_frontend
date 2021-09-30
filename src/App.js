@@ -10,12 +10,14 @@ import Entrar from './components/Entrar/entrar';
 import Cadastrar from './components/Cadastrar/cadastrar';
 import Footer from "./components/footer/Footer";
 import PaginaInicial from "./components/PaginaInicial/PaginaInicial";
+import Navbar from './components/Navbar/navbar';
 
 let routes = (
   <Router>
     <Switch>
       <Route exact path="/">
-        <Cabecalho />
+        <Cabecalho/>
+        <Navbar/>
         <PaginaInicial/>
         <Footer />
       </Route>
