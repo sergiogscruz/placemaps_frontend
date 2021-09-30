@@ -19,7 +19,7 @@ let routes = (
         <Cabecalho/>
         <Navbar/>
         <PaginaInicial/>
-        <Footer/>  
+        <Footer />
       </Route>
       <Route path="/pontosturisticos">
         <Cabecalho></Cabecalho>
