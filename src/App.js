@@ -15,9 +15,9 @@ let routes = (
   <Router>
     <Switch>
       <Route exact path="/">
-        <Cabecalho/>
+        <Cabecalho />
         <PaginaInicial/>
-        <Footer/>  
+        <Footer />
       </Route>
       <Route path="/pontosturisticos">
         <Cabecalho></Cabecalho>

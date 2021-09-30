@@ -20,9 +20,9 @@ export default (props) => {
 
   const itensDescricao = () => {
     if (props.itens)
-      return props.itens.map((item) => {
+      return props.itens.map((item, i) => {
         return (
-          <li className="row my-2">
+          <li key={i} className="row my-2">
             <div className="col-2 p-0 m-0 d-flex justify-content-end align-items-center">
               <AiFillCheckCircle size="1.25em" className="mx-2" />
             </div>

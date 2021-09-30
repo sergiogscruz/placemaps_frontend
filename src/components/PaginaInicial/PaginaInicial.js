@@ -4,50 +4,55 @@ import CardResumoPonto from '../UI/Utils/CardResumoPonto/CardResumoPonto';
 import Input from '../UI/Utils/Input/Input';
 import { BiSearchAlt } from 'react-icons/bi';
 import Botao from '../UI/Utils/Botao/Botao';
+import Paginacao from '../UI/Utils/Paginacao/Paginacao';
+import api from '../services/api'
 
-export default () => {
+export default (props) => {
   const [conteudoBusca, setConteudoBusca] = useState('');
-  const [itens, setItens] = useState([]);
+  const [paginaAtual, setPaginaAtual] = useState(1);
+  const [itens, setItens] = useState(undefined);
+  const itensPorPagina = 5;
 
   const getCards = async () => {
-    const page = 0;
     const categoria = '';
-    const size = 5;
-    const response = await fetch(
-      `https://place-maps.herokuapp.com/api/public/ponto?nome=${conteudoBusca}&categoria=${categoria}&page=${page}&size=${size}`
+    const dados = await api.get(
+      `api/public/ponto?nome=${conteudoBusca}&categoria=${categoria}&page=${paginaAtual - 1}&size=${itensPorPagina}`
     );
 
-    const dados = await response.json();
-
-    setItens(dados.content);
+    setItens(dados.data);
   }
 
-  useEffect(getCards, []);
+  useEffect(() => {
+    getCards()
+  }, [paginaAtual]);
 
   const montarCards = () => {
-    return (
-      itens.map((item, i) => {
-        return (
-          <CardResumoPonto id={`card_${i}`} titulo={item.nome} itens={item.dadoSemanalNomeList} srcImg={item.foto} />
-        )
-      })
-    );
+    if (itens)
+      return (
+        itens.content.map((item, i) => {
+          return (
+            <CardResumoPonto key={`card_${i}`} titulo={item.nome} itens={item.dadoSemanalNomeList} srcImg={item.foto} />
+          )
+        })
+      );
   }
 
-  //<CardResumoPonto titulo="Titulo do ponto" itens={["Item 1", "Item 2", "Item 3", "Item 4"]} srcImg={Img}/>
+  const eventoBusca = async () => {
+    setPaginaAtual(1)
+    await getCards()
+  }
+  
   return (
     <div className="bg-light-azul py-4">
       <div className="container d-flex flex-column">
         <div className="align-self-end d-flex containerInputPesquisaPonto align-items-center">
-          <Input onPressEnter={() => { getCards() }} placeholder="Pesquisar por nome" className="inputPesquisaPonto h-100" onPressEnter={() => { getCards() }} setStatePai={setConteudoBusca} />
-          <Botao className="h-100 d-flex align-items-center justify-content-center" onClick={() => { getCards() }}>
+          <Input onPressEnter={() => { eventoBusca() }} placeholder="Pesquisar por nome" className="inputPesquisaPonto h-100" setStatePai={setConteudoBusca} />
+          <Botao className="h-100 d-flex align-items-center justify-content-center" onClick={() => { eventoBusca() }}>
             <BiSearchAlt size="1.7em" className="iconePesquisa" />
           </Botao>
         </div>
 
-        <div className="d-flex flex-column align-items-center">
-          {montarCards()}
-        </div>
+        <Paginacao className="d-flex flex-column align-items-center" itens={montarCards()} setStateOnChange={setPaginaAtual} numeroPaginas={(itens ? itens.totalPages : 0)}/>
       </div>
     </div>
   )
