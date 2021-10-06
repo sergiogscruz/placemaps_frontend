@@ -3,6 +3,7 @@
   --cor-antagonista-principal: white;
   --cor-light: #F5FAFE;
   --cor-dark: #0A223D;
+  --cor-black: black;
 }
 
 .color-principal {
@@ -21,8 +22,16 @@
   color: var(--cor-dark);
 }
 
+.color-black {
+  color: var(--cor-black);
+}
+
 .bg-principal {
   background-color: var(--cor-principal);
+}
+
+.bg-black {
+  background-color: var(--cor-black);
 }
 
 .bg-antagonista-principal {

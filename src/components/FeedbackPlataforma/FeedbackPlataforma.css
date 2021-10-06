@@ -1,0 +1,53 @@
+.bg-feedbackelemento {
+    background-color: var(--cor-dark);
+    display: block;
+    color: var(--cor-antagonista-principal);
+    height: 550px;
+    width: 1440px;
+}
+
+.bg-feedbackelemento-centro {
+    background-color: var(--cor-light);
+    display: block;
+    color: var(--cor-black);
+    max-width: 915px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+}
+
+.texto-feedbackelemento {
+    width: 738px;
+    height: 95px;
+    font-size: 32px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feedback-foto{
+    list-style: none;
+    transform: translateY(-50%);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    transition: 200ms;
+}
+
+.feedback-foto:hover{
+    transform: translateY(-50%) rotate(25deg);
+    transition: 200ms;
+}
+
+.container-textofeedback{
+    transform: translateY(-50px);
+}
+
+.container-nomefeedback{
+    color: var(--cor-principal);
+    font-weight: bold;
+}
+
+.container-datafeedback{
+    font-size: 13px;
+}
