@@ -1,5 +1,6 @@
 .bg-footer {
   background: url('../UI/imagens/background-footer.png') no-repeat;
+  background-size: 100% 100%;
   display: block;
   color: var(--cor-antagonista-principal);
   height: 260px;
