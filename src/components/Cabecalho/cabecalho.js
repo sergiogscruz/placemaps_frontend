@@ -4,6 +4,8 @@ import './cabecalho.css';
 import bandEua from '../UI/imagens/band-eua.png';
 import bandBra from '../UI/imagens/band-brasil.png';
 import search from '../UI/imagens/search.svg';
+import Input from '../UI/Utils/Input/Input';
+import { BsSearch } from 'react-icons/bs';
 
 export default function Cabecalho() {
   const [inputPesquisa, setInputPesquisa] = useState('');
@@ -25,10 +27,6 @@ export default function Cabecalho() {
           <div className="pm-cabecalho-info-duvida">
             <span>Dúvidas? Precisa de ajuda?</span> Entre em contato com a gente (44) 9999-9999
           </div>
-          <div className="pm-cabecalho-idioma">
-            <img height="19px" width="28px" src={bandBra} alt="Brasil" />
-            <img height="19px" width="28px" src={bandEua} alt="Usa" />
-          </div>
         </div>
       </div>
       <div className="pm-cabecalho">
@@ -39,14 +37,15 @@ export default function Cabecalho() {
           </div>
           <div>
             <form className="pm-pesquisa" onSubmit={handleSubmit}>
-              <input type="text" onChange={handleChange} placeholder="Pesquise por local"></input>
-              <button className="pm-pesquisa-search" type="submit">
-                <img src={search}></img>
+              <Input placeholder="Pesquise por local" className="pm-pesquisa-input"></Input>
+              <button type="submit" className="pm-pesquisa-search">
+                <BsSearch size={19} className="pm-pesquisa-"></BsSearch>
               </button>
             </form>
           </div>
           <div>
             <Link to="/entrar" className="pm-cabecalho-entrar">Entrar</Link>
+            <span>|</span>
             <Link to="/cadastrar" className="pm-cabecalho-cadastrar">Cadastrar</Link>
           </div>
         </div>

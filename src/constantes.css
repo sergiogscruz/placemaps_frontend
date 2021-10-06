@@ -4,6 +4,7 @@
   --cor-light: #F5FAFE;
   --cor-dark: #0A223D;
   --cor-black: black;
+  --cor-light-azul: #EEF7FF;
 }
 
 .color-principal {
@@ -24,6 +25,10 @@
 
 .color-black {
   color: var(--cor-black);
+}
+
+.bg-light-azul {
+  background-color: var(--cor-light-azul);
 }
 
 .bg-principal {
