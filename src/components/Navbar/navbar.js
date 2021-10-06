@@ -3,8 +3,6 @@ import './navbar.css';
 import Api from '../services/api';
 import {IoIosArrowDropright, IoIosArrowDropleft} from 'react-icons/io';
 
-
-
 export default function Navbar() {  
   const [itensMenu, setItensMenu] = useState([]);
 
@@ -21,6 +19,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setItensList(showItens());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itensMenu])
 
   function showItens() {
@@ -32,7 +31,7 @@ export default function Navbar() {
         if(itensShow.length + 1 === ItenMeio) {
           classMeio.backgroundColor= "#EC1F46";
         }
-        itensShow.push((<a key={iten.uuid} style={classMeio} className="pm-navbar-iten">{iten.nome}</a>));
+        itensShow.push((<span key={iten.uuid} style={classMeio} className="pm-navbar-iten">{iten.nome}</span>));
       }
     });
     return ( <div className="pm-navbar-itens"> { itensShow } </div>);

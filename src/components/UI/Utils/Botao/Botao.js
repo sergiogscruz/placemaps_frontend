@@ -1,4 +1,3 @@
-import react from 'react';
 import './Botao.css';
 
 /**
@@ -8,7 +7,7 @@ import './Botao.css';
  *  children
  * }
  */
-export default (props) => {
+export default function Botao(props) {
   const type = props.type ? props.type : 'button';
   const className = 'botao ' + (props.className ? props.className : '');
   const disabled = props.disabled || false;

@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './PaginaInicial.css';
 import CardResumoPonto from '../UI/Utils/CardResumoPonto/CardResumoPonto';
 import Input from '../UI/Utils/Input/Input';
@@ -7,7 +7,7 @@ import Botao from '../UI/Utils/Botao/Botao';
 import Paginacao from '../UI/Utils/Paginacao/Paginacao';
 import api from '../services/api'
 
-export default (props) => {
+export default function PaginaInicial(props) {
   const [conteudoBusca, setConteudoBusca] = useState('');
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [itens, setItens] = useState(undefined);
@@ -16,14 +16,14 @@ export default (props) => {
   const getCards = async () => {
     const categoria = '';
     const dados = await api.get(
-      `api/public/ponto?nome=${conteudoBusca}&categoria=${categoria}&page=${paginaAtual - 1}&size=${itensPorPagina}`
+     `api/public/ponto?nome=${conteudoBusca}&categoria=${categoria}&page=${paginaAtual - 1}&size=${itensPorPagina}`
     );
-
     setItens(dados.data);
   }
 
   useEffect(() => {
     getCards()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paginaAtual]);
 
   const montarCards = () => {

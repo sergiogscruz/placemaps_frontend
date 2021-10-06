@@ -1,4 +1,3 @@
-import react from 'react';
 import './Input.css';
 
 /**
@@ -8,7 +7,7 @@ import './Input.css';
  *  className
  * }
  */
-export default (props) => {
+export default function Input(props) {
   const handleInput = (e) => {
     if (typeof props.setStatePai === 'function')
       props.setStatePai(e.target.value);
@@ -17,7 +16,7 @@ export default (props) => {
   const verificarTeclaPressionada = (e) => {
     if (props.onPressEnter) {
       const code = (e.keyCode ? e.keyCode : e.which);
-      if(code == 13) {
+      if(code === 13) {
         props.onPressEnter()
       }
     }

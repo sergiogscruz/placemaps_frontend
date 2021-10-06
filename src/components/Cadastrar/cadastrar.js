@@ -1,11 +1,11 @@
-import React, { useState,setState } from 'react';
+import React, { useState } from 'react';
 import './cadastrar.css';
 import api from "../services/api";
 import Botao from '../UI/Utils/Botao/Botao';
 import AlertUserCreated from './alertUserCreated';
 import Loading from '../UI/Utils/Loading/loading';
 import * as yup from 'yup';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { useHistory } from "react-router-dom";
 
 export default function Cadastrar() {
@@ -26,10 +26,6 @@ export default function Cadastrar() {
       confirmSenha: yup.string().min(6,'É necessário no mínimo 6 caracteres').oneOf([yup.ref('senha'), null], 'As senhas não são iguais'),
       concordaTermos: yup.boolean()
     })
-
-  const handleOnSubmit = function (e) {
-    console.log(e)
-  }
 
   return (
     <div className="pm-cadastrar-conteudo">
@@ -63,7 +59,7 @@ export default function Cadastrar() {
             api.post('api/public/autenticacao/cadastrar-usuario', user )
               .then((result) => {
               setPendingRequest(false)
-                if(result.status == 200) {
+                if(result.status ===200) {
                  setUserCreated(true)
                   setTimeout(() => {
                     handleEntrar()

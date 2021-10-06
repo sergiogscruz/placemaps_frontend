@@ -8,7 +8,7 @@ import {
 import Cabecalho from './components/Cabecalho/cabecalho';
 import Entrar from './components/Entrar/entrar';
 import Cadastrar from './components/Cadastrar/cadastrar';
-import Footer from "./components/footer/Footer";
+import Footer from "./components/Footer/Footer";
 import PaginaInicial from "./components/PaginaInicial/PaginaInicial";
 import Navbar from './components/Navbar/navbar';
 
