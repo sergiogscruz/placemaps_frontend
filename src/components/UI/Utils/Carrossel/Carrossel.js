@@ -18,49 +18,52 @@ export default (props) => {
     transition: tempoTransicao + "ms"
   })
 
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     clickSetaDireita()
-  //   }, 5000);
-  // }, [])
+  useEffect(() => {
+    clickSetaDireita(0)
+  }, [])
 
-  const clickSetaDireita = function () {
+  const clickSetaDireita = function (number = 0) {
     setStyle({
       ...style,
       opacity: 0
     })
     setTimeout(() => {
-      if (itemAtivo == props.itens.length - 1) {
-        seteItemAtivo(0)
+      if (number == props.itens.length - 1) {
+        number = 0;
+        seteItemAtivo(number)
       }
       else {
-        seteItemAtivo(itemAtivo + 1)
+        number += 1;
+        seteItemAtivo(number)
       }
       setStyle({
         ...style,
         opacity: 1
       })
+      setTimeout(()=> {
+        clickSetaDireita(number)
+      }, 5000)
     }, tempoTransicao)
   }
 
-  const clickSetaEsquerda = function () {
-    setStyle({
-      ...style,
-      opacity: 0
-    })
-    setTimeout(() => {
-      if (itemAtivo == 0) {
-        seteItemAtivo(props.itens.length - 1)
-      }
-      else {
-        seteItemAtivo(itemAtivo - 1)
-      }
-      setStyle({
-        ...style,
-        opacity: 1
-      })
-    }, tempoTransicao)
-  }
+  // const clickSetaEsquerda = function () {
+  //   setStyle({
+  //     ...style,
+  //     opacity: 0
+  //   })
+  //   setTimeout(() => {
+  //     if (itemAtivo == 0) {
+  //       seteItemAtivo(props.itens.length - 1)
+  //     }
+  //     else {
+  //       seteItemAtivo(itemAtivo - 1)
+  //     }
+  //     setStyle({
+  //       ...style,
+  //       opacity: 1
+  //     })
+  //   }, tempoTransicao)
+  // }
 
 
   return (
@@ -71,11 +74,11 @@ export default (props) => {
         </div>
       </h3>
       <div className="d-flex align-items-center justify-content-center p-5">
-        <IoIosArrowBack className="cursor-pointer" size="2.5em" onClick={clickSetaEsquerda} />
+        {/* <IoIosArrowBack className="cursor-pointer" size="2.5em" onClick={clickSetaEsquerda} /> */}
         <div style={style}>
           {props.itens[itemAtivo]}
         </div>
-        <IoIosArrowForward className="cursor-pointer" size="2.5em" onClick={clickSetaDireita} />
+       {/* <IoIosArrowForward className="cursor-pointer" size="2.5em" onClick={clickSetaDireita} /> */}
       </div>
     </div>
   )
