@@ -1,6 +1,8 @@
 import react, { useState } from 'react';
 import { useEffect } from 'react/cjs/react.development';
 import Botao from '../Botao/Botao';
+import './Paginacao.css';
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 export default (props) => {
   const [paginaAtual, setPaginaAtual] = useState(1);
@@ -23,22 +25,21 @@ export default (props) => {
   const montarElementos = () => {
     if (props.numeroPaginas == 0)
       return
-    const primeiroElemento = <span onClick={() => setPaginaAtual(1)}>1</span>
+    const primeiroElemento = paginaAtual > 1 ? <div className="item" onClick={() => { setPaginaAtual(1) }}>{1}</div> : ''
 
-    const ultimoElemento = props.numeroPaginas > 1 ? <span onClick={() => setPaginaAtual(props.numeroPaginas)}>{props.numeroPaginas}</span> : ''
+    const elementoAtualMenosUm = paginaAtual - 1 > 1 ? <div className="item" onClick={() => { setPaginaAtual(paginaAtual - 1) }}>{paginaAtual - 1}</div> : ''
 
-    const segundoElemento = ''
-    const terceiroElemento = ''
-    const antepenultimoElemento = ''
-    const penultimoElemento = ''
+    const elementoAtual = <div className="item item-ativo">{paginaAtual}</div>
+
+    const elementoAtualMaisUm = paginaAtual + 1 < props.numeroPaginas ? <div className="item" onClick={() => { setPaginaAtual(paginaAtual + 1) }}>{paginaAtual + 1}</div> : ''
+
+    const ultimoElemento = paginaAtual < props.numeroPaginas ? <div className="item" onClick={() => { setPaginaAtual(props.numeroPaginas) }}>{props.numeroPaginas}</div> : ''
     return (
-      <div>
+      <div className="d-flex itens-paginacao">
         {primeiroElemento}
-        {segundoElemento}
-        {terceiroElemento}
-        ----
-        {antepenultimoElemento}
-        {penultimoElemento}
+        {elementoAtualMenosUm}
+        {elementoAtual}
+        {elementoAtualMaisUm}
         {ultimoElemento}
       </div>
     )
@@ -46,20 +47,30 @@ export default (props) => {
 
   return (
     <div>
-      <div className="d-flex justify-content-around align-items-center">
-        <Botao onClick={() => decrementar()}>
-          Decrementar
-        </Botao>
+      <div className="d-flex justify-content-center align-items-center">
+        <div className="btn-paginacao" onClick={() => decrementar()}>
+          <AiOutlineLeft className="color-dark-gray font-weight-bold" size="0.8em"/>
+        </div>
+
 
         {montarElementos()}
-
-        <Botao onClick={() => incrementar()}>
-          Incrementar
-        </Botao>
-
+        <div className="btn-paginacao" onClick={() => incrementar()}>
+          <AiOutlineRight className="color-dark-gray font-weight-bold" size="0.8em"/>
+        </div>
       </div>
       <div className={props.className}>
         {props.itens}
+      </div>
+      <div className="d-flex justify-content-center align-items-center">
+        <div className="btn-paginacao" onClick={() => decrementar()}>
+          <AiOutlineLeft className="color-dark-gray font-weight-bold" size="0.8em"/>
+        </div>
+
+
+        {montarElementos()}
+        <div className="btn-paginacao" onClick={() => incrementar()}>
+          <AiOutlineRight className="color-dark-gray font-weight-bold" size="0.8em"/>
+        </div>
       </div>
     </div>
   )
