@@ -11,7 +11,7 @@ export default (props) => {
   const [conteudoBusca, setConteudoBusca] = useState('');
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [itens, setItens] = useState(undefined);
-  const itensPorPagina = 5;
+  const itensPorPagina = 3;
 
   const getCards = async () => {
     const categoria = '';
