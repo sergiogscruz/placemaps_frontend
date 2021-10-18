@@ -1,0 +1,35 @@
+.itens-paginacao .item {
+  font-size: 17px;
+  border-radius: 5px;
+  border: 1px solid var(--cor-light-gray);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 4px;
+  font-weight: 500;
+  color: var(--cor-black);
+
+  cursor: pointer;
+}
+
+.itens-paginacao .item-ativo {
+  border-color: var(--cor-principal);
+  color: var(--cor-principal);
+}
+
+.btn-paginacao {
+  border-radius: 5px;
+  border: 1px solid var(--cor-light-gray);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 4px;
+  font-weight: 500;
+  color: var(--cor-black);
+
+  cursor: pointer;
+}

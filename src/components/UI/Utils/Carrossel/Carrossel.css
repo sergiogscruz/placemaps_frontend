@@ -1,0 +1,36 @@
+.bg-feedbackelemento {
+  background-color: var(--cor-dark);
+  display: block;
+  color: var(--cor-antagonista-principal);
+  height: 550px;
+  width: 100%;
+}
+/*
+1440
+*/
+.texto-carrossel {
+  width: 738px;
+  height: 95px;
+  font-size: 32px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#feedBacks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+#feedBacks img {
+  width: 700px;
+}
+
+.opacity0 {
+  opacity: 0;
+}
+
+.opacity1 {
+  opacity: 1;
+}

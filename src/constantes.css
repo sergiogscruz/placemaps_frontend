@@ -2,12 +2,23 @@
   --cor-principal: #EC1F46;
   --cor-antagonista-principal: white;
   --cor-light: #F5FAFE;
+  --cor-light-gray: #DFE3E8;
+  --cor-dark-gray: #838A90;
   --cor-dark: #0A223D;
+  --cor-black: black;
   --cor-light-azul: #EEF7FF;
 }
 
 .color-principal {
   color: var(--cor-principal);
+}
+
+.color-light-gray {
+  color: var(--cor-light-gray);
+}
+
+.color-dark-gray {
+  color: var(--cor-dark-gray);
 }
 
 .color-antagonista-principal {
@@ -22,12 +33,20 @@
   color: var(--cor-dark);
 }
 
+.color-black {
+  color: var(--cor-black);
+}
+
 .bg-light-azul {
   background-color: var(--cor-light-azul);
 }
 
 .bg-principal {
   background-color: var(--cor-principal);
+}
+
+.bg-black {
+  background-color: var(--cor-black);
 }
 
 .bg-antagonista-principal {
