@@ -1,6 +1,5 @@
-import react, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './Carrossel.css'
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 /**
  * props = {
@@ -11,7 +10,7 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
  * }
  */
 
-export default (props) => {
+export default function Carrossel (props) {
   const [itemAtivo, seteItemAtivo] = useState(0)
   const tempoTransicao = 450
   const [style, setStyle] = useState({
@@ -28,7 +27,7 @@ export default (props) => {
       opacity: 0
     })
     setTimeout(() => {
-      if (number == props.itens.length - 1) {
+      if (number === props.itens.length - 1) {
         number = 0;
         seteItemAtivo(number)
       }

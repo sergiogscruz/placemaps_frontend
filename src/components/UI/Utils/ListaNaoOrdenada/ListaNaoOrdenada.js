@@ -1,4 +1,3 @@
-import react, { useState, useEffect } from 'react';
 import './ListaNaoOrdenada.css';
 
 /**
@@ -11,7 +10,7 @@ import './ListaNaoOrdenada.css';
  * }
  */
 
-export default (props) => {
+export default function ListaNaoOrdenada(props) {
   const className = 'd-flex flex-column align-items-center container-lista-nao-ordenada ' + ( props.className ? props.className : '' ) + ' ' + ( props.textColor ? props.textColor : 'text-white');  
   const classNameUl = 'ul-lista-nao-ordenada d-flex flex-column ' + ( props.classNameUl ? props.classNameUl : 'align-items-baseline' ); 
   const classNameTitulo = 'titulo-lista-nao-ordenada ' + ( props.classNameTitulo ? props.classNameTitulo : '' ); 
