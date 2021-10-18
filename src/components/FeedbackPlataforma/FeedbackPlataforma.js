@@ -1,8 +1,6 @@
-import react from 'react';
-import { SiBlackberry } from 'react-icons/si';
 import './FeedbackPlataforma.css'
 
-export default (props) => {
+export default function FeedbackPlataforma(props) {
     const style = {
         background: `url(${props.srcimg}) no-repeat`,
         backgroundSize: "cover",

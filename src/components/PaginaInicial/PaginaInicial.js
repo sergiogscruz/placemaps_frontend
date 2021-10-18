@@ -5,7 +5,8 @@ import Input from '../UI/Utils/Input/Input';
 import { BiSearchAlt } from 'react-icons/bi';
 import Botao from '../UI/Utils/Botao/Botao';
 import Paginacao from '../UI/Utils/Paginacao/Paginacao';
-import api from '../services/api'
+import api from '../services/api';
+import { useParams } from "react-router-dom";
 
 export default function PaginaInicial(props) {
   const [conteudoBusca, setConteudoBusca] = useState('');
@@ -13,7 +14,7 @@ export default function PaginaInicial(props) {
   const [itens, setItens] = useState(undefined);
   const itensPorPagina = 3;
 
-  const getCards = async () => {
+  const getAllCards = async () => {
     const categoria = '';
     const dados = await api.get(
      `api/public/ponto?nome=${conteudoBusca}&categoria=${categoria}&page=${paginaAtual - 1}&size=${itensPorPagina}`
@@ -21,10 +22,22 @@ export default function PaginaInicial(props) {
     setItens(dados.data);
   }
 
+  const getCards = async (nome) => {
+    const dados = await api.get( 'api/public/ponto?categoria=' + nome)
+    setItens(dados.data)
+  }
+  
+  let { nome } = useParams();
+
   useEffect(() => {
-    getCards()
+    if(!nome){
+      getAllCards();
+    } else {
+      getCards(nome);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paginaAtual]);
+
 
   const montarCards = () => {
     if (itens)
@@ -39,7 +52,7 @@ export default function PaginaInicial(props) {
 
   const eventoBusca = async () => {
     setPaginaAtual(1)
-    await getCards()
+    await getAllCards()
   }
   
   return (

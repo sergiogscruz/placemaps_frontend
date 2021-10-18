@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useEffect } from 'react/cjs/react.development';
-import Botao from '../Botao/Botao';
 import './Paginacao.css';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 

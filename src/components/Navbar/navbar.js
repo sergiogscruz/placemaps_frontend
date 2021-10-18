@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './navbar.css';
 import Api from '../services/api';
 import {IoIosArrowDropright, IoIosArrowDropleft} from 'react-icons/io';
+import { NavLink } from 'react-router-dom';
 
 export default function Navbar() {  
   const [itensMenu, setItensMenu] = useState([]);
@@ -31,7 +32,9 @@ export default function Navbar() {
         if(itensShow.length + 1 === ItenMeio) {
           classMeio.backgroundColor= "#EC1F46";
         }
-        itensShow.push((<span key={iten.uuid} style={classMeio} className="pm-navbar-iten">{iten.nome}</span>));
+        let path = "/lista/" + iten.nome
+        itensShow.push((<NavLink to={path} key={iten.id} style={classMeio} className="pm-navbar-iten">{iten.nome}</NavLink>));
+        //(<span key={iten.id} style={classMeio} onClick={() => console.log(iten.id)} className="pm-navbar-iten">{iten.nome}</span>)
       }
     });
     return ( <div className="pm-navbar-itens"> { itensShow } </div>);
