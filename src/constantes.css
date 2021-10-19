@@ -7,6 +7,8 @@
   --cor-dark: #0A223D;
   --cor-black: black;
   --cor-light-azul: #EEF7FF;
+  --cor-dark-medium: #2B3648;
+  --cor-azul: #E5EFF8;
 }
 
 .color-principal {
@@ -57,6 +59,14 @@
   background-color: var(--cor-light);
 }
 
+.bg-light-gray {
+  background-color: var(--cor-light-gray);
+}
+
 .bg-dark {
   background-color: var(--cor-dark);
+}
+
+.bg-dark-gray {
+  background-color: var(--cor-dark-gray);
 }

@@ -5,10 +5,11 @@ import './Botao.css';
  * props = {
  *  type,
  *  onClick,
- *  children
+ *  children,
+ *  className
  * }
  */
-export default (props) => {
+export default function Botao(props) {
   const type = props.type ? props.type : 'button';
   const className = 'botao ' + (props.className ? props.className : '');
   const disabled = props.disabled || false;

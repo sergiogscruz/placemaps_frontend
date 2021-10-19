@@ -1,0 +1,79 @@
+.barra-lateral-admin {
+  background-color: var(--cor-dark);
+  width: 30%;
+  max-width: 255px;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: var(--cor-light);
+}
+
+.barra-lateral-admin .padding {
+  padding: 5px 20px;
+}
+
+.barra-lateral-admin .usuario .editar {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 12px;
+  
+  cursor: pointer;
+}
+
+.barra-lateral-admin .usuario .editar .icone {
+  margin: 0 5px;
+}
+
+.barra-lateral-admin .usuario .nome {
+  font-size: 19px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.barra-lateral-admin .usuario .foto {
+  margin: 30px 0;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: var(--cor-light);
+}
+
+.barra-lateral-admin .logo {
+  margin: 30px 0;
+  font-size: 32px;
+}
+
+.barra-lateral-admin .lista {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+.barra-lateral-admin .lista .item {
+  text-decoration: none;
+  padding: 4px 6px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 4px 0;
+  cursor: pointer;
+
+  transition: 400ms;
+  color: var(--cor-light);
+}
+
+.barra-lateral-admin .lista .item.ativo {
+  background-color: var(--cor-dark-medium);
+  border-radius: 4px;
+  
+  transition: 400ms;
+}
+
+.barra-lateral-admin .lista .item span {
+  margin-left: 40px;
+}
