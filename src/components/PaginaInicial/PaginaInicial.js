@@ -36,7 +36,7 @@ export default function PaginaInicial(props) {
       getCards(nome);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [paginaAtual]);
+  }, [paginaAtual, nome]);
 
 
   const montarCards = () => {
