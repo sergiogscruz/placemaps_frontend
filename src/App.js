@@ -8,6 +8,7 @@ import {
 import Cabecalho from './components/Cabecalho/cabecalho';
 import Entrar from './components/Entrar/entrar';
 import Cadastrar from './components/Cadastrar/cadastrar';
+
 import Footer from "./components/footer/Footer";
 import FeedbackPlataforma from "./components/FeedbackPlataforma/FeedbackPlataforma";
 import ImagemFeedBack from "./components/UI/imagens/Ellipse3.png"
@@ -30,10 +31,15 @@ let routes = (
     <Switch>
       <Route exact path="/">
         <Cabecalho />
-        <Navbar />
-        <div>Todas as opcoes</div>
-        <PaginaInicial />
+        <Navbar/>
+        <PaginaInicial/>
         <Carrossel titulo="O QUE AS PESSOAS PENSAM SOBRE NÓS" itens={FeedBacks} />
+        <Footer />
+      </Route>
+      <Route path="/lista/:nome">
+        <Cabecalho />
+        <Navbar/>
+        <PaginaInicial/>
         <Footer />
       </Route>
       <Route path="/pontosturisticos">

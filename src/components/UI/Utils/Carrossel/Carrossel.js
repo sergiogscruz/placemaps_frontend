@@ -1,6 +1,5 @@
-import react, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './Carrossel.css'
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 /**
  * props = {
@@ -11,24 +10,28 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
  * }
  */
 
-export default (props) => {
+export default function Carrossel (props) {
   const [itemAtivo, seteItemAtivo] = useState(0)
   const tempoTransicao = 450
   const [style, setStyle] = useState({
     transition: tempoTransicao + "ms"
   })
 
+  let number = 0;
+
   useEffect(() => {
-    clickSetaDireita(0)
+    setInterval(() => {
+      ativarCarrossel()
+    }, 5000)
   }, [])
 
-  const clickSetaDireita = function (number = 0) {
+  const ativarCarrossel = function () {
     setStyle({
       ...style,
       opacity: 0
     })
     setTimeout(() => {
-      if (number == props.itens.length - 1) {
+      if (number === props.itens.length - 1) {
         number = 0;
         seteItemAtivo(number)
       }
@@ -40,31 +43,8 @@ export default (props) => {
         ...style,
         opacity: 1
       })
-      setTimeout(()=> {
-        clickSetaDireita(number)
-      }, 5000)
     }, tempoTransicao)
   }
-
-  // const clickSetaEsquerda = function () {
-  //   setStyle({
-  //     ...style,
-  //     opacity: 0
-  //   })
-  //   setTimeout(() => {
-  //     if (itemAtivo == 0) {
-  //       seteItemAtivo(props.itens.length - 1)
-  //     }
-  //     else {
-  //       seteItemAtivo(itemAtivo - 1)
-  //     }
-  //     setStyle({
-  //       ...style,
-  //       opacity: 1
-  //     })
-  //   }, tempoTransicao)
-  // }
-
 
   return (
     <div className="bg-feedbackelemento">
@@ -74,11 +54,9 @@ export default (props) => {
         </div>
       </h3>
       <div className="d-flex align-items-center justify-content-center p-5">
-        {/* <IoIosArrowBack className="cursor-pointer" size="2.5em" onClick={clickSetaEsquerda} /> */}
         <div style={style}>
           {props.itens[itemAtivo]}
         </div>
-       {/* <IoIosArrowForward className="cursor-pointer" size="2.5em" onClick={clickSetaDireita} /> */}
       </div>
     </div>
   )

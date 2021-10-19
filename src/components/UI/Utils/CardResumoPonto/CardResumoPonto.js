@@ -1,4 +1,3 @@
-import react from 'react';
 import Botao from '../Botao/Botao';
 import './CardResumoPonto.css';
 import { AiFillCheckCircle } from 'react-icons/ai';
@@ -13,7 +12,7 @@ import urlImagemPadrao from '../../imagens/default-image.jpg';
  * }
  */
 
-export default (props) => {
+export default function CardResumoPonto(props) {
   const style = {
     backgroundImage: props.srcImg ? `url(${props.srcImg})` : `url(${urlImagemPadrao})`
   }

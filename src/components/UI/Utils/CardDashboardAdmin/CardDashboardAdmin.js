@@ -24,7 +24,7 @@ export default function CardDashboardAdmin(props) {
           { props.conteudoFooter }
         </div>
         <div className="col-6 d-flex justify-content-end">
-          <Botao className="fontSizeBotao">+ Ver mais</Botao>
+          <Botao className="fontSizeBotao">+ saber mais</Botao>
         </div>
       </div>
     </div>

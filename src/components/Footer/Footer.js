@@ -1,4 +1,3 @@
-import react from  'react';
 import './Footer.css'
 import Button from '../UI/Utils/Botao/Botao'
 import Input from '../UI/Utils/Input/Input';
@@ -10,7 +9,7 @@ import {CgFacebook} from 'react-icons/cg'
 import {AiFillYoutube} from 'react-icons/ai'
 import {TiSocialInstagram} from 'react-icons/ti'
 
-export default () => {
+export default function Footer() {
   return (
     <>
 
@@ -37,11 +36,11 @@ export default () => {
           <div className="col-3 d-flex justify-content-center">
               <ListaNaoOrdenada titulo="TODAS AS CATEGORIAS">
               <ul className="list-unstyled">
-                <li><a className="text-decoration-none categorias" href="https://google.com.br/">Todas as Ofertas</a></li>
-                <li><a className="text-decoration-none categorias" href="https://google.com.br/">Hotéis</a></li>
-                <li><a className="text-decoration-none categorias" href="https://google.com.br/">Restaurantes</a></li>
-                <li><a className="text-decoration-none categorias" href="https://google.com.br/">Shopping</a></li>
-                <li><a className="text-decoration-none categorias" href="https://google.com.br/">Passeios</a></li>
+                <li><a className="text-decoration-none categorias" href={"https://google.com.br/"}>Todas as Ofertas</a></li>
+                <li><a className="text-decoration-none categorias" href={"https://google.com.br/"}>Hotéis</a></li>
+                <li><a className="text-decoration-none categorias" href={"https://google.com.br/"}>Restaurantes</a></li>
+                <li><a className="text-decoration-none categorias" href={"https://google.com.br/"}>Shopping</a></li>
+                <li><a className="text-decoration-none categorias" href={"https://google.com.br/"}>Passeios</a></li>
               </ul>
               </ListaNaoOrdenada>
           </div>
@@ -82,13 +81,13 @@ export default () => {
                   <h2 className="datalhes-contato-sub">Sinta-se à vontade para nos contactar por telefone, e-mail ou através do nosso formulário de contato.</h2>
                 </li>
 
-                <li className="mb-3"><a><span className="mr-3"><SiGooglemaps size="1.5em"/></span> Av. Guedner, 1610 - Jardim Aclimacao, Maringá - PR, 87050-900</a></li>
+                <li className="mb-3"><span className="mr-3"><SiGooglemaps size="1.5em"/></span> Av. Guedner, 1610 - Jardim Aclimacao, Maringá - PR, 87050-900</li>
 
 
-                <li className="mb-3"><a><span className="mr-3"><FiPhoneCall size="1.5em"/></span> Tel (Horário Comercial) : 3269-1500</a></li>
+                <li className="mb-3"><span className="mr-3"><FiPhoneCall size="1.5em"/></span> Tel (Horário Comercial) : 3269-1500</li>
 
 
-                <li className="mb-2"><a><span className="mr-3"><IoMdMail size="1.5em"/></span> contato@placemaps.com</a></li>
+                <li className="mb-2"><span className="mr-3"><IoMdMail size="1.5em"/></span> contato@placemaps.com</li>
 
               </ListaNaoOrdenada>
           </div>

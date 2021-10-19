@@ -1,11 +1,10 @@
-import React, { useState,setState } from 'react';
+import React, { useState } from 'react';
 import './entrar.css';
 import { ImQuotesLeft }  from 'react-icons/im';
-import Input from '../UI/Utils/Input/Input';
 import Botao from '../UI/Utils/Botao/Botao';
 import { Link } from 'react-router-dom';
 import * as yup from 'yup';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import api from '../services/api';
 import Loading from '../UI/Utils/Loading/loading';
 

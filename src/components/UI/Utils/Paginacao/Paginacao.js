@@ -1,10 +1,9 @@
-import react, { useState } from 'react';
+import { useState } from 'react';
 import { useEffect } from 'react/cjs/react.development';
-import Botao from '../Botao/Botao';
 import './Paginacao.css';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
-export default (props) => {
+export default function Paginacao(props) {
   const [paginaAtual, setPaginaAtual] = useState(1);
 
   const decrementar = () => {
@@ -19,11 +18,11 @@ export default (props) => {
 
   useEffect(() => {
     props.setStateOnChange(paginaAtual)
-  }, [paginaAtual]);
+  }, [paginaAtual,props]);
 
 
   const montarElementos = () => {
-    if (props.numeroPaginas == 0)
+    if (props.numeroPaginas === 0)
       return
     const primeiroElemento = paginaAtual > 1 ? <div className="item" onClick={() => { setPaginaAtual(1) }}>{1}</div> : ''
 

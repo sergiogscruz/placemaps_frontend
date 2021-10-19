@@ -1,24 +1,14 @@
-import React, { useState,setState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './cabecalho.css';
-import bandEua from '../UI/imagens/band-eua.png';
-import bandBra from '../UI/imagens/band-brasil.png';
-import search from '../UI/imagens/search.svg';
 import Input from '../UI/Utils/Input/Input';
 import { BsSearch } from 'react-icons/bs';
 
 export default function Cabecalho() {
-  const [inputPesquisa, setInputPesquisa] = useState('');
-
   function handleSubmit(e) {
     e.preventDefault();
     alert("Ops! Ainda não foi implementado essa função");
   }
-
-  function handleChange (e) {
-    setInputPesquisa(e.target.value)
-  }
-
   
   return (
     <>
