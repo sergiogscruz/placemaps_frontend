@@ -34,7 +34,10 @@ let routes = (
         <Footer />
       </Route>
       <Route path="/lista/:nome">
+        <Cabecalho />
+        <Navbar/>
         <PaginaInicial/>
+        <Footer />
       </Route>
       <Route path="/pontosturisticos">
         <Cabecalho></Cabecalho>
