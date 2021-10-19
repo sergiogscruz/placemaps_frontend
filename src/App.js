@@ -9,12 +9,15 @@ import Cabecalho from './components/Cabecalho/cabecalho';
 import Entrar from './components/Entrar/entrar';
 import Cadastrar from './components/Cadastrar/cadastrar';
 
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/footer/Footer";
 import FeedbackPlataforma from "./components/FeedbackPlataforma/FeedbackPlataforma";
 import ImagemFeedBack from "./components/UI/imagens/Ellipse3.png"
 import Carrossel from "./components/UI/Utils/Carrossel/Carrossel";
 import PaginaInicial from "./components/PaginaInicial/PaginaInicial";
 import Navbar from './components/Navbar/navbar';
+import BarraLateralAdministracao from "./components/BarraLateralAdministracao/BarraLateralAdministracao";
+import DashboardAdmin from "./components/DashboardAdmin/DashboardAdmin";
+import ContainerAdmin from "./components/UI/Utils/ContainerAdmin/ContainerAdmin";
 
 const FeedBacks = [
   <FeedbackPlataforma nome="Amanda Franco" srcimg={ImagemFeedBack} data="Seg 29 Abril, 2021" texto="Era um restaurante muito bom e com uma comida muito saborosa. O comportamento da equipe foi bom e educado. Eles nos recebem muito bem. A localização é de agrado e fica bem localizado. No geral foi uma boa experiência e poderia recomendar, sem problemas." />,
@@ -68,6 +71,44 @@ let routes = (
       </Route>
       <Route path="/cadastrar">
         <Cadastrar></Cadastrar>
+      </Route>
+      <Route path="/admin/dashboard">
+        <div className="d-flex">
+          <BarraLateralAdministracao item={0} />
+          <ContainerAdmin titulo="Seja bem vindo">
+            <DashboardAdmin />
+          </ContainerAdmin>
+        </div>
+      </Route>
+      <Route path="/admin/pontos">
+        <div className="d-flex">
+          <BarraLateralAdministracao item={1} />
+          Pontos
+        </div>
+      </Route>
+      <Route path="/admin/avaliacoes">
+        <div className="d-flex">
+          <BarraLateralAdministracao item={2} />
+          Avaliações
+        </div>
+      </Route>
+      <Route path="/admin/comentarios">
+        <div className="d-flex">
+          <BarraLateralAdministracao item={3} />
+          Comentarios
+        </div>
+      </Route>
+      <Route path="/admin/lembretes">
+        <div className="d-flex">
+          <BarraLateralAdministracao item={4} />
+          Lembretes
+        </div>
+      </Route>
+      <Route path="/admin/configuracoes">
+        <div className="d-flex">
+          <BarraLateralAdministracao item={5} />
+          Configuracoes
+        </div>
       </Route>
     </Switch>
   </Router>
