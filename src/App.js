@@ -15,6 +15,7 @@ import ImagemFeedBack from "./components/UI/imagens/Ellipse3.png"
 import Carrossel from "./components/UI/Utils/Carrossel/Carrossel";
 import PaginaInicial from "./components/PaginaInicial/PaginaInicial";
 import Navbar from './components/Navbar/navbar';
+import Perfil from "./components/Perfil/Perfil";
 
 const FeedBacks = [
   <FeedbackPlataforma nome="Amanda Franco" srcimg={ImagemFeedBack} data="Seg 29 Abril, 2021" texto="Era um restaurante muito bom e com uma comida muito saborosa. O comportamento da equipe foi bom e educado. Eles nos recebem muito bem. A localização é de agrado e fica bem localizado. No geral foi uma boa experiência e poderia recomendar, sem problemas." />,
@@ -31,6 +32,12 @@ let routes = (
         <Navbar/>
         <PaginaInicial/>
         <Carrossel titulo="O QUE AS PESSOAS PENSAM SOBRE NÓS" itens={FeedBacks} />
+        <Footer />
+      </Route>
+      <Route path="/perfil/:uuid">
+        <Cabecalho />
+        <Navbar/>
+        <Perfil />
         <Footer />
       </Route>
       <Route path="/lista/:nome">
