@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300&family=Roboto:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300&family=Roboto:wght@500&display=swap');
+.container-perfil {
+  width: 85%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.header-perfil {
+  display: flex;
+  justify-content: space-between;
+  height: 110px;
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+.perfil-header {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+}
+
+.perfil-title {
+  font-family: 'Mulish', sans-serif;
+  font-size: 17px;
+}
+
+.perfil-score {
+  background-color: #EC1F46;
+  width: 80px;
+  height: 55px;
+  border-radius: 4px;
+  justify-content: center;
+  display: flex;
+  font: 8px;
+  padding: 8px;
+  line-height: 1;
+  align-items: center;
+}
+
+.container-info {
+  width: 100%;
+  display: flex;
+}
+
+.info-carousel {
+  width: 60%;
+  height: auto;
+  display: flex;
+  background-color: rgb(49, 128, 128);
+  margin-right: 30px;
+  border-radius: 6px;
+}
+
+
+.info-carousel .awssld__bullets {
+  display: none;
+}
+
+.info-carousel .awssld__content {
+  border-radius: 6px;
+}
+
+.infor-carousel .awssld__controls__arrow-left .awssld__controls__arrow-right {
+  color: #EC1F46;
+  width: 10px;
+} 
+
+.info-location {
+  width: 40%;
+  height: 500px;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-detail {
+  height: 40%;
+  width: 100%;
+  flex-direction: column;
+  justify-content:space-between;
+  text-align: center;
+}
+
+.info-map {
+  height: 53%;
+  width: 100%;
+}
+
+.score-desc {
+  font-size: 11px;
+  color: #FFFFFF;
+  font-family: 'Mulish', sans-serif;
+  margin-bottom: 2px;
+}
+
+.score-value {
+  font-size: 18px;
+  color: #FFFFFF;
+  font-family: 'Mulish', sans-serif;
+}
+
+.info-detail {
+  border-radius: 6px;
+  background-color:#0A223D;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-map {
+  border-radius: 6px;
+  margin-top: 10px;
+  background-color:bisque
+}
+
+.detail-header {
+  color: #FFFF;
+  font: 13px;
+}
+
+.detail-desc1 {
+  color: #FFFF;
+  font-size: 13px;
+  font-family: 'Mulish', sans-serif;
+}
+
+.detail-desc2 {
+  color: #FFFF;
+  font-family: 'Mulish', sans-serif;
+  font-weight: lighter;
+  font-size: 13px;
+}
+
+.detail-desc3 {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  color: #FFFF;
+  font-size: 13px;
+  font-family: 'Mulish', sans-serif;
+}
+
+.detail-number {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+}
