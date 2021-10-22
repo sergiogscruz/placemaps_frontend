@@ -20,3 +20,12 @@ body {
 .circulo {
   border-radius: 50%;
 }
+
+.font-logo {
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.linha-horizontal {
+  width: 100%;
+  height: 1px;
+}
