@@ -112,9 +112,17 @@ let routes = (
           Lembretes
         </div>
       </Route>
-      <Route path="/admin/configuracoes">
+      <Route path="/admin/planos">
         <div className="d-flex">
           <BarraLateralAdministracao item={5} />
+          <ContainerAdmin titulo="Planos">
+            
+          </ContainerAdmin>
+        </div>
+      </Route>
+      <Route path="/admin/configuracoes">
+        <div className="d-flex">
+          <BarraLateralAdministracao item={6} />
           Configuracoes
         </div>
       </Route>
