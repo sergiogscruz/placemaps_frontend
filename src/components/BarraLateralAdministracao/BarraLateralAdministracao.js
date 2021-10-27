@@ -8,6 +8,7 @@ import { RiStarLine } from 'react-icons/ri'
 import { GoCommentDiscussion } from 'react-icons/go'
 import { FiBell } from 'react-icons/fi'
 import { BsGear } from 'react-icons/bs'
+import { FiShoppingBag } from 'react-icons/fi'
 
 export default function BarraLateralAdministracao(props) {
   const [itemAtivo, setItemAtivo] = useState({texto: 'Dashboard', icone: ''})
@@ -41,6 +42,11 @@ export default function BarraLateralAdministracao(props) {
       icone: <FiBell className="color-principal" size="1.3em" />,
       texto: 'lembretes',
       textoFormatado: 'Lembretes'
+    },
+    {
+      icone: <FiShoppingBag className="color-principal" size="1.3em" />,
+      texto: 'planos',
+      textoFormatado: 'Planos'
     },
     {
       icone: <BsGear className="color-principal" size="1.3em" />,
