@@ -11,8 +11,6 @@
   align-items: center;
 
   height: 235px;
-  display: flex;
-  flex-direction: column;
 }
 
 .cardDashboardAdmin .titulo {
