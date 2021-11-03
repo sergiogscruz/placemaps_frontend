@@ -38,11 +38,6 @@ export default function BarraLateralAdministracao(props) {
       textoFormatado: 'Comentarios'
     },
     {
-      icone: <FiBell className="color-principal" size="1.3em" />,
-      texto: 'lembretes',
-      textoFormatado: 'Lembretes'
-    },
-    {
       icone: <BsGear className="color-principal" size="1.3em" />,
       texto: 'configuracoes',
       textoFormatado: 'Configurações'

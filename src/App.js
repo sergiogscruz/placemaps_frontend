@@ -105,15 +105,9 @@ let routes = (
           Comentarios
         </div>
       </Route>
-      <Route path="/admin/lembretes">
-        <div className="d-flex">
-          <BarraLateralAdministracao item={4} />
-          Lembretes
-        </div>
-      </Route>
       <Route path="/admin/configuracoes">
         <div className="d-flex">
-          <BarraLateralAdministracao item={5} />
+          <BarraLateralAdministracao item={4} />
           Configuracoes
         </div>
       </Route>
