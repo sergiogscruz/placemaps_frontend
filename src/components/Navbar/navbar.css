@@ -1,13 +1,13 @@
 .pm-navbar-container {
   position: relative;
   width: 100%;
-  height: 75px;
+  height: 55px;
   background-color: #0A223D;
   display: flex;
 }
 
 .pm-navbar-btn-carousel {
-  width: 85%;
+  width: 92%;
   display: flex;
   justify-content: space-between;
   margin: auto;
