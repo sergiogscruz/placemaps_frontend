@@ -51,14 +51,16 @@ export default function Paginacao(props) {
           <AiOutlineLeft className="color-dark-gray font-weight-bold" size="0.8em"/>
         </div>
 
-
         {montarElementos()}
+
         <div className="btn-paginacao" onClick={() => incrementar()}>
           <AiOutlineRight className="color-dark-gray font-weight-bold" size="0.8em"/>
         </div>
       </div>
       <div className={props.className}>
+        {props.cabecalho? props.cabecalho : ''}
         {props.itens}
+        {props.rodape ? props.rodape : ''}
       </div>
       <div className="d-flex justify-content-center align-items-center">
         <div className="btn-paginacao" onClick={() => decrementar()}>
