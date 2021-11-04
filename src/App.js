@@ -19,6 +19,7 @@ import Perfil from "./components/Perfil/Perfil";
 import BarraLateralAdministracao from "./components/BarraLateralAdministracao/BarraLateralAdministracao";
 import DashboardAdmin from "./components/DashboardAdmin/DashboardAdmin";
 import ContainerAdmin from "./components/UI/Utils/ContainerAdmin/ContainerAdmin";
+import GestaoPontosAdmin from "./components/GestaoPontosAdmin/GestaoPontosAdmin";
 
 
 const FeedBacks = [
@@ -90,7 +91,9 @@ let routes = (
       <Route path="/admin/pontos">
         <div className="d-flex">
           <BarraLateralAdministracao item={1} />
-          Pontos
+          <ContainerAdmin titulo="Meus Pontos">
+            <GestaoPontosAdmin />
+          </ContainerAdmin>
         </div>
       </Route>
       <Route path="/admin/avaliacoes">
