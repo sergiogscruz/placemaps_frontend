@@ -1,7 +1,9 @@
-import TabelaComCards from "../UI/Utils/TabelaComCards/TabelaComCards";
 import { IoMdTrash } from 'react-icons/io'
 import { RiPencilFill } from 'react-icons/ri'
 import Botao from '../UI/Utils/Botao/Botao'
+import CorpoTabelaComCads from "../UI/Utils/CorpoTabelaComCards/CorpoTabelaComCards";
+import CabecalhoTabelaComCards from "../UI/Utils/CabecalhoTabelaComCards/CabecalhoTabelaComCards";
+import Paginacao from '../UI/Utils/Paginacao/Paginacao';
 
 export default function GestaoPontosAdmin(props) {
   const dados = [
@@ -47,10 +49,18 @@ export default function GestaoPontosAdmin(props) {
 
   return (
     <div>
-      <TabelaComCards 
-        style={{marginTop: '50px'}}
-        colunas={['NOME', 'CATEGORIA', 'STATUS', <Botao>Adicionar</Botao>]} 
-        dados={linhasTabela()} 
+      <Paginacao 
+        cabecalho={
+          <CabecalhoTabelaComCards colunas={['NOME', 'CATEGORIA', 'STATUS', <Botao>Adicionar</Botao>]} />
+        } 
+        itens={
+          <CorpoTabelaComCads dados={linhasTabela()}/>
+        }
+        numeroPaginas='1'
+        setStateOnChange={() => {  }}
+        trocaDePaginaEmBaixo={true}
+        trocaDePaginaEmCima={false}
+        className="mt-5"
       />
     </div>
   )

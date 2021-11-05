@@ -1,4 +1,4 @@
-.tableComCards .cardLinha {
+.linhaTabelaComCards {
   background-color: var(--cor-light);
   border: none;
   border-radius: 8px;
@@ -6,12 +6,5 @@
   margin: 20px 0;
 
   font-size: 22px;
-}
-
-.tableComCards {
   text-transform: uppercase;
-}
-
-.tableComCards .cabecalho {
-  font-weight: 600;
 }
