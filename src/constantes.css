@@ -9,6 +9,8 @@
   --cor-light-azul: #F5FAFE;
   --cor-dark-medium: #2B3648;
   --cor-azul: #E5EFF8;
+  --cor-perigo: #EC1F46;
+  --cor-sucesso: #67CB56;
 }
 
 .color-principal {
@@ -37,6 +39,14 @@
 
 .color-black {
   color: var(--cor-black);
+}
+
+.color-perigo {
+  color: var(--cor-perigo)
+}
+
+.color-sucesso {
+  color: var(--cor-sucesso)
 }
 
 .bg-light-azul {

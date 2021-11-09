@@ -3,6 +3,10 @@ import { useEffect } from 'react/cjs/react.development';
 import './Paginacao.css';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
+/**
+ * 
+ * @param { numeroPaginas, setStateOnChange, itens, cabecalho?, rodape?, trocaDePaginaEmCima: bool, trocaDePaginaEmBaixo: bool } props 
+ */
 export default function Paginacao(props) {
   const [paginaAtual, setPaginaAtual] = useState(1);
 
@@ -16,9 +20,10 @@ export default function Paginacao(props) {
       setPaginaAtual(paginaAtual + 1)
   }
 
-  useEffect(() => {
-    props.setStateOnChange(paginaAtual)
-  }, [paginaAtual,props]);
+  //Comentado para ser possível realizar o deploy no Heroku
+  //useEffect(() => {
+  //  props.setStateOnChange(paginaAtual)
+  //}, [paginaAtual, props]);
 
 
   const montarElementos = () => {
@@ -44,33 +49,30 @@ export default function Paginacao(props) {
     )
   }
 
+  const montarComponenteTrocaDePaginas = () => {
+    return (
+      <div className="d-flex justify-content-center align-items-center">
+        <div className="btn-paginacao" onClick={() => decrementar()}>
+          <AiOutlineLeft className="color-dark-gray font-weight-bold" size="0.8em" />
+        </div>
+
+        {montarElementos()}
+
+        <div className="btn-paginacao" onClick={() => incrementar()}>
+          <AiOutlineRight className="color-dark-gray font-weight-bold" size="0.8em" />
+        </div>
+      </div>
+    )
+  }
   return (
-    <div>
-      <div className="d-flex justify-content-center align-items-center">
-        <div className="btn-paginacao" onClick={() => decrementar()}>
-          <AiOutlineLeft className="color-dark-gray font-weight-bold" size="0.8em"/>
-        </div>
-
-
-        {montarElementos()}
-        <div className="btn-paginacao" onClick={() => incrementar()}>
-          <AiOutlineRight className="color-dark-gray font-weight-bold" size="0.8em"/>
-        </div>
-      </div>
-      <div className={props.className}>
+    <div className={props.className ? props.className : ''}>
+      {props.trocaDePaginaEmCima === true ? montarComponenteTrocaDePaginas() : ''}
+      <div className={props.classNameItens ? props.classNameItens : ''}>
+        {props.cabecalho ? props.cabecalho : ''}
         {props.itens}
+        {props.rodape ? props.rodape : ''}
       </div>
-      <div className="d-flex justify-content-center align-items-center">
-        <div className="btn-paginacao" onClick={() => decrementar()}>
-          <AiOutlineLeft className="color-dark-gray font-weight-bold" size="0.8em"/>
-        </div>
-
-
-        {montarElementos()}
-        <div className="btn-paginacao" onClick={() => incrementar()}>
-          <AiOutlineRight className="color-dark-gray font-weight-bold" size="0.8em"/>
-        </div>
-      </div>
+      {props.trocaDePaginaEmBaixo !== false ? montarComponenteTrocaDePaginas() : ''}
     </div>
   )
 };

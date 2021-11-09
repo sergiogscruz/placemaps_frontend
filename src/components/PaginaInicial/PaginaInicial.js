@@ -65,7 +65,13 @@ export default function PaginaInicial(props) {
           </Botao>
         </div>
 
-        <Paginacao className="d-flex flex-column align-items-center" itens={montarCards()} setStateOnChange={setPaginaAtual} numeroPaginas={(itens ? itens.totalPages : 0)}/>
+        <Paginacao 
+          classNameItens="d-flex flex-column align-items-center" 
+          itens={montarCards()} setStateOnChange={setPaginaAtual} 
+          numeroPaginas={(itens ? itens.totalPages : 0)}
+          trocaDePaginaEmCima={false}
+          trocaDePaginaEmBaixo={true}
+        />
       </div>
     </div>
   )
