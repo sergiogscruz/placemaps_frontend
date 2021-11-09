@@ -2,6 +2,7 @@ import './Perfil.css';
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import "react-multi-carousel/lib/styles.css";
+import "../UI/Utils/base.css";
 import { useEffect } from 'react';
 import Api from '../services/api';
 import { useParams } from "react-router-dom";
@@ -35,8 +36,9 @@ export default function Perfil() {
   useEffect(() => {
     setPerfilPonto(new Perfil(perfil, endereco));
 
-    // setUrlMaps(`https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29294.49986466788!2d${endereco.latitude}!3d${endereco.longitude}3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1635467063772!5m2!1spt-BR!2sbr`)
-        setUrlMaps(`https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d10357.087178302436!2d${endereco.longitude}6955346!3d${endereco.latitude}37299436!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1635468368123!5m2!1spt-BR!2sbr`)
+    console.log(endereco.longitude, endereco.latitude)
+    setUrlMaps(`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.823006!2d${endereco.longitude}!3d${endereco.latitude}!!!!!!!2!4f4!3m3!1m2!1s!2zMjPCsDI1JzUzLjciUyA1McKwNTQnNTEuMSJX!!!!!!!!`)
+   
   }, [perfil, endereco]);
 
 
@@ -58,7 +60,7 @@ export default function Perfil() {
   }
 
   return (
-    <div className="container-perfil">
+    <div className="container container-perfil">
       <div className="perfil-header">
         <p className="perfil-title"><strong>{perfil.nome}</strong></p>
         <div className="perfil-score">
@@ -79,41 +81,44 @@ export default function Perfil() {
       <div className="info-desc">
         <div className="info-location">
             <div className="info-detail">
-              <div className="detail-header">
-                <div className="lead">{perfil.nome}</div>
-                <em>{perfil.subTitulo}</em>
+              <div className="detail-group">
+                <div className="detail-header">
+                  <div className="lead">{perfil.nome}</div>
+                  <span>{perfil.subTitulo}</span>
+                </div>
+                <div className="detail-header">
+                  <div className="lead detail-text">{perfilPonto.descricao}</div>
+                </div>
               </div>
-              <div className="detail-desc">
-                <div className="detail-number">
-                  <HiLocationMarker color="#0A223D" fontSize="18px"/>
-                  <div style={{marginLeft: "5px"}}>
-                    {endereco.rua + ' - ' + endereco.bairro + ', ' + endereco.numero}
+              <div className="detail-group">
+                <div className="detail-desc">
+                  <div className="detail-number">
+                    <HiLocationMarker color="#fff" fontSize="18px"/>
+                    <div style={{marginLeft: "5px"}}>
+                      {endereco.rua + ' - ' + endereco.bairro + ', ' + endereco.numero}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="detail-desc">
-                <div className="detail-number">
-                  <FaWhatsapp color="#0A223D" fontSize="18px"/>
-                  <div style={{marginLeft: "5px"}}>{perfilPonto.whatsapp}</div>
+                <div className="d-flex justify-between">
+                  <div className="detail-desc">
+                    <div className="detail-number">
+                      <FaWhatsapp color="#fff" fontSize="18px" className="m-r-1"/>
+                      <div style={{marginLeft: "5px"}}>{perfilPonto.whatsapp}</div>
+                    </div>
+                  </div>
+                  <div className="detail-desc">
+                    <div className="detail-number">
+                      <FaPhoneAlt color="#fff" fontSize="18px" className="m-r-1"/>
+                      <div style={{marginLeft: "5px"}}>{perfilPonto.telefone}</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="detail-desc">
-                <div className="detail-number">
-                  <FaPhoneAlt color="#0A223D" fontSize="18px" />
-                  <div style={{marginLeft: "5px"}}>{perfilPonto.telefone}</div>
+                <div style={{display:'flex',justifyContent: 'center', marginTop: '10px'}}>
+                  <Botao className="btn-enviar-whatsapp" onClick={() => sendWhatsapp(perfilPonto.whatsapp)}>
+                    <FaWhatsapp className="btn-whatsapp" fontSize="22px"/>
+                    Converse com a gente por aqui!
+                  </Botao>
                 </div>
-              </div>
-            </div>
-            <div className="info-detail">
-              <div className="detail-header">
-                <em>Detalhes</em>
-                <div className="lead detail-text">{perfilPonto.descricao}</div>
-              </div>
-              <div style={{display:'flex',justifyContent: 'center', marginTop: '10px'}}>
-                <Botao className="btn-enviar-whatsapp" onClick={() => sendWhatsapp(perfilPonto.whatsapp)}>
-                  <FaWhatsapp className="btn-whatsapp" fontSize="22px"/>
-                  Enviar mensagem
-                </Botao>
               </div>
             </div>
           </div>
@@ -122,8 +127,9 @@ export default function Perfil() {
       <div>
         <Abas abas={[{titulo: "Segunda", conteudo: <div>Qualquer</div>},{titulo: "Terça", conteudo: <div>Qualquer 2</div>},{titulo: "Quarta", conteudo: <div>Qualquer 3</div>}]}/>
       </div>
-      <div className="info-map">
-        <iframe src={urlMaps} width="600" height="450"   loading="lazy"></iframe>
+      <div>
+        {/* <Maps lat="-23.440891" lng="-51.925612"/> */}
+        <iframe src={urlMaps} width="100%" height="450"  allowfullscreen="" ></iframe>
       </div>
     </div>
   )}
