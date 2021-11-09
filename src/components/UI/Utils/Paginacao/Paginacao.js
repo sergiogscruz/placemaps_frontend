@@ -21,7 +21,7 @@ export default function Paginacao(props) {
   }
 
   useEffect(() => {
-    props.setStateOnChange(paginaAtual)
+    //props.setStateOnChange(paginaAtual)
   }, [paginaAtual, props]);
 
 
