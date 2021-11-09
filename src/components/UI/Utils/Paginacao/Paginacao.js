@@ -20,9 +20,9 @@ export default function Paginacao(props) {
       setPaginaAtual(paginaAtual + 1)
   }
 
-  useEffect(() => {
-    //props.setStateOnChange(paginaAtual)
-  }, [paginaAtual, props]);
+  //useEffect(() => {
+  //  props.setStateOnChange(paginaAtual)
+  //}, [paginaAtual, props]);
 
 
   const montarElementos = () => {
