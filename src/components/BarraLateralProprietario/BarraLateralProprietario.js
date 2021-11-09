@@ -1,18 +1,14 @@
-import react, { useState } from 'react'
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import './BarraLateralAdministracao.css'
+import './BarraLateralProprietario.css'
 
 import { RiPencilFill, RiDashboardLine } from 'react-icons/ri'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
 import { RiStarLine } from 'react-icons/ri'
 import { GoCommentDiscussion } from 'react-icons/go'
-import { FiBell } from 'react-icons/fi'
 import { BsGear } from 'react-icons/bs'
 
-export default function BarraLateralAdministracao(props) {
-  const [itemAtivo, setItemAtivo] = useState({texto: 'Dashboard', icone: ''})
-
-
+export default function BarraLateralProprietario(props) {
   const itensLista = [
     {
       icone: <RiDashboardLine className="color-principal" size="1.3em" />,
@@ -48,12 +44,9 @@ export default function BarraLateralAdministracao(props) {
   const montarLista = () => {
     return (
       itensLista.map((item, i) => {
-        const onClickItem = () => {
-          setItemAtivo(item)
-        }
         if (i === props.item) {
           return (
-            <NavLink to={"/admin/" + item.texto} className="item ativo" onClick={onClickItem}>
+            <NavLink to={`${props.caminhoRaiz}/` + item.texto} className="item ativo">
               {item.icone}
               <span>{item.textoFormatado}</span>
             </NavLink>       
@@ -61,7 +54,7 @@ export default function BarraLateralAdministracao(props) {
         }
         else {
           return (
-            <NavLink to={"/admin/" + item.texto} className="item" onNavLinkck={onClickItem}>
+            <NavLink to={`${props.caminhoRaiz}/` + item.texto} className="item">
               {item.icone}
               <span>{item.textoFormatado}</span>
             </NavLink>
@@ -71,7 +64,7 @@ export default function BarraLateralAdministracao(props) {
     )
   }
   return (
-    <div className="barra-lateral-admin">
+    <div className="barra-lateral-proprietario">
       <div className="padding">
         <div className="logo font-logo">
           <span className="color-principal">PLACE </span>

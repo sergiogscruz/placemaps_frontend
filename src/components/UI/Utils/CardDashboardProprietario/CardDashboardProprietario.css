@@ -1,4 +1,4 @@
-.cardDashboardAdmin {
+.cardDashboardProprietario {
   background-color: var(--cor-dark-medium);
   padding: 20px 30px;
 
@@ -13,26 +13,26 @@
   height: 235px;
 }
 
-.cardDashboardAdmin .titulo {
+.cardDashboardProprietario .titulo {
   margin: 0 auto;
 }
 
 
-.cardDashboardAdmin .conteudo {
+.cardDashboardProprietario .conteudo {
   margin: auto 0;
 }
 
-.cardDashboardAdmin .footer {
+.cardDashboardProprietario .footer {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.cardDashboardAdmin .footer .fontSizeBotao {
+.cardDashboardProprietario .footer .fontSizeBotao {
   font-size: 12px;
 }
 
-.cardDashboardAdmin .footer .conteudo {
+.cardDashboardProprietario .footer .conteudo {
   font-size: 14px;
   font-weight: 400;
 }
