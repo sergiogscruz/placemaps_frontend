@@ -44,7 +44,7 @@ export default function PaginaInicial(props) {
       return (
         itens.content.map((item, i) => {
           return (
-            <CardResumoPonto key={`card_${i}`} titulo={item.nome} itens={item.dadoSemanalNomeList} srcImg={item.foto} />
+            <CardResumoPonto key={`card_${i}`} titulo={item.nome} itens={item.dadoSemanalNomeList} srcImg={item.foto} idPonto={item.id}/>
           )
         })
       );
@@ -65,7 +65,13 @@ export default function PaginaInicial(props) {
           </Botao>
         </div>
 
-        <Paginacao className="d-flex flex-column align-items-center" itens={montarCards()} setStateOnChange={setPaginaAtual} numeroPaginas={(itens ? itens.totalPages : 0)}/>
+        <Paginacao 
+          classNameItens="d-flex flex-column align-items-center" 
+          itens={montarCards()} setStateOnChange={setPaginaAtual} 
+          numeroPaginas={(itens ? itens.totalPages : 0)}
+          trocaDePaginaEmCima={false}
+          trocaDePaginaEmBaixo={true}
+        />
       </div>
     </div>
   )

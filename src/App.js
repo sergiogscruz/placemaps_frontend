@@ -9,7 +9,7 @@ import Cabecalho from './components/Cabecalho/cabecalho';
 import Entrar from './components/Entrar/entrar';
 import Cadastrar from './components/Cadastrar/cadastrar';
 
-import Footer from "./components/footer/Footer";
+import Footer from "./components/Footer/Footer";
 import FeedbackPlataforma from "./components/FeedbackPlataforma/FeedbackPlataforma";
 import ImagemFeedBack from "./components/UI/imagens/Ellipse3.png"
 import Carrossel from "./components/UI/Utils/Carrossel/Carrossel";
@@ -19,6 +19,7 @@ import Perfil from "./components/Perfil/Perfil";
 import BarraLateralAdministracao from "./components/BarraLateralAdministracao/BarraLateralAdministracao";
 import DashboardAdmin from "./components/DashboardAdmin/DashboardAdmin";
 import ContainerAdmin from "./components/UI/Utils/ContainerAdmin/ContainerAdmin";
+import GestaoPontosAdmin from "./components/GestaoPontosAdmin/GestaoPontosAdmin";
 
 
 const FeedBacks = [
@@ -32,16 +33,15 @@ let routes = (
   <Router>
     <Switch>
       <Route exact path="/">
-        <Cabecalho />
         <Navbar/>
         <PaginaInicial/>
         <Carrossel titulo="O QUE AS PESSOAS PENSAM SOBRE NÓS" itens={FeedBacks} />
         <Footer />
       </Route>
       <Route path="/perfil/:uuid">
-        <Cabecalho />
-        <Navbar/>
+        <Navbar />
         <Perfil />
+        <Carrossel titulo="O QUE AS PESSOAS PENSAM SOBRE NÓS" itens={FeedBacks} />
         <Footer />
       </Route>
       <Route path="/lista/:nome">
@@ -91,7 +91,9 @@ let routes = (
       <Route path="/admin/pontos">
         <div className="d-flex">
           <BarraLateralAdministracao item={1} />
-          Pontos
+          <ContainerAdmin titulo="Meus Pontos">
+            <GestaoPontosAdmin />
+          </ContainerAdmin>
         </div>
       </Route>
       <Route path="/admin/avaliacoes">

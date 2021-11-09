@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300&family=Roboto:wght@500&display=swap');
 .container-perfil {
-  width: 85%;
+  width: 92%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
@@ -20,13 +20,13 @@
 .perfil-header {
   display: flex;
   justify-content: space-between;
-  height: 100px;
+  height: 95px;
   align-items: center;
 }
 
 .perfil-title {
   font-family: 'Mulish', sans-serif;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 .perfil-score {
@@ -45,11 +45,16 @@
 .container-info {
   width: 100%;
   display: flex;
+  justify-content: flex-start;
+}
+
+.info-desc {
+  width: 40%;
 }
 
 .info-carousel {
   width: 60%;
-  height: auto;
+  height: 400px;
   display: flex;
   background-color: rgb(49, 128, 128);
   margin-right: 30px;
@@ -71,24 +76,27 @@
 } 
 
 .info-location {
-  width: 40%;
-  height: 500px;
+  width: 100%;
+  height: 400px;
   flex-direction: column;
   display: flex;
   justify-content: space-between;
 }
 
-.info-detail {
-  height: 40%;
+.info-map {
+  height: 400px;
   width: 100%;
-  flex-direction: column;
-  justify-content:space-between;
-  text-align: center;
+  overflow:hidden;
+  position:relative;
 }
 
-.info-map {
-  height: 53%;
-  width: 100%;
+.info-map iframe{
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+  margin-top: 20px;
 }
 
 .score-desc {
@@ -105,50 +113,58 @@
 }
 
 .info-detail {
+  display: flex;
+  flex-direction: column;
   border-radius: 6px;
-  background-color:#0A223D;
+  background-color:#FFFF;
+  border: 1px #0A223D solid;
+  height: 190px;
   padding: 25px;
   display: flex;
   justify-content: space-between;
 }
 
-.info-map {
-  border-radius: 6px;
-  margin-top: 10px;
-  background-color:bisque
-}
-
 .detail-header {
-  color: #FFFF;
-  font: 13px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  align-items: center;
+  font-weight: 500;
+  color: #0A223D;
+  font: 16px;
 }
 
-.detail-desc1 {
-  color: #FFFF;
-  font-size: 13px;
-  font-family: 'Mulish', sans-serif;
+.detail-text {
+  font-size: 16px;
+  margin-top: 10px;
 }
 
-.detail-desc2 {
-  color: #FFFF;
+.detail-desc {
+  color: #0A223D;
   font-family: 'Mulish', sans-serif;
   font-weight: lighter;
   font-size: 13px;
+  margin-top: 10px;
 }
 
-.detail-desc3 {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  color: #FFFF;
-  font-size: 13px;
-  font-family: 'Mulish', sans-serif;
-}
 
 .detail-number {
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.btn-enviar-whatsapp {
+  width: 200px;
+  height: 40px;
+  padding: 6px;
+  font-size: 14px;
+}
+
+.btn-whatsapp {
+  margin-right: 5px;
+}
+
+.btn-whatsapp:hover {
+  color: var(--cor-principal);
 }
