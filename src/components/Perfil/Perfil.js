@@ -19,28 +19,79 @@ export default function Perfil() {
   const [perfilPonto, setPerfilPonto] = useState({})
   const [endereco, setEndereco] = useState({});
   const [urlMaps, setUrlMaps] = useState('');
+  const [dadosSemanal, setDadosSemanal] = useState([]);
 
   useEffect(function() {
     Api.get('api/public/ponto/' + uuid)
     .then(function(result){
-      setPerfil(result.data);
-      
-    })
+      setPerfil(result.data);  
+    });
 
     Api.get('/api/public/localizacao/ponto/' + uuid)
       .then(function(result){
         setEndereco(result.data.content[0]);
+    });
+
+    Api.get('/api/public/dadosemanal/obter-pelo-ponto/dias/' + uuid)
+    .then(function(result){
+      if(result && result.data && result.data.length) {
+
+        result.data.forEach(function(dadoSemanal) {
+          var temp = [];
+          dadoSemanal.dadoSemanalList.forEach(async function(pratoDoDia) {
+            
+            let result = await Api.get('/api/public/item?dadoSemanalId=' + pratoDoDia.id)
+            if (result && result.data && result.data.content && result.data.content.length) { 
+                
+              let itensDoPratoDoDia = {
+                titulo: pratoDoDia.descricao,
+                conteudo: (
+                  result.data.content.map(function(data) {
+                    return (
+                      <div>
+                        <div>{data.id}</div>
+                        <div>{data.descricao}</div>
+                      </div>
+                    )
+                  })
+                )
+              }
+              temp.push((<Abas tituloCabecalho={"teste1"} abas={[itensDoPratoDoDia]} />))
+            }
+          })
+          setDadosSemanal(dadosSemanal => [[{ titulo: dadoSemanal.diaDaSemana, conteudo: temp }],...dadosSemanal])
+        })
+      }
     })
   }, []);
 
+  
+  
   useEffect(() => {
     setPerfilPonto(new Perfil(perfil, endereco));
-
-    console.log(endereco.longitude, endereco.latitude)
-    setUrlMaps(`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.823006!2d${endereco.longitude}!3d${endereco.latitude}!!!!!!!2!4f4!3m3!1m2!1s!2zMjPCsDI1JzUzLjciUyA1McKwNTQnNTEuMSJX!!!!!!!!`)
-   
+    setUrlMaps(`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3665!2d${endereco.longitude}!3d${endereco.latitude}!!!!!!!2!4f5!!!!!`);
   }, [perfil, endereco]);
 
+  function createSemanal(dadosSemanais) {
+    if(dadosSemanais && dadosSemanais.length) {
+      var semanal = dadosSemanais.map(function(data) {
+        return data[0];
+      });
+
+      var container = semanal.map(function(item) {
+        return {
+            titulo: item.titulo,
+            conteudo: item.conteudo   
+          }
+      })
+
+      return (
+        <div>
+          <Abas abas={container} />
+        </div>
+      )
+    }
+  }
 
   function Perfil(perfil, endereco) {
     this.id = perfil && perfil.id || null;
@@ -53,11 +104,19 @@ export default function Perfil() {
     this.endereco = endereco || null;
   }
 
+  function DadoSemanal(data) {
+    this.id = data && data.id || null;
+    this.descricao = data && data.descricao || null;
+    this.nome = data && data.nome || null;
+    this.possuiValor = data && data.possui_valor || false;
+  }
+
   function sendWhatsapp(whatsapp) {
     let number = '55' + whatsapp;
     let mensagem = encodeURI('Olá gostaria de mais informações');
     window.open(`https://api.whatsapp.com/send?phone=${number}&text=${mensagem}`);
   }
+
 
   return (
     <div className="container container-perfil">
@@ -125,9 +184,13 @@ export default function Perfil() {
         </div>
       </div>
       <div>
-        <Abas abas={[{titulo: "Segunda", conteudo: <div>Qualquer</div>},{titulo: "Terça", conteudo: <div>Qualquer 2</div>},{titulo: "Quarta", conteudo: <div>Qualquer 3</div>}]}/>
       </div>
       <div>
+     
+      </div>
+      <div>
+        { createSemanal(dadosSemanal) }
+
         {/* <Maps lat="-23.440891" lng="-51.925612"/> */}
         <iframe src={urlMaps} width="100%" height="450"  allowfullscreen="" ></iframe>
       </div>

@@ -52,7 +52,7 @@
 }
 
 .info-carousel {
-  width: 60%;
+  width: 70%;
   height: 400px;
   display: flex;
   background-color: rgb(49, 128, 128);
@@ -118,13 +118,13 @@
   background-color:#0a223d;
   border: 1px #0A223D solid;
   height: 100%;
-  padding: 35px;
+  padding: 45px 30px;
   display: flex;
   justify-content: space-between;
 }
 
 .detail-group {
-  height: 50%;
+  height: 44%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -175,4 +175,45 @@
 
 .btn-whatsapp:hover {
   color: var(--cor-principal);
+}
+
+
+
+.dado-semanal-item {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+
+.btn-dados-semanal {
+  display: none;
+}
+
+.btn-dados-semanal:checked ~ .dado-semanal-container {
+  max-height: 0;
+}
+
+.content-item {
+  box-sizing: border-box;
+  max-height: 100%;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.dado-semanal-container {
+  max-height: 200px;
+  overflow: hidden;
+  transition: 0.5s;
+  flex-wrap: wrap;
+  display: flex;
+  background-color: #fff;
+}
+
+.label-dados-semanal {
+  height: 50px;
+  width: 100%;
+  background-color: #0a223d;
+  border-radius: 4px;
+  cursor: pointer;
 }

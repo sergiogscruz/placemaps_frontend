@@ -8,6 +8,7 @@ import './Abas.css';
  */
 export default (props) => {
   const conteudoInicial = props.abas.length > 0 && props.abas[0].conteudo ? props.abas[0].conteudo : '';
+  const tituloCabecalho = props.tituloCabecalho ? props.tituloCabecalho : false;
   const [abaAtiva, setAbaAtiva] = useState(0);
   const [conteudoAtivo, setConteudoAtivo] = useState(conteudoInicial);
 
@@ -16,11 +17,15 @@ export default (props) => {
     setConteudoAtivo(conteudo)
   }
 
-  const montarAbas = () => {
+  const montarAbas = (tituloCabecalho) => {
+
     return props.abas.map((aba, i) => {
         let className = 'aba';
-        if (abaAtiva == i) {
+        if (abaAtiva == i && !tituloCabecalho) {
           className += ' abaAtiva';
+        }
+        if(tituloCabecalho) {
+          className = ' tituloCabecalho'
         }
         return ( 
           <div className="col d-flex flex-column align-items-center cursor-pointer" onClick={() => handleAbaAtiva(i, aba.conteudo)}>
@@ -42,7 +47,7 @@ export default (props) => {
   }
   return (
     <div className={ "my-5 row justify-content-center " +  props.className}>
-      { montarAbas() }
+      { montarAbas(tituloCabecalho)}
       { montarConteudo() }
     </div>
   )

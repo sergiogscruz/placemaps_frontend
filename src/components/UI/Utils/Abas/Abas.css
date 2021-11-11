@@ -13,3 +13,7 @@
 .conteudoAtivo {
   transition: 500ms;
 }
+
+.tituloCabecalho {
+  background-color: aqua;
+}
