@@ -9,6 +9,7 @@ import Cabecalho from './components/Cabecalho/cabecalho';
 import Entrar from './components/Entrar/entrar';
 import Cadastrar from './components/Cadastrar/cadastrar';
 
+import ContainerBackground from './components/UI/Utils/ContainerBackground/ContainerBackground';
 import Footer from "./components/Footer/Footer";
 import FeedbackPlataforma from "./components/FeedbackPlataforma/FeedbackPlataforma";
 import ImagemFeedBack from "./components/UI/imagens/Ellipse3.png"
