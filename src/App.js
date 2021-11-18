@@ -16,11 +16,10 @@ import Carrossel from "./components/UI/Utils/Carrossel/Carrossel";
 import PaginaInicial from "./components/PaginaInicial/PaginaInicial";
 import Navbar from './components/Navbar/navbar';
 import Perfil from "./components/Perfil/Perfil";
-import BarraLateralAdministracao from "./components/BarraLateralAdministracao/BarraLateralAdministracao";
-import DashboardAdmin from "./components/DashboardAdmin/DashboardAdmin";
-import ContainerAdmin from "./components/UI/Utils/ContainerAdmin/ContainerAdmin";
-import ContainerBackground from "./components/UI/Utils/ContainerBackground/ContainerBackground";
-import GestaoPontosAdmin from "./components/GestaoPontosAdmin/GestaoPontosAdmin";
+import BarraLateralProprietario from "./components/BarraLateralProprietario/BarraLateralProprietario";
+import DashboardProprietario from "./components/DashboardProprietario/DashboardProprietario";
+import ContainerProprietario from "./components/UI/Utils/ContainerProprietario/ContainerProprietario";
+import GestaoPontosProprietario from "./components/GestaoPontosProprietario/GestaoPontosProprietario";
 
 const FeedBacks = [
   <FeedbackPlataforma nome="Amanda Franco" srcimg={ImagemFeedBack} data="Seg 29 Abril, 2021" texto="Era um restaurante muito bom e com uma comida muito saborosa. O comportamento da equipe foi bom e educado. Eles nos recebem muito bem. A localização é de agrado e fica bem localizado. No geral foi uma boa experiência e poderia recomendar, sem problemas." />,
@@ -82,37 +81,39 @@ let routes = (
       <Route path="/cadastrar">
         <Cadastrar></Cadastrar>
       </Route>
-      <Route path="/admin/dashboard">
+      <Route path="/proprietario/dashboard">
         <div className="d-flex">
-          <BarraLateralAdministracao item={0} />
-          <ContainerAdmin titulo="Seja bem vindo">
-            <DashboardAdmin />
-          </ContainerAdmin>
+          <BarraLateralProprietario caminhoRaiz="/proprietario" item={0} />
+          <ContainerProprietario titulo="Seja bem vindo">
+            <DashboardProprietario />
+          </ContainerProprietario>
         </div>
       </Route>
-      <Route path="/admin/pontos">
+      <Route path="/proprietario/pontos">
         <div className="d-flex">
-          <BarraLateralAdministracao item={1} />
-          <ContainerAdmin titulo="Meus Pontos">
-            <GestaoPontosAdmin />
-          </ContainerAdmin>
+          <BarraLateralProprietario caminhoRaiz="/proprietario" item={1} />
+          <ContainerProprietario titulo="Meus Pontos">
+            <GestaoPontosProprietario />
+          </ContainerProprietario>
         </div>
       </Route>
-      <Route path="/admin/avaliacoes">
+      <Route path="/proprietario/avaliacoes">
         <div className="d-flex">
-          <BarraLateralAdministracao item={2} />
-          Avaliações
+          <BarraLateralProprietario caminhoRaiz="/proprietario" item={2} />
+          <ContainerProprietario titulo="Meus Pontos">
+            <GestaoPontosProprietario />
+          </ContainerProprietario>
         </div>
       </Route>
-      <Route path="/admin/comentarios">
+      <Route path="/proprietario/comentarios">
         <div className="d-flex">
-          <BarraLateralAdministracao item={3} />
+          <BarraLateralProprietario caminhoRaiz="/proprietario" item={3} />
           Comentarios
         </div>
       </Route>
-      <Route path="/admin/configuracoes">
+      <Route path="/proprietario/configuracoes">
         <div className="d-flex">
-          <BarraLateralAdministracao item={4} />
+          <BarraLateralProprietario caminhoRaiz="/proprietario" item={4} />
           Configuracoes
         </div>
       </Route>

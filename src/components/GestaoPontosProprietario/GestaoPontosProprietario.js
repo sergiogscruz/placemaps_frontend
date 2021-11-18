@@ -5,7 +5,7 @@ import CorpoTabelaComCads from "../UI/Utils/CorpoTabelaComCards/CorpoTabelaComCa
 import CabecalhoTabelaComCards from "../UI/Utils/CabecalhoTabelaComCards/CabecalhoTabelaComCards";
 import Paginacao from '../UI/Utils/Paginacao/Paginacao';
 
-export default function GestaoPontosAdmin(props) {
+export default function GestaoPontosProprietario() {
   const dados = [
     {
       nome: 'Ponto 1',

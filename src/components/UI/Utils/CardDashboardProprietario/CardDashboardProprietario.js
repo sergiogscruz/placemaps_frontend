@@ -1,13 +1,13 @@
-import './CardDashboardAdmin.css'
+import './CardDashboardProprietario.css'
 import Botao from '../Botao/Botao'
-export default function CardDashboardAdmin(props) {
+export default function CardDashboardProprietario(props) {
 
   const styleConteudo = {
     fontSize: (props.conteudo.length <= 1 ? '60px' : '35px')
   }
 
   return (
-    <div className={"cardDashboardAdmin " + (props.className ? props.className : '')}>
+    <div className={"cardDashboardProprietario " + (props.className ? props.className : '')}>
       <div className="d-flex align-items-center w-100">
         <span className="icone">
           { props.icone }
