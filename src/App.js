@@ -19,8 +19,8 @@ import Perfil from "./components/Perfil/Perfil";
 import BarraLateralAdministracao from "./components/BarraLateralAdministracao/BarraLateralAdministracao";
 import DashboardAdmin from "./components/DashboardAdmin/DashboardAdmin";
 import ContainerAdmin from "./components/UI/Utils/ContainerAdmin/ContainerAdmin";
+import ContainerBackground from "./components/UI/Utils/ContainerBackground/ContainerBackground";
 import GestaoPontosAdmin from "./components/GestaoPontosAdmin/GestaoPontosAdmin";
-
 
 const FeedBacks = [
   <FeedbackPlataforma nome="Amanda Franco" srcimg={ImagemFeedBack} data="Seg 29 Abril, 2021" texto="Era um restaurante muito bom e com uma comida muito saborosa. O comportamento da equipe foi bom e educado. Eles nos recebem muito bem. A localização é de agrado e fica bem localizado. No geral foi uma boa experiência e poderia recomendar, sem problemas." />,
@@ -39,10 +39,12 @@ let routes = (
         <Footer />
       </Route>
       <Route path="/perfil/:uuid">
-        <Navbar />
-        <Perfil />
-        <Carrossel titulo="O QUE AS PESSOAS PENSAM SOBRE NÓS" itens={FeedBacks} />
-        <Footer />
+        <ContainerBackground >
+            <Navbar />
+            <Perfil />
+            <Carrossel titulo="O QUE AS PESSOAS PENSAM SOBRE NÓS" itens={FeedBacks} />
+            <Footer />
+        </ContainerBackground >
       </Route>
       <Route path="/lista/:nome">
         <Cabecalho />

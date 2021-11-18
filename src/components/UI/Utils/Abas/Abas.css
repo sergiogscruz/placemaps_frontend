@@ -12,4 +12,44 @@
 
 .conteudoAtivo {
   transition: 500ms;
+  max-height: 500px;
+  overflow-y: hidden;
+  padding: 0 !important;
+}
+
+.tituloCabecalho {
+  background-color: #0a223d;
+}
+
+.input-dado-semanal {
+  display: none;
+}
+
+.conteudoitem {
+  max-height: 0px;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+.conteudoitemZero {
+  max-height: 0px !important;
+}
+
+.conteudoMax {
+  max-height: 1000px;
+}
+
+.input-dado-semanal:checked ~ #conteudoitem{
+  max-height: 1000px;
+}
+
+.input-sem-dropdown {
+  display: none;
+}
+
+.header-dado-semanal {
+  height: 45px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
