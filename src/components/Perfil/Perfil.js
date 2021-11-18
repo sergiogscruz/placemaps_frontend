@@ -11,6 +11,8 @@ import Abas from '../UI/Utils/Abas/Abas';
 import { HiLocationMarker } from 'react-icons/hi';
 import { FaWhatsapp, FaPhoneAlt} from 'react-icons/fa';
 import Botao from '../UI/Utils/Botao/Botao';
+import { AiFillCheckCircle } from 'react-icons/ai';
+import { BsChevronDown } from 'react-icons/bs';
 
 export default function Perfil() {
 
@@ -20,11 +22,19 @@ export default function Perfil() {
   const [endereco, setEndereco] = useState({});
   const [urlMaps, setUrlMaps] = useState('');
   const [dadosSemanal, setDadosSemanal] = useState([]);
+  const [fotos, setFotos] = useState([]);
 
   useEffect(function() {
     Api.get('api/public/ponto/' + uuid)
     .then(function(result){
-      setPerfil(result.data);  
+      setPerfil(result.data); 
+      
+      if(result && result.data && result.data.fotos && result.data.fotos.length) {
+        result.data.fotos.forEach(function(foto) {
+          
+          setFotos((fotos) => [...fotos, foto]);
+        })
+      }
     });
 
     Api.get('/api/public/localizacao/ponto/' + uuid)
@@ -35,31 +45,36 @@ export default function Perfil() {
     Api.get('/api/public/dadosemanal/obter-pelo-ponto/dias/' + uuid)
     .then(function(result){
       if(result && result.data && result.data.length) {
-
-        result.data.forEach(function(dadoSemanal) {
+        result.data.forEach(async function(dadoSemanal) {
           var temp = [];
-          dadoSemanal.dadoSemanalList.forEach(async function(pratoDoDia) {
+          await dadoSemanal.dadoSemanalList.forEach(async function(pratoDoDia) {
             
             let result = await Api.get('/api/public/item?dadoSemanalId=' + pratoDoDia.id)
             if (result && result.data && result.data.content && result.data.content.length) { 
-                
+              
               let itensDoPratoDoDia = {
                 titulo: pratoDoDia.descricao,
                 conteudo: (
                   result.data.content.map(function(data) {
                     return (
-                      <div>
-                        <div>{data.id}</div>
-                        <div>{data.descricao}</div>
+                      <div className="d-flex itens-dado-semanal">
+                        <div style={{display: 'flex', justifyContent: 'flex-start'}}>
+                          <AiFillCheckCircle size={25} className="m-r-4"/>
+                          <div>{data.id}</div>
+                          <div>{data.descricao}</div>
+                        </div>
+                        <div style={{width: '50%'}}>
+                          {data.valor ? "R$: " + parseFloat(data.valor).toFixed(2).replace(".",",") : "-" }
+                        </div>
                       </div>
                     )
                   })
                 )
               }
-              temp.push((<Abas tituloCabecalho={"teste1"} abas={[itensDoPratoDoDia]} />))
+              temp.push((<Abas tituloCabecalho={"teste1"} abas={[itensDoPratoDoDia]} dropdown={true} />))
             }
           })
-          setDadosSemanal(dadosSemanal => [[{ titulo: dadoSemanal.diaDaSemana, conteudo: temp }],...dadosSemanal])
+          setDadosSemanal(dadosSemanal => [...dadosSemanal, [{ titulo: dadoSemanal.diaDaSemana, conteudo: temp }]])
         })
       }
     })
@@ -87,7 +102,7 @@ export default function Perfil() {
 
       return (
         <div>
-          <Abas abas={container} />
+          <Abas abas={container} dropdown={false}/>
         </div>
       )
     }
@@ -117,6 +132,14 @@ export default function Perfil() {
     window.open(`https://api.whatsapp.com/send?phone=${number}&text=${mensagem}`);
   }
 
+  function createFotos() {
+    let listFoto = fotos.map(function(foto) {
+      return (
+        <div className="image-perfil" data-src={foto.url} />
+      )
+    })
+    return listFoto;
+  }
 
   return (
     <div className="container container-perfil">
@@ -132,9 +155,7 @@ export default function Perfil() {
       <div className="container-info">
         <div className="info-carousel">
           <AwesomeSlider>
-            <div className="image-perfil" data-src="https://media-cdn.tripadvisor.com/media/photo-s/12/89/41/12/casebre-do-dito.jpg" />
-            <div className="image-perfil" data-src="https://media-cdn.tripadvisor.com/media/photo-s/12/89/43/ef/espaco-interno.jpg" />
-            <div className="image-perfil" data-src="https://media-cdn.tripadvisor.com/media/photo-s/1b/01/c0/34/photo2jpg.jpg" />
+            { createFotos() }
           </AwesomeSlider>
         </div>
       <div className="info-desc">
@@ -192,7 +213,11 @@ export default function Perfil() {
         { createSemanal(dadosSemanal) }
 
         {/* <Maps lat="-23.440891" lng="-51.925612"/> */}
-        <iframe src={urlMaps} width="100%" height="450"  allowfullscreen="" ></iframe>
+
+        <div style={{marginTop: '50px'}}>
+          <div className="header-localizacao">Localiação</div>
+          <iframe src={urlMaps} width="100%" height="450" ></iframe>
+        </div>
       </div>
     </div>
   )}

@@ -45,6 +45,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  margin-bottom: 70px;
 }
 
 .info-desc {
@@ -190,10 +191,6 @@
   display: none;
 }
 
-.btn-dados-semanal:checked ~ .dado-semanal-container {
-  max-height: 0;
-}
-
 .content-item {
   box-sizing: border-box;
   max-height: 100%;
@@ -216,4 +213,24 @@
   background-color: #0a223d;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.itens-dado-semanal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding: 15px;
+  justify-content:space-between
+}
+
+.header-localizacao {
+  height: 45px; 
+  background-color: #0a223d;
+  border-radius: 4px;
+  color: #fff;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
