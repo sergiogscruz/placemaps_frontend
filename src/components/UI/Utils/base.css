@@ -1,0 +1,27 @@
+.d-flex {
+  display: flex;
+}  
+
+.m-r-1 {
+  margin-right: 4px;
+}
+  
+.m-r-2 {
+  margin-right: 8px;
+}
+
+.m-r-3 {
+  margin-right: 12px;
+}
+
+.m-r-4 {
+  margin-right: 16px;
+}
+  
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-evenly {
+  justify-content:space-evenly;
+}
