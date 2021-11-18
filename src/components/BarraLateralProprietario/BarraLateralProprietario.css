@@ -1,4 +1,4 @@
-.barra-lateral-admin {
+.barra-lateral-proprietario {
   background-color: var(--cor-dark);
   width: 30%;
   max-width: 255px;
@@ -11,11 +11,11 @@
   color: var(--cor-light);
 }
 
-.barra-lateral-admin .padding {
+.barra-lateral-proprietario .padding {
   padding: 5px 20px;
 }
 
-.barra-lateral-admin .usuario .editar {
+.barra-lateral-proprietario .usuario .editar {
   display: flex;
   align-items: center;
   margin-left: auto;
@@ -25,17 +25,17 @@
   cursor: pointer;
 }
 
-.barra-lateral-admin .usuario .editar .icone {
+.barra-lateral-proprietario .usuario .editar .icone {
   margin: 0 5px;
 }
 
-.barra-lateral-admin .usuario .nome {
+.barra-lateral-proprietario .usuario .nome {
   font-size: 19px;
   margin-top: 20px;
   font-weight: 600;
 }
 
-.barra-lateral-admin .usuario .foto {
+.barra-lateral-proprietario .usuario .foto {
   margin: 30px 0;
   width: 55px;
   height: 55px;
@@ -43,18 +43,18 @@
   background-color: var(--cor-light);
 }
 
-.barra-lateral-admin .logo {
+.barra-lateral-proprietario .logo {
   margin: 30px 0;
   font-size: 32px;
 }
 
-.barra-lateral-admin .lista {
+.barra-lateral-proprietario .lista {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-top: 10px;
 }
-.barra-lateral-admin .lista .item {
+.barra-lateral-proprietario .lista .item {
   text-decoration: none;
   padding: 4px 6px;
   display: flex;
@@ -67,13 +67,13 @@
   color: var(--cor-light);
 }
 
-.barra-lateral-admin .lista .item.ativo {
+.barra-lateral-proprietario .lista .item.ativo {
   background-color: var(--cor-dark-medium);
   border-radius: 4px;
   
   transition: 400ms;
 }
 
-.barra-lateral-admin .lista .item span {
+.barra-lateral-proprietario .lista .item span {
   margin-left: 40px;
 }
