@@ -21,7 +21,6 @@ import DashboardProprietario from "./components/DashboardProprietario/DashboardP
 import ContainerProprietario from "./components/UI/Utils/ContainerProprietario/ContainerProprietario";
 import GestaoPontosProprietario from "./components/GestaoPontosProprietario/GestaoPontosProprietario";
 
-
 const FeedBacks = [
   <FeedbackPlataforma nome="Amanda Franco" srcimg={ImagemFeedBack} data="Seg 29 Abril, 2021" texto="Era um restaurante muito bom e com uma comida muito saborosa. O comportamento da equipe foi bom e educado. Eles nos recebem muito bem. A localização é de agrado e fica bem localizado. No geral foi uma boa experiência e poderia recomendar, sem problemas." />,
   <FeedbackPlataforma nome="Pedro Henrique" srcimg={ImagemFeedBack} data="Seg 29 Abril, 2021" texto="Eles nos recebem muito bem. A localização é de agrado e fica bem localizado. No geral foi uma boa experiência e poderia recomendar, sem problemas." />,
@@ -39,10 +38,12 @@ let routes = (
         <Footer />
       </Route>
       <Route path="/perfil/:uuid">
-        <Navbar />
-        <Perfil />
-        <Carrossel titulo="O QUE AS PESSOAS PENSAM SOBRE NÓS" itens={FeedBacks} />
-        <Footer />
+        <ContainerBackground >
+            <Navbar />
+            <Perfil />
+            <Carrossel titulo="O QUE AS PESSOAS PENSAM SOBRE NÓS" itens={FeedBacks} />
+            <Footer />
+        </ContainerBackground >
       </Route>
       <Route path="/lista/:nome">
         <Cabecalho />
