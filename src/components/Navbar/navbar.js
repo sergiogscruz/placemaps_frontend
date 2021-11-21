@@ -57,10 +57,12 @@ export default function Navbar() {
   return (
     <div className="pm-navbar-container">
       <div className="container" style={{display: 'flex'}}>
-        <div style={{width: '17.2%', display: 'flex', alignItems: 'center'}} className="pm-logo">
-          <span style={{color: "#EC1F46", height: "32px", margin: '0 8px 0 0'}}>PLACE </span>
-          <span style={{color: "#fff",height: "32px"}}>MAPS</span>
-        </div>
+        <Link to="/" style={{width: '17.2%', display: 'flex', alignItems: 'center', textDecoration: "none"}}>
+          <div  className="pm-logo">
+            <span style={{color: "#EC1F46", height: "32px", margin: '0 8px 0 0'}}>PLACE</span>
+            <span style={{color: "#fff",height: "32px"}}>MAPS</span>
+          </div>
+        </Link>
         <div className="pm-navbar-btn-carousel">
           <IoIosArrowDropleft className="pm-btn-move pm-navbar-btn-esq" color="#fff" fontSize="30px" onClick={() => {moveDir()}}/>
           {itensList}
