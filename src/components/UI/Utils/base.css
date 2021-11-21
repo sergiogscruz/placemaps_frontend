@@ -17,6 +17,52 @@
 .m-r-4 {
   margin-right: 16px;
 }
+
+.m-t-1 {
+  margin-top: 4px;
+}
+
+.m-t-2 {
+  margin-top: 8px;
+}
+
+.m-t-3 {
+  margin-top: 12px;
+}
+
+.m-t-4 {
+  margin-top: 16px;
+}
+
+.m-t-5 {
+  margin-top: 20px;
+}
+
+.m-t-6 {
+  margin-top: 24px;
+}
+
+.m-t-7 {
+  margin-top: 28px;
+}
+
+.m-t-8 {
+  margin-top: 32px;
+}
+
+.m-t-9 {
+  margin-top: 36px;
+}
+
+.m-t-10 {
+  margin-top: 40px;
+}
+
+.m-t-11 {
+  margin-top: 44px;
+}
+
+
   
 .justify-between {
   justify-content: space-between;

@@ -13,6 +13,7 @@ import { FaWhatsapp, FaPhoneAlt} from 'react-icons/fa';
 import Botao from '../UI/Utils/Botao/Botao';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import { BsChevronDown } from 'react-icons/bs';
+import { BiUserCircle } from 'react-icons/bi';
 
 export default function Perfil() {
 
@@ -23,6 +24,7 @@ export default function Perfil() {
   const [urlMaps, setUrlMaps] = useState('');
   const [dadosSemanal, setDadosSemanal] = useState([]);
   const [fotos, setFotos] = useState([]);
+  const [comentarios, setComentario] = useState([]);
 
   useEffect(function() {
     Api.get('api/public/ponto/' + uuid)
@@ -37,9 +39,34 @@ export default function Perfil() {
       }
     });
 
+    Api.get('/api/public/comentario/obter-pelo-ponto/' + uuid)
+    .then(function(result) {
+      if(result && result.data && result.data.content && result.data.content.length) {
+        result.data.content.forEach(function(comentario) {
+
+          Api.get('/api/public/comentario/' + comentario.id)
+          .then((dadoComentario) => {
+            
+            let nome = dadoComentario && dadoComentario.data && dadoComentario.data.usuario
+              && dadoComentario.data.usuario.nome || 'Anômino'
+
+            let urlFoto = dadoComentario && dadoComentario.data && dadoComentario.data.usuario
+            && dadoComentario.data.usuario.foto && dadoComentario.data.usuario.foto.url || null;
+
+            setComentario((comentarios) => 
+              [...comentarios, {descricao: comentario.descricao, nome: nome, urlFotoUsuario: urlFoto}])
+          })
+        })
+      }
+    })
+
     Api.get('/api/public/localizacao/ponto/' + uuid)
       .then(function(result){
-        setEndereco(result.data.content[0]);
+        let data = result && result.data && result.data.content || [];
+
+        if(data && data.length) {
+          setEndereco(data[0]);
+        }
     });
 
     Api.get('/api/public/dadosemanal/obter-pelo-ponto/dias/' + uuid)
@@ -141,6 +168,26 @@ export default function Perfil() {
     return listFoto;
   }
 
+  function createComentarios() {
+      let comentario = comentarios.map(function(comentario) {
+        return (
+          <div style={{display: "flex", marginBottom: "20px", alignItems: "center"}}>
+            <div style={{display: "flex", flexDirection: "column", fontSize: "11px", textTransform: "capitalize"}}>
+              {comentario.urlFotoUsuario ? <img src={comentario.urlFotoUsuario} className="user-profile"/> : <BiUserCircle />}
+              {comentario.nome && comentario.nome.toLowerCase()}
+            </div>
+            {comentario.descricao}
+            
+          </div>
+        )
+      })
+
+    comentario = comentario && comentario.length ? comentario : "Não não há comentário para este local"
+    
+
+    return comentario;
+  }
+
   return (
     <div className="container container-perfil">
       <div className="perfil-header">
@@ -217,6 +264,14 @@ export default function Perfil() {
         <div style={{marginTop: '50px'}}>
           <div className="header-localizacao">Localiação</div>
           <iframe src={urlMaps} width="100%" height="450" ></iframe>
+        </div>
+
+        <div style={{marginBottom:"30px", marginTop:"60px"}}>
+          <p className="perfil-title m-t-11"><strong>Opniões sobre o {perfil.nome}</strong></p>
+          <div style={{width:"49%", height: "8px", backgroundColor: "#0a223d"}}></div>
+        </div>
+        <div>
+          { createComentarios() }
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './entrar.css';
 import { ImQuotesLeft }  from 'react-icons/im';
 import Botao from '../UI/Utils/Botao/Botao';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import * as yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import api from '../services/api';
@@ -11,11 +11,24 @@ import Loading from '../UI/Utils/Loading/loading';
 export default function Entrar() {
   const [pendingRequest, setPendingRequest] = useState(false);
   const [statusCodeLogin, setStatusCodeLogin] = useState('');
+  const [tipoUsuario, setTipoUsuario] = useState('');
+  const [redireciona, setRedireciona] = useState(false);
 
   const validation = yup.object().shape({
     email: yup.string().email('Email inválido').required('O email não informado'),
     senha: yup.string().required('Senha não informada'),
   })
+
+  useEffect(() => {
+    setRedireciona(true);
+  },[tipoUsuario])
+
+
+  if(redireciona) {
+    if(tipoUsuario === "PROPRIETARIO") {
+      return <Redirect to='/proprietario/dashboard' />
+    }
+  }
 
   return (
     <div className="pm-entrar-conteudo">
@@ -53,8 +66,15 @@ export default function Entrar() {
               }
 
               api.post('api/public/autenticacao', user)
-                .then(function(data) {
-                  console.log(data)
+                .then(function(result) {
+                  let data = result && result.data || null;
+
+                  if(data.token) {
+                    if(data.tipoUsuario === "PROPRIETARIO") {
+                      setTipoUsuario(data.tipoUsuario);
+                    }
+                  }
+
                   setPendingRequest(false);
                 })
                 .catch(function(error) {

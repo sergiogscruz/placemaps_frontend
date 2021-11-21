@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import './BarraLateralProprietario.css'
 
 import { RiPencilFill, RiDashboardLine } from 'react-icons/ri'
@@ -66,10 +66,12 @@ export default function BarraLateralProprietario(props) {
   return (
     <div className="barra-lateral-proprietario">
       <div className="padding">
+      <Link to="/" style={{width: '17.2%', textDecoration: "none"}}>
         <div className="logo font-logo">
           <span className="color-principal">PLACE </span>
           <span className="color-light">MAPS</span>
         </div>
+      </Link>
       </div>
 
       <div className="linha-horizontal bg-dark-gray"></div>
