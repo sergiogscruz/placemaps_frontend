@@ -40,41 +40,16 @@ let routes = (
       </Route>
       <Route path="/perfil/:uuid">
         <ContainerBackground >
-            <Navbar />
-            <Perfil />
-            <Carrossel titulo="O QUE AS PESSOAS PENSAM SOBRE NÓS" itens={FeedBacks} />
-            <Footer />
+          <Navbar />
+          <Perfil />
+          <Carrossel titulo="O QUE AS PESSOAS PENSAM SOBRE NÓS" itens={FeedBacks} />
+          <Footer />
         </ContainerBackground >
       </Route>
       <Route path="/lista/:nome">
-        <Cabecalho />
         <Navbar/>
         <PaginaInicial/>
         <Footer />
-      </Route>
-      <Route path="/pontosturisticos">
-        <Cabecalho></Cabecalho>
-        <div>Pontos Turisticos</div>
-      </Route>
-      <Route path="/restaurantes">
-        <Cabecalho></Cabecalho>
-        <div>Restaurantes</div>
-      </Route>
-      <Route path="/shoppings">
-        <Cabecalho></Cabecalho>
-        <div>Shoppings</div>
-      </Route>
-      <Route path="/eventos">
-        <Cabecalho></Cabecalho>
-        <div>Proximos Eventos</div>
-      </Route>
-      <Route path="/contatos">
-        <Cabecalho></Cabecalho>
-        <div>Contatos</div>
-      </Route>
-      <Route path="/hoteis">
-        <Cabecalho></Cabecalho>
-        <div>Hoteis</div>
       </Route>
       <Route path="/entrar">
         <Entrar></Entrar>

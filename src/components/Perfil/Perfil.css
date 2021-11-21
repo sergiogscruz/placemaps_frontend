@@ -234,3 +234,11 @@
   display: flex;
   justify-content: center;
 }
+
+.user-profile {
+  width: 60px;
+  height:60px;
+  border-radius: 50%;
+  border: 3px #0a223d solid;
+  margin-right: 40px;
+}

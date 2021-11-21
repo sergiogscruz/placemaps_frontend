@@ -17,7 +17,6 @@ export default function CardResumoPonto(props) {
   const style = {
     backgroundImage: props.srcImg ? `url(${props.srcImg})` : `url(${urlImagemPadrao})`
   }
-  console.log(props)
   const itensDescricao = () => {
     if (props.itens)
       return props.itens.map((item, i) => {
