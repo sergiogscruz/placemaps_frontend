@@ -10,6 +10,7 @@ export default function Navbar() {
   const [itensMenu, setItensMenu] = useState([]);
 
   const [itensList, setItensList] = useState('');
+  const [session, setSession] = useState({});
 
   let itensShow = [];
 
@@ -22,8 +23,11 @@ export default function Navbar() {
 
   useEffect(() => {
     setItensList(showItens());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itensMenu])
+
+  useEffect(() => {
+    setSession( JSON.parse(localStorage.getItem("session")));
+  },[])
 
   function showItens() {
     let qtdItens = 5;
@@ -32,11 +36,9 @@ export default function Navbar() {
       if (itensShow.length < qtdItens) {
         let classMeio = {};
         if(itensShow.length + 1 === ItenMeio) {
-          //classMeio.backgroundColor= "#EC1F46";
         }
         let path = "/lista/" + iten.nome
         itensShow.push((<NavLink to={path} key={iten.id} style={classMeio} className="pm-navbar-iten">{iten.nome}</NavLink>));
-        //(<span key={iten.id} style={classMeio} onClick={() => console.log(iten.id)} className="pm-navbar-iten">{iten.nome}</span>)
       }
     });
     return ( <div className="pm-navbar-itens"> { itensShow } </div>);
@@ -53,6 +55,38 @@ export default function Navbar() {
     itensMenu.pop();
     setItensList(showItens());
   }
+
+  function deleteSession() {
+    localStorage.removeItem("session");
+    setSession({})
+  }
+
+  function actions() {
+    if (session && session.token) {
+
+      let proprietario = (
+        <Link to="/proprietario/dashboard" style={{textDecoration: "none", color: "#fff", marginLeft: "5px"}}>Área restrita</Link>
+      )
+      return (
+        <div style={{display: "flex", alignItems: "center"}}>
+          <div style={{width: '50px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <Botao className="btb-entrar" onClick={() => deleteSession()}>Sair</Botao>
+          </div>
+          { session && session.tipoUsuario === "PROPRIETARIO" ? proprietario : null }
+        </div>
+      )
+    }
+
+    return (
+      <div style={{width: '17.2%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <Link to="/entrar">
+          <Botao className="btb-entrar">Entrar</Botao>
+        </Link>
+        <span>|</span>
+        <Link to="/cadastrar" className="pm-cabecalho-cadastrar">Cadastrar</Link>
+      </div>
+    )
+  }
     
   return (
     <div className="pm-navbar-container">
@@ -68,13 +102,7 @@ export default function Navbar() {
           {itensList}
           <IoIosArrowDropright className="pm-btn-move pm-navbar-btn-dir" color="#fff" fontSize="30px" onClick={() => {moveEsq()}}/>
         </div>
-        <div style={{width: '17.2%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-        <Link to="/entrar">
-          <Botao className="btb-entrar">Entrar</Botao>
-        </Link>
-            <span>|</span>
-          <Link to="/cadastrar" className="pm-cabecalho-cadastrar">Cadastrar</Link>
-        </div>
+        { actions() }
       </div>
      </div>
   )
