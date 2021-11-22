@@ -25,8 +25,8 @@ export default function Entrar() {
 
 
   if(redireciona) {
-    if(tipoUsuario === "PROPRIETARIO") {
-      return <Redirect to='/proprietario/dashboard' />
+    if(tipoUsuario) {
+      return <Redirect to='/' />
     }
   }
 
@@ -72,6 +72,14 @@ export default function Entrar() {
                   if(data.token) {
                     if(data.tipoUsuario === "PROPRIETARIO") {
                       setTipoUsuario(data.tipoUsuario);
+                      let session = {
+                        foto: data.foto,
+                        nome: data.nome,
+                        tipoUsuario: data.tipoUsuario,
+                        token: data.token
+                      }
+
+                      localStorage.setItem("session", JSON.stringify(session));
                     }
                   }
 
