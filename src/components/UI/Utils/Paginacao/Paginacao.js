@@ -25,7 +25,7 @@ export default function Paginacao(props) {
     if(typeof props.setStateOnChange === 'function') {
       props.setStateOnChange(paginaAtual)
     }
-  }, [paginaAtual, props]);
+  }, [paginaAtual]);
 
 
   const montarElementos = () => {
