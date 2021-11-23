@@ -21,9 +21,9 @@ export default function Paginacao(props) {
   }
 
   //Comentado para ser possível realizar o deploy no Heroku
-  //useEffect(() => {
-  //  props.setStateOnChange(paginaAtual)
-  //}, [paginaAtual, props]);
+  useEffect(() => {
+   props.setStateOnChange(paginaAtual)
+  }, [paginaAtual, props]);
 
 
   const montarElementos = () => {
