@@ -44,7 +44,7 @@ export default function PaginaInicial(props) {
       return (
         itens.content.map((item, i) => {
           return (
-            <CardResumoPonto key={`card_${i}`} titulo={item.nome} itens={item.dadoSemanalNomeList} srcImg={item.foto} idPonto={item.id}/>
+            <CardResumoPonto key={`card_${i}`} titulo={item.nome} itens={item.dadoSemanalNomeList} srcImg={item.foto} idPonto={item.id} nota={item.nota}/>
           )
         })
       );
