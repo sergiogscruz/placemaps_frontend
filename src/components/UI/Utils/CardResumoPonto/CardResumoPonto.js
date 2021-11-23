@@ -44,12 +44,6 @@ export default function CardResumoPonto(props) {
         <Link to={patchPerfil}><Botao>+ Visualizar</Botao></Link>
       </div>
 
-      <div className="col-4 coluna d-flex flex-column align-items-center justify-content-around">
-        <ul className="list-unstyled w-100">
-          {itensDescricao()}
-        </ul>
-      </div>
-
       <div className="col coluna d-flex flex-column align-items-center justify-content-around img" style={style}>
 
       </div>

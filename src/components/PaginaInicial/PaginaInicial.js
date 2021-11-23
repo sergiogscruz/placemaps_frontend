@@ -58,12 +58,18 @@ export default function PaginaInicial(props) {
   return (
     <div className="bg-light-azul py-4">
       <div className="container d-flex flex-column">
-        <div className="align-self-end d-flex containerInputPesquisaPonto align-items-center">
-          <Input onPressEnter={() => { eventoBusca() }} placeholder="Pesquisar por nome" className="inputPesquisaPonto h-100" setStatePai={setConteudoBusca} />
-          <Botao className="h-100 d-flex align-items-center justify-content-center" onClick={() => { eventoBusca() }}>
-            <BiSearchAlt size="1.7em" className="iconePesquisa" />
-          </Botao>
+        <div style={{width: "100%"}}>
+          <div style={{width: "90%", display: "flex", justifyContent: "flex-end", marginLeft: "auto", marginRight: "auto", maxWidth: "900px"}}>
+            <div className="align-self-end d-flex containerInputPesquisaPonto align-items-center" >
+              <Input onPressEnter={() => { eventoBusca() }} placeholder="Pesquisar por nome" className="inputPesquisaPonto h-100" setStatePai={setConteudoBusca} />
+              <Botao className="h-100 d-flex align-items-center justify-content-center radius-botao" 
+                onClick={() => { eventoBusca() }}>
+                <BiSearchAlt size="1.7em" className="iconePesquisa" />
+              </Botao>
+            </div>
+          </div>
         </div>
+
 
         <Paginacao 
           classNameItens="d-flex flex-column align-items-center" 
