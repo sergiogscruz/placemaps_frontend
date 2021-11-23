@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './cadastrar.css';
-import api from "../services/api";
 import Botao from '../UI/Utils/Botao/Botao';
 import AlertUserCreated from './alertUserCreated';
 import Loading from '../UI/Utils/Loading/loading';
 import * as yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import { useHistory } from "react-router-dom";
+import axios from 'axios';
 
 export default function Cadastrar() {
   const [concordaTermos, setConcordaTermos] = useState(false);
@@ -56,7 +56,7 @@ export default function Cadastrar() {
               senha: values.senha
             };
             setPendingRequest(true)
-            api.post('api/public/autenticacao/cadastrar-usuario', user )
+            axios.post('api/public/autenticacao/cadastrar-usuario', user )
               .then((result) => {
               setPendingRequest(false)
                 if(result.status ===200) {

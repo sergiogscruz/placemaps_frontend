@@ -5,8 +5,8 @@ import Input from '../UI/Utils/Input/Input';
 import { BiSearchAlt } from 'react-icons/bi';
 import Botao from '../UI/Utils/Botao/Botao';
 import Paginacao from '../UI/Utils/Paginacao/Paginacao';
-import api from '../services/api';
 import { useParams } from "react-router-dom";
+import axios from 'axios';
 
 export default function PaginaInicial(props) {
   const [conteudoBusca, setConteudoBusca] = useState('');
@@ -16,14 +16,14 @@ export default function PaginaInicial(props) {
 
   const getAllCards = async () => {
     const categoria = '';
-    const dados = await api.get(
+    const dados = await axios.get(
      `api/public/ponto?nome=${conteudoBusca}&categoria=${categoria}&page=${paginaAtual - 1}&size=${itensPorPagina}`
     );
     setItens(dados.data);
   }
 
   const getCards = async (nome) => {
-    const dados = await api.get( 'api/public/ponto?categoria=' + nome)
+    const dados = await axios.get( 'api/public/ponto?categoria=' + nome)
     setItens(dados.data)
   }
   

@@ -5,8 +5,9 @@ import Botao from '../UI/Utils/Botao/Botao';
 import { Link, Redirect } from 'react-router-dom';
 import * as yup from 'yup';
 import { Formik, Form, Field } from 'formik';
-import api from '../services/api';
+import { AxiosHelper } from '../services/api';
 import Loading from '../UI/Utils/Loading/loading';
+import axios from 'axios';
 
 export default function Entrar() {
   const [pendingRequest, setPendingRequest] = useState(false);
@@ -65,7 +66,7 @@ export default function Entrar() {
                 senha: value.senha
               }
 
-              api.post('api/public/autenticacao', user)
+              axios.post('api/public/autenticacao', user)
                 .then(function(result) {
                   let data = result && result.data || null;
 
@@ -80,6 +81,7 @@ export default function Entrar() {
                       }
 
                       localStorage.setItem("session", JSON.stringify(session));
+                      AxiosHelper.initializeAxios()
                     }
                   }
 
