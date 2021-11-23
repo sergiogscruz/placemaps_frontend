@@ -21,6 +21,7 @@ import BarraLateralProprietario from "./components/BarraLateralProprietario/Barr
 import DashboardProprietario from "./components/DashboardProprietario/DashboardProprietario";
 import ContainerProprietario from "./components/UI/Utils/ContainerProprietario/ContainerProprietario";
 import GestaoPontosProprietario from "./components/GestaoPontosProprietario/GestaoPontosProprietario";
+import { AxiosHelper } from "./components/services/api";
 
 const FeedBacks = [
   <FeedbackPlataforma nome="Amanda Franco" srcimg={ImagemFeedBack} data="Seg 29 Abril, 2021" texto="Era um restaurante muito bom e com uma comida muito saborosa. O comportamento da equipe foi bom e educado. Eles nos recebem muito bem. A localização é de agrado e fica bem localizado. No geral foi uma boa experiência e poderia recomendar, sem problemas." />,
@@ -98,6 +99,8 @@ let routes = (
 );
 
 function App() {
+  AxiosHelper.initializeAxios()
+
   return (
     routes
   );
