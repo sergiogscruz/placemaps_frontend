@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useEffect } from 'react/cjs/react.development';
+import { useState, useEffect } from 'react';
 import './Paginacao.css';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
@@ -19,13 +18,12 @@ export default function Paginacao(props) {
     if (paginaAtual < props.numeroPaginas)
       setPaginaAtual(paginaAtual + 1)
   }
-  function teste() {}
-  //Comentado para ser possível realizar o deploy no Heroku
-  //useEffect(() => {
-  //  if(typeof props.setStateOnChange === 'function') {
-  //    props.setStateOnChange(paginaAtual)
-  //  }
-  //}, [paginaAtual, props]);
+
+  useEffect(() => {
+    if(typeof props.setStateOnChange === 'function') {
+      props.setStateOnChange(paginaAtual)
+    }
+  }, [paginaAtual, props]);
 
 
   const montarElementos = () => {
