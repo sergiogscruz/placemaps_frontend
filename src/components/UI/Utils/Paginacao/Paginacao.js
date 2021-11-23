@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useEffect } from 'react/cjs/react.development';
+import { useState, useEffect } from 'react';
 import './Paginacao.css';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
