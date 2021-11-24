@@ -64,9 +64,15 @@ export default function Navbar() {
   }
 
   function actions() {
+    const setProprietario = (
+      <Link to="/ser-proprietario">
+        <Botao className="btb-entrar">Proprietário</Botao>
+      </Link>
+    )
+
     if (session && session.token) {
 
-      let proprietario = (
+      const proprietario = (
         <Link to="/proprietario/dashboard" style={{textDecoration: "none", color: "#fff", marginLeft: "5px"}}>Área restrita</Link>
       )
       return (
@@ -74,18 +80,22 @@ export default function Navbar() {
           <div style={{width: '50px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
             <Botao className="btb-entrar" onClick={() => deleteSession()}>Sair</Botao>
           </div>
-          { session && session.tipoUsuario === "PROPRIETARIO" ? proprietario : null }
+          { session && session.tipoUsuario === "PROPRIETARIO" ? proprietario : setProprietario }
         </div>
       )
     }
 
     return (
-      <div style={{width: '17.2%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+      <div style={{width: '24.2%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <Link to="/entrar">
           <Botao className="btb-entrar">Entrar</Botao>
         </Link>
         <span>|</span>
-        <Link to="/cadastrar" className="pm-cabecalho-cadastrar">Cadastrar</Link>
+        <Link to="/cadastrar">
+          <Botao className="btb-entrar">Cadastrar</Botao>
+        </Link>
+        <span>|</span>
+        {setProprietario}
       </div>
     )
   }

@@ -101,7 +101,10 @@ export default function Entrar() {
             )}
           </Formik>
           <div style={{marginTop: "20px"}}>
-          <Link to="/cadastrar" style={{textDecoration: "none"}}>Faça seu cadastro</Link>
+            <Link to="/cadastrar" style={{textDecoration: "none"}}>Faça seu cadastro</Link>
+          </div>
+          <div style={{marginTop: "20px"}}>
+            <Link to="/" style={{textDecoration: "none"}}>Página Inicial</Link>
           </div>
         </div>
       </div>
