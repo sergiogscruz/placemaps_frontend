@@ -56,10 +56,10 @@ export default function CardResumoPonto(props) {
     <div className="cardResumoPonto row">
       <div className="col-3 titulo coluna d-flex flex-column align-items-center justify-content-around" style={{padding: "15px"}}>
         <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-          <h5 className="text-center">{props.titulo}</h5>
+          <h5 className="text-center" style={{fontFamily:"'Mulish', sans-serif"}}>{props.titulo}</h5>
           <div> { montarEstrelas() } </div>
         </div>
-        <Link to={patchPerfil}><Botao>+ Visualizar</Botao></Link>
+        <Link to={patchPerfil} style={{fontFamily:"'Mulish', sans-serif"}}><Botao>+ Visualizar</Botao></Link>
       </div>
 
       <div className="col coluna d-flex flex-column align-items-center justify-content-around img" style={style}>

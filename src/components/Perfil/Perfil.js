@@ -171,7 +171,7 @@ export default function Perfil() {
       let comentario = comentarios.map(function(comentario) {
         return (
           <div style={{display: "flex", marginBottom: "20px", alignItems: "center"}}>
-            <div style={{display: "flex", flexDirection: "column", fontSize: "11px", textTransform: "capitalize"}}>
+            <div style={{display: "flex", flexDirection: "column", fontSize: "11px", textTransform: "capitalize", marginRight: "40px", alignItems:"center"}}>
               {comentario.urlFotoUsuario ? <img src={comentario.urlFotoUsuario} className="user-profile"/> : <BiUserCircle />}
               {comentario.nome && comentario.nome.toLowerCase()}
             </div>
@@ -241,8 +241,8 @@ export default function Perfil() {
                 </div>
                 <div style={{display:'flex',justifyContent: 'center', marginTop: '10px'}}>
                   <Botao className="btn-enviar-whatsapp" onClick={() => sendWhatsapp(perfilPonto.whatsapp)}>
-                    <FaWhatsapp className="btn-whatsapp" fontSize="22px"/>
-                    Converse com a gente por aqui!
+                    <FaWhatsapp className="btn-whatsapp" fontSize="22px" />
+                    <span style={{fontFamily: "'Mulish', sans-serif"}}> Converse com a gente por aqui! </span>
                   </Botao>
                 </div>
               </div>
