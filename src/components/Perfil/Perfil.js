@@ -87,7 +87,6 @@ export default function Perfil() {
                       <div className="d-flex itens-dado-semanal">
                         <div style={{display: 'flex', justifyContent: 'flex-start'}}>
                           <AiFillCheckCircle size={25} className="m-r-4"/>
-                          <div>{data.id}</div>
                           <div>{data.descricao}</div>
                         </div>
                         <div style={{width: '50%'}}>
