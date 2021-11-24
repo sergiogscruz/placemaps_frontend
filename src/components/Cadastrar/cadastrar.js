@@ -9,6 +9,7 @@ import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 import { AxiosHelper } from '../services/api';
 import { UploadImageFirabase } from '../Firebase/upload-image-firebase';
+import { MdAdd } from 'react-icons/md';
 
 export default function Cadastrar() {
   const [concordaTermos, setConcordaTermos] = useState(false);
@@ -109,13 +110,13 @@ export default function Cadastrar() {
                   <Field className="pm-cadastrar-input-largura field" name="confirmSenha" type="password" />
                   {errors.confirmSenha && touched.confirmSenha ? <div style={{color: "#EC1F46"}}>{errors.confirmSenha}</div> : null}
                 </div>
-                <div className="foto">
+                <div className="foto mt-3">
                   <div>
-                    <img className="imagem" src={(fotoPerfil.url)} alt="firebase-image" style={{maxWidth: "150px", alignItems: "center"}}/>
+                    <img className="imagem" src={(fotoPerfil.url)} alt="foto de perfil" style={{maxWidth: "250px", alignItems: "center"}}/>
                   </div>
                   <div>
-                    <label className="btn btn-primary">
-                      <i className="fa fa-image"></i> Escolher foto <input className="input-file" type="file" onChange={handleChange} accept="image/png, image/jpeg" />
+                    <label className="btn">
+                      <i className="fa fa-image"></i> Escolher foto: <MdAdd className="botaoAdicionarLocais mx-2" size="1.2em" /> <input style={{opacity: '0'}} className="input-file cursor-pointer" type="file" onChange={handleChange} accept="image/png, image/jpeg" />
                     </label>
                   </div>
                 </div>

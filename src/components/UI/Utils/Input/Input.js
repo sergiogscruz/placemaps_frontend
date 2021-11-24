@@ -26,6 +26,10 @@ export default function Input(props) {
   const className = "input " + classNameProps;
 
   return (
-    <input onKeyPress={verificarTeclaPressionada} type={props.type} className={className} placeholder={props.placeholder} onChange={(e) => handleInput(e)}/>
+    props.value ? 
+      <input value={props.value} onKeyPress={verificarTeclaPressionada} type={props.type} className={className} placeholder={props.placeholder} onChange={(e) => handleInput(e)}/>
+    :
+      <input onKeyPress={verificarTeclaPressionada} type={props.type} className={className} placeholder={props.placeholder} onChange={(e) => handleInput(e)}/>
   );
+
 }
