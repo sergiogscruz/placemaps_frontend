@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './cadastrar.css';
 import Botao from '../UI/Utils/Botao/Botao';
 import AlertUserCreated from './alertUserCreated';
 import Loading from '../UI/Utils/Loading/loading';
 import * as yup from 'yup';
 import { Formik, Form, Field } from 'formik';
-import { useHistory } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import { AxiosHelper } from '../services/api';
 
 export default function Cadastrar() {
   const [concordaTermos, setConcordaTermos] = useState(false);
   const [userCreated, setUserCreated] = useState(false);
   const [pendingRequest, setPendingRequest] = useState(false);
+  const [tipoUsuario, setTipoUsuario] = useState('');
+  const [redireciona, setRedireciona] = useState(false);
 
-  let history = useHistory();
+  useEffect(() => {
+    setRedireciona(true);
+  },[tipoUsuario])
 
-  function handleEntrar() {
-    history.push("/entrar");
+  if(redireciona) {
+    if(tipoUsuario) {
+      return <Redirect to='/' />
+    }
   }
 
   const validation = yup.object().shape({
@@ -49,21 +56,19 @@ export default function Cadastrar() {
           }}
           validationSchema={validation}
           onSubmit={values => {
-
-            const user = {
-              nome: values.nome,
-              email: values.email,
-              senha: values.senha
-            };
             setPendingRequest(true)
-            axios.post('api/public/autenticacao/cadastrar-usuario', user )
+            axios.post('api/public/autenticacao/cadastrar-usuario', values )
               .then((result) => {
               setPendingRequest(false)
-                if(result.status ===200) {
+                if (result.status === 200) {
                  setUserCreated(true)
                   setTimeout(() => {
-                    handleEntrar()
-                  },2000)
+                    if (result.data.token) {
+                      setTipoUsuario(result.data.tipoUsuario);
+                      localStorage.setItem("session", JSON.stringify(result.data));
+                      AxiosHelper.initializeAxios()
+                    }
+                  }, 2000)
                 }
               }).catch((error) => {
                 
