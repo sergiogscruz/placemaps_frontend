@@ -65,8 +65,8 @@ export default function Navbar() {
 
   function actions() {
     const setProprietario = (
-      <Link to="/ser-proprietario">
-        <Botao className="btb-entrar">Proprietário</Botao>
+      <Link to="/ser-proprietario" style={{textDecoration: "none", color: "#fff"}}>
+        <span>Proprietario</span>
       </Link>
     )
 
@@ -76,7 +76,7 @@ export default function Navbar() {
         <Link to="/proprietario/dashboard" style={{textDecoration: "none", color: "#fff", marginLeft: "5px", fontFamily: "'Mulish', sans-serif"}}>Área restrita</Link>
       )
       return (
-        <div style={{display: "flex", alignItems: "center"}}>
+        <div style={{display: "flex", alignItems: "center", marginRight: "20px"}}>
           <div style={{width: '50px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
             <Botao className="btb-entrar" onClick={() => deleteSession()}>Sair</Botao>
           </div>
@@ -86,7 +86,7 @@ export default function Navbar() {
     }
 
     return (
-      <div style={{width: '24.2%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+      <div style={{width: '24.2%', display: 'flex', alignItems: 'center', justifyContent: 'center', maxWidth: "290px"}}>
         <Link to="/entrar">
           <Botao className="btb-entrar">Entrar</Botao>
         </Link>
@@ -102,20 +102,22 @@ export default function Navbar() {
     
   return (
     <div className="pm-navbar-container">
-      <div className="container" style={{display: 'flex'}}>
-        <Link to="/" style={{width: '17.2%', display: 'flex', alignItems: 'center', textDecoration: "none"}}>
-          <div  className="pm-logo">
+      <Link to="/" style={{width: '17.2%', display: 'flex', alignItems: 'center', textDecoration: "none"}}>
+        <div className="pm-logo" style={{maxWidth: "300px", marginLeft: "20px"}}>
+          <div style={{display:"flex", justifyContent: "center"}}>
             <span style={{color: "#EC1F46", height: "32px", margin: '0 8px 0 0'}}>PLACE</span>
             <span style={{color: "#fff",height: "32px"}}>MAPS</span>
           </div>
-        </Link>
+        </div>
+      </Link>
+      <div className="container" style={{display: 'flex', maxWidth: "700px"}}>
         <div className="pm-navbar-btn-carousel">
           <IoIosArrowDropleft className="pm-btn-move pm-navbar-btn-esq" color="#fff" fontSize="30px" onClick={() => {moveDir()}}/>
           {itensList}
           <IoIosArrowDropright className="pm-btn-move pm-navbar-btn-dir" color="#fff" fontSize="30px" onClick={() => {moveEsq()}}/>
         </div>
-        { actions() }
       </div>
+      { actions() }
      </div>
   )
 }
