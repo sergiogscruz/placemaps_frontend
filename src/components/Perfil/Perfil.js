@@ -63,7 +63,6 @@ export default function Perfil() {
     axios.get('/api/public/localizacao/ponto/' + uuid)
       .then(function(result){
         let data = result && result.data && result.data.content || [];
-
         if(data && data.length) {
           setEndereco(data[0]);
         }
@@ -191,12 +190,6 @@ export default function Perfil() {
     <div className="container container-perfil">
       <div className="perfil-header">
         <p className="perfil-title"><strong>{perfil.nome}</strong></p>
-        <div className="perfil-score">
-          <div>
-            <div className="score-desc">NOTA</div>
-            <div className="score-value">4.2</div>
-          </div>
-        </div>
       </div>
       <div className="container-info">
         <div className="info-carousel">
