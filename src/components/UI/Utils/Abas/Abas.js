@@ -65,7 +65,7 @@ export default (props) => {
                 <div style={{width: "5%"}} className="show">
                   { dropdown ? (<IoIosArrowDown />) : null}
                 </div>
-                <div style={{width: "95%"}}>
+                <div style={{width: "95%", fontFamily: "'Mulish', sans-serif"}}>
                   { aba.titulo.toLowerCase() } 
                 </div>
               </div>

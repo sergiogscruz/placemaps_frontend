@@ -72,8 +72,8 @@ export default function Navbar() {
 
     if (session && session.token) {
 
-      const proprietario = (
-        <Link to="/proprietario/dashboard" style={{textDecoration: "none", color: "#fff", marginLeft: "5px"}}>Área restrita</Link>
+      let proprietario = (
+        <Link to="/proprietario/dashboard" style={{textDecoration: "none", color: "#fff", marginLeft: "5px", fontFamily: "'Mulish', sans-serif"}}>Área restrita</Link>
       )
       return (
         <div style={{display: "flex", alignItems: "center"}}>
