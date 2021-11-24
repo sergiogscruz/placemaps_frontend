@@ -1,11 +1,11 @@
-.pm-cadastrar-conteudo {
+.pm-pedido-cadastro-conteudo {
   width: 100%;
   display: flex;
   justify-content:space-around;
   flex-direction: row;
 }
 
-.pm-cadastrar-info {
+.pm-pedido-cadastro-info {
   display: flex;
   justify-content: center;
   width: 35%;
@@ -14,11 +14,11 @@
   background-color: #0F0101;
   align-items: center;
 }
-.pm-cadastrar-logo {
+.pm-pedido-cadastro-logo {
   font-family: 'Luckiest Guy', cursive;
   font-size: 48px;
 }
-.pm-cadastrar-credenciais {
+.pm-pedido-cadastro-credenciais {
   display: flex;
   align-items: center;
   width: 65%;
@@ -26,14 +26,14 @@
   padding: 20px 0 20px 0;
 }
 
-.pm-cadastrar-registrar {
+.pm-pedido-cadastro-registrar {
   font-family: 'Inter', sans-serif;
   font-weight: bolder;
   font-size: 25px;
   margin-top: 15px
 }
 
-.pm-cadastrar-input {
+.pm-pedido-cadastro-input {
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -42,15 +42,15 @@
   color: #696F79;
 }
 
-.pm-cadastrar-input label {
+.pm-pedido-cadastro-input label {
   margin-bottom: 5px;
 }
 
-.pm-cadastrar-input-largura {
+.pm-pedido-cadastro-input-largura {
   width: 380px;
 }
 
-.pm-cadastrar-tipo-pessoa {
+.pm-pedido-cadastro-tipo-pessoa {
   display: flex;
   justify-content:space-between;
   flex-direction: row;
@@ -58,7 +58,7 @@
   margin-top: 20px;
 }
 
-.pm-cadastrar-termos {
+.pm-pedido-cadastro-termos {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -66,16 +66,16 @@
   margin-top: 10px;
 }
 
-.pm-cadastrar-termos label {
+.pm-pedido-cadastro-termos label {
   margin-left: 10px;
 }
 
-.pm-cadastrar-botao {
+.pm-pedido-cadastro-botao {
   width: 380px;
   margin-top: 20px;
 }
 
-.pm-cadastrar-tipo-pessoa label {
+.pm-pedido-cadastro-tipo-pessoa label {
   margin-left: 10px;
 }
 
