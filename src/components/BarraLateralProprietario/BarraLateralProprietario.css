@@ -40,7 +40,8 @@
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  background-color: var(--cor-light);
+  background-size: cover;
+  background-position: center;
 }
 
 .barra-lateral-proprietario .logo {

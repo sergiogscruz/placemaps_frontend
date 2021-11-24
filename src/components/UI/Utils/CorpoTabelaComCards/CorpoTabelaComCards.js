@@ -1,6 +1,6 @@
 import './CorpoTabelaComCards.css'
 
-export default function CorpoTabelaComCads(props) {
+export default function CorpoTabelaComCards(props) {
   return (
     <div>
       {
