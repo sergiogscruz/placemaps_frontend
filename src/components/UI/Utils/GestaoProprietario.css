@@ -1,0 +1,17 @@
+.modalGestaoProprietario {
+  padding: 20px;
+}
+
+.modalGestaoProprietario .cabecalho {
+  display: flex;
+  justify-content: center;
+}
+
+.modalGestaoProprietario .cabecalho h4 {
+  margin: auto;
+}
+
+
+.modalGestaoProprietario .body {
+
+}

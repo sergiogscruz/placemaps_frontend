@@ -19,10 +19,9 @@ export default function Paginacao(props) {
       setPaginaAtual(paginaAtual + 1)
   }
 
+  //Comentado para ser possível realizar o deploy no Heroku
   useEffect(() => {
-    if(typeof props.setStateOnChange === 'function') {
-      props.setStateOnChange(paginaAtual)
-    }
+    props.setStateOnChange(paginaAtual)
   }, [paginaAtual, props]);
 
 
