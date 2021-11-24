@@ -66,19 +66,19 @@ export default function Navbar() {
   function actions() {
     const setProprietario = (
       <Link to="/ser-proprietario">
-        <Botao className="btb-entrar">Proprietário</Botao>
+        <Botao className="btb-entrar px-1 py-1 mx-1">Proprietário</Botao>
       </Link>
     )
 
     if (session && session.token) {
 
       let proprietario = (
-        <Link to="/proprietario/dashboard" style={{textDecoration: "none", color: "#fff", marginLeft: "5px", fontFamily: "'Mulish', sans-serif"}}>Área restrita</Link>
+        <Link to="/proprietario/dashboard" style={{textDecoration: "none", color: "#fff", marginLeft: "10px", fontFamily: "'Mulish', sans-serif"}}>Área restrita</Link>
       )
       return (
         <div style={{display: "flex", alignItems: "center"}}>
           <div style={{width: '50px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-            <Botao className="btb-entrar" onClick={() => deleteSession()}>Sair</Botao>
+            <Botao className="btb-entrar px-2 py-1 mx-1" onClick={() => deleteSession()}>Sair</Botao>
           </div>
           { session && session.tipoUsuario === "PROPRIETARIO" ? proprietario : setProprietario }
         </div>
@@ -88,11 +88,11 @@ export default function Navbar() {
     return (
       <div style={{width: '24.2%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <Link to="/entrar">
-          <Botao className="btb-entrar">Entrar</Botao>
+          <Botao className="btb-entrar px-1 py-1 mx-1">Entrar</Botao>
         </Link>
         <span>|</span>
         <Link to="/cadastrar">
-          <Botao className="btb-entrar">Cadastrar</Botao>
+          <Botao className="btb-entrar px-1 py-1 mx-1">Cadastrar</Botao>
         </Link>
         <span>|</span>
         {setProprietario}

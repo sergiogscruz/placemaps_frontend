@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './PaginaInicial.css';
 import CardResumoPonto from '../UI/Utils/CardResumoPonto/CardResumoPonto';
 import Input from '../UI/Utils/Input/Input';
-import { BiSearchAlt } from 'react-icons/bi';
+import { MdOutlineSearch } from 'react-icons/md';
 import Botao from '../UI/Utils/Botao/Botao';
 import Paginacao from '../UI/Utils/Paginacao/Paginacao';
 import { useParams } from "react-router-dom";
@@ -64,7 +64,7 @@ export default function PaginaInicial(props) {
               <Input onPressEnter={() => { eventoBusca() }} placeholder="Pesquisar por nome" className="inputPesquisaPonto h-100" setStatePai={setConteudoBusca} />
               <Botao className="h-100 d-flex align-items-center justify-content-center radius-botao" 
                 onClick={() => { eventoBusca() }}>
-                <BiSearchAlt size="1.7em" className="iconePesquisa" />
+                <MdOutlineSearch size="1.7em" className="iconePesquisa" />
               </Botao>
             </div>
           </div>
