@@ -3,7 +3,7 @@ import Botao from '../Botao/Botao'
 export default function CardDashboardProprietario(props) {
 
   const styleConteudo = {
-    fontSize: (props.conteudo.length <= 1 ? '60px' : '35px')
+    fontSize: (props.conteudo.toString().length <= 4 ? '60px' : '35px')
   }
 
   return (

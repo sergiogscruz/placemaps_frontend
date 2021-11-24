@@ -6,7 +6,6 @@ import './Dropdown.css'
 export default function Dropdown(props) {
   const [itemAtivo, setItemAtivo] = useState({id: '', nome: 'Selecione uma opção'})
 
-  useEffect(() => console.log(itemAtivo), [itemAtivo])
   const handleItemAtivo = (item) => {
     setItemAtivo(item)
     if (typeof props.setStateOnChange === 'function') {
