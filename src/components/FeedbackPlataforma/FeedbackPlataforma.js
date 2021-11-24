@@ -2,9 +2,7 @@ import './FeedbackPlataforma.css'
 
 export default function FeedbackPlataforma(props) {
     const style = {
-        background: `url(${props.srcimg}) no-repeat`,
-        backgroundSize: "cover",
-        backgroundPosition: "center"
+        backgroundImage: `url(${props.srcimg})`
     }
     return (
         <>

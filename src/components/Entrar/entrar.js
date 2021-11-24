@@ -24,7 +24,6 @@ export default function Entrar() {
     setRedireciona(true);
   },[tipoUsuario])
 
-
   if(redireciona) {
     if(tipoUsuario) {
       return <Redirect to='/' />
@@ -61,28 +60,13 @@ export default function Entrar() {
             validationSchema={validation}
             onSubmit={value => {
               setPendingRequest(true)
-              var user = {
-                email: value.email,
-                senha: value.senha
-              }
 
-              axios.post('api/public/autenticacao', user)
+              axios.post('api/public/autenticacao', value)
                 .then(function(result) {
-                  let data = result && result.data || null;
-
-                  if(data.token) {
-                    if(data.tipoUsuario === "PROPRIETARIO") {
-                      setTipoUsuario(data.tipoUsuario);
-                      let session = {
-                        foto: data.foto,
-                        nome: data.nome,
-                        tipoUsuario: data.tipoUsuario,
-                        token: data.token
-                      }
-
-                      localStorage.setItem("session", JSON.stringify(session));
-                      AxiosHelper.initializeAxios()
-                    }
+                  if (result.data.token) {
+                    setTipoUsuario(result.data.tipoUsuario);
+                    localStorage.setItem("session", JSON.stringify(result.data));
+                    AxiosHelper.initializeAxios()
                   }
 
                   setPendingRequest(false);
@@ -117,7 +101,10 @@ export default function Entrar() {
             )}
           </Formik>
           <div style={{marginTop: "20px"}}>
-          <Link to="/cadastrar" style={{textDecoration: "none"}}>Faça seu cadastro</Link>
+            <Link to="/cadastrar" style={{textDecoration: "none"}}>Faça seu cadastro</Link>
+          </div>
+          <div style={{marginTop: "20px"}}>
+            <Link to="/" style={{textDecoration: "none"}}>Página Inicial</Link>
           </div>
         </div>
       </div>
