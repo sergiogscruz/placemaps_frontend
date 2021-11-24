@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import './BarraLateralProprietario.css'
 
@@ -7,6 +6,7 @@ import { HiOutlineLocationMarker } from 'react-icons/hi'
 import { RiStarLine } from 'react-icons/ri'
 import { GoCommentDiscussion } from 'react-icons/go'
 import { BsGear } from 'react-icons/bs'
+import localStoragePlaceMaps from '../services/localStoragePlaceMaps'
 
 export default function BarraLateralProprietario(props) {
   const itensLista = [
@@ -77,7 +77,7 @@ export default function BarraLateralProprietario(props) {
       <div className="linha-horizontal bg-dark-gray"></div>
 
       <div className="padding usuario d-flex flex-column w-100 align-items-center">
-        <div className="foto ">
+        <div className="foto" style={{backgroundImage: `url(${localStoragePlaceMaps().foto})`}}>
 
         </div>
         <span className="editar">
