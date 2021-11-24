@@ -20,7 +20,6 @@ export default function PaginaInicial(props) {
      `api/public/ponto?nome=${conteudoBusca}&categoria=${categoria}&page=${paginaAtual - 1}&size=${itensPorPagina}`
     );
     setItens(dados.data);
-    console.log(dados)
   }
 
   const getCards = async (nome) => {

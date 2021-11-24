@@ -261,7 +261,7 @@ export default function Perfil() {
         {/* <Maps lat="-23.440891" lng="-51.925612"/> */}
 
         <div style={{marginTop: '50px'}}>
-          <div className="header-localizacao">Localiação</div>
+          <div className="header-localizacao">Localização</div>
           <iframe src={urlMaps} width="100%" height="450" ></iframe>
         </div>
 

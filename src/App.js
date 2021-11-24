@@ -13,6 +13,8 @@ import ContainerBackground from './components/UI/Utils/ContainerBackground/Conta
 import Footer from "./components/Footer/Footer";
 import FeedbackPlataforma from "./components/FeedbackPlataforma/FeedbackPlataforma";
 import ImagemFeedBack from "./components/UI/imagens/Ellipse3.png"
+import ImagemWill from './components/UI/imagens/will.jpg'
+import ImagemCarl from './components/UI/imagens/carl.jpeg'
 import Carrossel from "./components/UI/Utils/Carrossel/Carrossel";
 import PaginaInicial from "./components/PaginaInicial/PaginaInicial";
 import Navbar from './components/Navbar/navbar';
@@ -22,12 +24,12 @@ import DashboardProprietario from "./components/DashboardProprietario/DashboardP
 import ContainerProprietario from "./components/UI/Utils/ContainerProprietario/ContainerProprietario";
 import GestaoPontosProprietario from "./components/GestaoPontosProprietario/GestaoPontosProprietario";
 import { AxiosHelper } from "./components/services/api";
+import PedidoCadastro from "./components/PedidoCadastro/pedido-cadastro";
 
 const FeedBacks = [
-  <FeedbackPlataforma nome="Amanda Franco" srcimg={ImagemFeedBack} data="Seg 29 Abril, 2021" texto="Era um restaurante muito bom e com uma comida muito saborosa. O comportamento da equipe foi bom e educado. Eles nos recebem muito bem. A localização é de agrado e fica bem localizado. No geral foi uma boa experiência e poderia recomendar, sem problemas." />,
-  <FeedbackPlataforma nome="Pedro Henrique" srcimg={ImagemFeedBack} data="Seg 29 Abril, 2021" texto="Eles nos recebem muito bem. A localização é de agrado e fica bem localizado. No geral foi uma boa experiência e poderia recomendar, sem problemas." />,
-  <FeedbackPlataforma nome="Guilherme Atilio" srcimg={ImagemFeedBack} data="Seg 9 Abril, 2022" texto="Eles nos recebem muito bem. A localização é de agrado e fica bem localizado. No geral foi uma boa experiência e poderia recomendar, sem problemas." />,
-  <FeedbackPlataforma nome="Thiago Damaceno" srcimg={ImagemFeedBack} data="Seg 29 Abril, 2021" texto="O comportamento da equipe foi bom e educado. Eles nos recebem muito bem. A localização é de agrado e fica bem localizado. No geral foi uma boa experiência e poderia recomendar, sem problemas." />
+  <FeedbackPlataforma nome="Amanda Franco" srcimg={ImagemFeedBack} data="Seg 29 Abril, 2021" texto="É um restaurante muito bom e com uma comida muito saborosa. O comportamento da equipe foi bom e educado. Eles nos recebem muito bem. A localização é de agrado e fica bem localizado. No geral foi uma boa experiência e poderia recomendar, sem problemas." />,
+  <FeedbackPlataforma nome="Will" srcimg={ImagemWill} data="Seg 29 Abril, 2021" texto="Eles nos recebem muito bem. A localização é de agrado e fica bem localizado. No geral foi uma boa experiência e poderia recomendar, sem problemas." />,
+  <FeedbackPlataforma nome="Carl" srcimg={ImagemCarl} data="Seg 29 Abril, 2021" texto="O comportamento da equipe foi bom e educado. Eles nos recebem muito bem. A localização é de agrado e fica bem localizado. No geral foi uma boa experiência e poderia recomendar, sem problemas." />
 ]
 
 let routes = (
@@ -58,6 +60,9 @@ let routes = (
       <Route path="/cadastrar">
         <Cadastrar></Cadastrar>
       </Route>
+      <Route path="/ser-proprietario">
+        <PedidoCadastro></PedidoCadastro>
+      </Route>
       <Route path="/proprietario/dashboard">
         <div className="d-flex">
           <BarraLateralProprietario caminhoRaiz="/proprietario" item={0} />
@@ -77,21 +82,25 @@ let routes = (
       <Route path="/proprietario/avaliacoes">
         <div className="d-flex">
           <BarraLateralProprietario caminhoRaiz="/proprietario" item={2} />
-          <ContainerProprietario titulo="Meus Pontos">
-            <GestaoPontosProprietario />
+          <ContainerProprietario titulo="Minhas avaliações">
+            
           </ContainerProprietario>
         </div>
       </Route>
       <Route path="/proprietario/comentarios">
         <div className="d-flex">
           <BarraLateralProprietario caminhoRaiz="/proprietario" item={3} />
-          Comentarios
+          <ContainerProprietario titulo="Comentários">
+            
+          </ContainerProprietario>
         </div>
       </Route>
       <Route path="/proprietario/configuracoes">
         <div className="d-flex">
           <BarraLateralProprietario caminhoRaiz="/proprietario" item={4} />
-          Configuracoes
+          <ContainerProprietario titulo="Configurações">
+            
+          </ContainerProprietario>
         </div>
       </Route>
     </Switch>

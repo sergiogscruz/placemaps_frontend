@@ -13,6 +13,7 @@ import './GestaoPontosProprietario.css'
 import axios from 'axios';
 import { AiOutlineCaretDown } from 'react-icons/ai';
 import { FaRegTrashAlt } from 'react-icons/fa'
+import { UploadImageFirabase } from '../Firebase/upload-image-firebase'; 
 
 export default function GestaoPontosProprietario() {
   const [paginaAtualPontos, setPaginaAtualPontos] = useState(1)
@@ -87,8 +88,8 @@ export default function GestaoPontosProprietario() {
       }
     })
     if (locaisPreenchidos) return
-
-    /*const response = await axios.post(`/api/ponto/categoria/${itemDropdownCriar.id}`, {
+    const fotosLocais = fotos.map(foto => { return { url: foto } })
+    const response = await axios.post(`/api/ponto/categoria/${itemDropdownCriar.id}`, {
       ativo: true,
       contato: {
         telefone: telefoneCriar,
@@ -96,13 +97,10 @@ export default function GestaoPontosProprietario() {
       },
       descricao: descricaoCriar,
       fixo: (tipoPontoCriar == 'Ponto fixo'),
-      fotos: [
-        { url: "https://media-cdn.tripadvisor.com/media/photo-s/0e/d1/78/32/um-pouquinho-do-nosso.jpg" },
-        { url: "https://digitalpixel.com.br/wp-content/uploads/2016/09/dicas-para-restaurantes-e-lanchonetes-anunciarem-no-facebook-870x580.jpg" }
-      ],
+      fotos: fotosLocais,
       nome: nomeCriar,
       subTitulo: subtituloCriar
-    })*/
+    })
 
     alert('Ponto criado com sucesso')
 
@@ -136,10 +134,10 @@ export default function GestaoPontosProprietario() {
         longitude: local.longitude,
         numero: local.numero,
         pais: local.pais,
-        pontoId: 'response.data',
+        pontoId: response.data,
         rua: local.rua
       }
-      //const responseLocal = await axios.post('api/localizacao', body)
+      await axios.post('api/localizacao', body)
     })
 
     alert('Local criado com sucesso')
@@ -190,9 +188,10 @@ export default function GestaoPontosProprietario() {
       return (
         dados.content.map(dado => {
           const classNameStatus = !dado.ativo ? 'color-perigo' : 'color-sucesso'
+          console.log(dado)
           return [
             dado.nome,
-            'CATEGORIA',
+            dado.categoria,
             <p className={'m-0 p-0 ' + classNameStatus}>{(dado.ativo ? 'ATIVO' : 'INATIVO')}</p>,
             montarAcoes(() => { desativarPonto(dado.id) }, () => { }, { ativo: dado.ativo, f: () => ativarPonto(dado.id) })
           ]
@@ -216,7 +215,7 @@ export default function GestaoPontosProprietario() {
       rua: "",
       numero: "",
       pais: "",
-      diasDaSemanaIds: [true ,true ,true ,true ,true ,true ,true],
+      diasDaSemanaIds: [true, true, true, true, true, true, true],
       desenharElementoCompletoNaTela: false
     }
   ])
@@ -275,7 +274,7 @@ export default function GestaoPontosProprietario() {
                   return local
                 }))
               }} />
-              {(i > 0 ? <FaRegTrashAlt size="1.4em" className="cursor-pointer" onClick={() => removerLocalModal(i)}/> : '')}
+              {(i > 0 ? <FaRegTrashAlt size="1.4em" className="cursor-pointer" onClick={() => removerLocalModal(i)} /> : '')}
             </div>
             <div className={"row " + (local.desenharElementoCompletoNaTela ? '' : 'd-none')}>
               <div className="col-4 mt-4">
@@ -356,12 +355,14 @@ export default function GestaoPontosProprietario() {
   const toggleCheckboxDia = (i, indexDia) => {
     setLocais(locais.map((local, j) => {
       if (i === j) {
-        return { ...local, diasDaSemanaIds: local.diasDaSemanaIds.map((dia, iDia) => {
-          if (iDia === indexDia) {
-            return !dia
-          }
-          return dia
-        }) }
+        return {
+          ...local, diasDaSemanaIds: local.diasDaSemanaIds.map((dia, iDia) => {
+            if (iDia === indexDia) {
+              return !dia
+            }
+            return dia
+          })
+        }
       }
       return local
     }))
@@ -371,38 +372,38 @@ export default function GestaoPontosProprietario() {
     if (tipoPontoCriar == 'Ponto movel') {
       return (
         <div className="mt-4">
-          <label for="criarSegunda">Segunda</label>
-          <input id="criarSegunda" className="checkDiaSemana" type="checkbox" defaultChecked onChange={() => {
+          <label for={"criarSegunda"+ i}>Segunda</label>
+          <input id={"criarSegunda"+ i} className="checkDiaSemana" type="checkbox" defaultChecked onChange={() => {
             toggleCheckboxDia(i, 0)
           }} />
-  
-          <label for="criarTerca">Terça</label>
-          <input id="criarTerca" className="checkDiaSemana" style={{ marginRight: '30px !importante' }} type="checkbox" defaultChecked onChange={() => {
+
+          <label for={"criarTerca"+ i}>Terça</label>
+          <input id={"criarTerca"+ i} className="checkDiaSemana" style={{ marginRight: '30px !importante' }} type="checkbox" defaultChecked onChange={() => {
             toggleCheckboxDia(i, 1)
           }} />
-  
-          <label for="criarQuarta">Quarta</label>
-          <input id="criarQuarta" className="checkDiaSemana" style={{ marginRight: '30px !importante' }} type="checkbox" defaultChecked onChange={() => {
+
+          <label for={"criarQuarta"+ i}>Quarta</label>
+          <input id={"criarQuarta"+ i} className="checkDiaSemana" style={{ marginRight: '30px !importante' }} type="checkbox" defaultChecked onChange={() => {
             toggleCheckboxDia(i, 2)
           }} />
-  
-          <label for="criarQuinta">Quinta</label>
-          <input id="criarQuinta" className="checkDiaSemana" style={{ marginRight: '30px !importante' }} type="checkbox" defaultChecked onChange={() => {
+
+          <label for={"criarQuinta"+ i}>Quinta</label>
+          <input id={"criarQuinta"+ i} className="checkDiaSemana" style={{ marginRight: '30px !importante' }} type="checkbox" defaultChecked onChange={() => {
             toggleCheckboxDia(i, 3)
           }} />
-  
-          <label for="criarSexta">Sexta</label>
-          <input id="criarSexta" className="checkDiaSemana" style={{ marginRight: '30px !importante' }} type="checkbox" defaultChecked onChange={() => {
+
+          <label for={"criarSexta"+ i}>Sexta</label>
+          <input id={"criarSexta"+ i} className="checkDiaSemana" style={{ marginRight: '30px !importante' }} type="checkbox" defaultChecked onChange={() => {
             toggleCheckboxDia(i, 4)
           }} />
-  
-          <label for="criarSabado">Sábado</label>
-          <input id="criarSabado" className="checkDiaSemana" style={{ marginRight: '30px !importante' }} type="checkbox" defaultChecked onChange={() => {
+
+          <label for={"criarSabado"+ i}>Sábado</label>
+          <input id={"criarSabado"+ i} className="checkDiaSemana" style={{ marginRight: '30px !importante' }} type="checkbox" defaultChecked onChange={() => {
             toggleCheckboxDia(i, 5)
           }} />
-  
-          <label for="criarDomingo">Domingo</label>
-          <input id="criarDomingo" className="checkDiaSemana" style={{ marginRight: '30px !importante' }} type="checkbox" defaultChecked onChange={() => {
+
+          <label for={"criarDomingo" + i}>Domingo</label>
+          <input id={"criarDomingo" + i} className="checkDiaSemana" style={{ marginRight: '30px !importante' }} type="checkbox" defaultChecked onChange={() => {
             toggleCheckboxDia(i, 6)
           }} />
         </div>
@@ -411,6 +412,44 @@ export default function GestaoPontosProprietario() {
     return ''
   }
 
+  const enviarFoto = async (event) => {
+    const image = event.target.files[0]
+    if (image) {
+      const url = await UploadImageFirabase.upload('perfil', image)
+      setTimeout(async () => {
+        novaFoto(url)
+      }, 2000)
+    }
+  }
+  const novaFoto = (url) => {
+    const tempFotos = fotos.map(foto => foto)
+    tempFotos.push(url)
+    setFotos(tempFotos)
+  }
+
+  const [fotos, setFotos] = useState([])
+  const montarFotos = () => {
+    return (
+      fotos.map((foto, i) => {
+        return (
+          <div className="mt-2">
+            <img className="imagem" src={foto} alt="foto do local" style={{ maxWidth: "250px", alignItems: "center" }} />
+            <MdClose className="mx-3 cursor-pointer" size="1.3em" onClick={() => removerFoto(i)}/>
+          </div>
+        )
+      })
+    )
+  }
+
+  const removerFoto = (i) => {
+    const tempFotos = []
+    fotos.forEach((foto, j) => {
+      if (i !== j)
+        tempFotos.push(foto)
+    })
+
+    setFotos(tempFotos)
+  }
   return (
     <>
       <div>
@@ -495,7 +534,7 @@ export default function GestaoPontosProprietario() {
                       rua: "",
                       numero: "",
                       pais: "",
-                      diasDaSemanaIds: [true ,true ,true ,true ,true ,true ,true],
+                      diasDaSemanaIds: [true, true, true, true, true, true, true],
                       desenharElementoCompletoNaTela: false
                     })
                     setLocais(tempLocais)
@@ -505,6 +544,24 @@ export default function GestaoPontosProprietario() {
                 }
               </div>
               {montarLocais()}
+            </div>
+
+            <div className="row mt-4">
+              <div className="col">
+                <label className="btn">
+                  <i className="fa fa-image"></i> Escolher fotos: <MdAdd className="botaoAdicionarLocais mx-2" size="1.2em" /> <input style={{opacity: '0'}} className="input-file cursor-pointer" type="file" onChange={enviarFoto} accept="image/png, image/jpeg" />
+                </label>
+              </div>
+              <div className="row">
+                {montarFotos()}
+              </div>
+
+            </div>
+
+            <div className="row mt-4">
+              <div className="col">
+                <div className="dropdown-divider"></div>
+              </div>
             </div>
 
             <div className="row mt-4">
