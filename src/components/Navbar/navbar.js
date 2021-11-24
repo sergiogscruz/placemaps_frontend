@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './navbar.css';
-import {IoIosArrowDropright, IoIosArrowDropleft} from 'react-icons/io';
+import {FiChevronLeft} from 'react-icons/fi';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Botao from '../UI/Utils/Botao/Botao';
@@ -112,9 +112,9 @@ export default function Navbar() {
       </Link>
       <div className="container" style={{display: 'flex', maxWidth: "700px"}}>
         <div className="pm-navbar-btn-carousel">
-          <IoIosArrowDropleft className="pm-btn-move pm-navbar-btn-esq" color="#fff" fontSize="30px" onClick={() => {moveDir()}}/>
+          <FiChevronLeft className="pm-btn-move pm-navbar-btn-esq" color="#fff" fontSize="30px" onClick={() => {moveDir()}}/>
           {itensList}
-          <IoIosArrowDropright className="pm-btn-move pm-navbar-btn-dir" color="#fff" fontSize="30px" onClick={() => {moveEsq()}}/>
+          <FiChevronLeft style={{transform: 'rotate(180deg)'}} className="pm-btn-move pm-navbar-btn-dir" color="#fff" fontSize="30px" onClick={() => {moveEsq()}}/>
         </div>
       </div>
       { actions() }
