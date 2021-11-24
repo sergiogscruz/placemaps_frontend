@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import './navbar.css';
-import Api from '../services/api';
 import {IoIosArrowDropright, IoIosArrowDropleft} from 'react-icons/io';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Botao from '../UI/Utils/Botao/Botao';
+import axios from 'axios';
+import { AxiosHelper } from '../services/api';
 
 export default function Navbar() {  
   const [itensMenu, setItensMenu] = useState([]);
@@ -15,7 +16,7 @@ export default function Navbar() {
   let itensShow = [];
 
   useEffect(()=> {
-    Api.get('api/public/categoria')
+    axios.get('api/public/categoria')
     .then((result)=> {
       setItensMenu(result.data)
     })
@@ -59,6 +60,7 @@ export default function Navbar() {
   function deleteSession() {
     localStorage.removeItem("session");
     setSession({})
+    AxiosHelper.initializeAxios();
   }
 
   function actions() {

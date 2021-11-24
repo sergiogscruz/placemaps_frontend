@@ -4,7 +4,6 @@ import 'react-awesome-slider/dist/styles.css';
 import "react-multi-carousel/lib/styles.css";
 import "../UI/Utils/base.css";
 import { useEffect } from 'react';
-import Api from '../services/api';
 import { useParams } from "react-router-dom";
 import { useState } from 'react';
 import Abas from '../UI/Utils/Abas/Abas';
@@ -14,6 +13,7 @@ import Botao from '../UI/Utils/Botao/Botao';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import { BsChevronDown } from 'react-icons/bs';
 import { BiUserCircle } from 'react-icons/bi';
+import axios from 'axios';
 
 export default function Perfil() {
 
@@ -27,7 +27,7 @@ export default function Perfil() {
   const [comentarios, setComentario] = useState([]);
 
   useEffect(function() {
-    Api.get('api/public/ponto/' + uuid)
+    axios.get('api/public/ponto/' + uuid)
     .then(function(result){
       setPerfil(result.data); 
       
@@ -39,12 +39,12 @@ export default function Perfil() {
       }
     });
 
-    Api.get('/api/public/comentario/obter-pelo-ponto/' + uuid)
+    axios.get('/api/public/comentario/obter-pelo-ponto/' + uuid)
     .then(function(result) {
       if(result && result.data && result.data.content && result.data.content.length) {
         result.data.content.forEach(function(comentario) {
 
-          Api.get('/api/public/comentario/' + comentario.id)
+          axios.get('/api/public/comentario/' + comentario.id)
           .then((dadoComentario) => {
             
             let nome = dadoComentario && dadoComentario.data && dadoComentario.data.usuario
@@ -60,7 +60,7 @@ export default function Perfil() {
       }
     })
 
-    Api.get('/api/public/localizacao/ponto/' + uuid)
+    axios.get('/api/public/localizacao/ponto/' + uuid)
       .then(function(result){
         let data = result && result.data && result.data.content || [];
 
@@ -69,14 +69,14 @@ export default function Perfil() {
         }
     });
 
-    Api.get('/api/public/dadosemanal/obter-pelo-ponto/dias/' + uuid)
+    axios.get('/api/public/dadosemanal/obter-pelo-ponto/dias/' + uuid)
     .then(function(result){
       if(result && result.data && result.data.length) {
         result.data.forEach(async function(dadoSemanal) {
           var temp = [];
           await dadoSemanal.dadoSemanalList.forEach(async function(pratoDoDia) {
             
-            let result = await Api.get('/api/public/item?dadoSemanalId=' + pratoDoDia.id)
+            let result = await axios.get('/api/public/item?dadoSemanalId=' + pratoDoDia.id)
             if (result && result.data && result.data.content && result.data.content.length) { 
               
               let itensDoPratoDoDia = {

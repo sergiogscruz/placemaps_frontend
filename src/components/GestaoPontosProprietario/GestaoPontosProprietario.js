@@ -13,6 +13,7 @@ import Dropdown from '../UI/Utils/Dropdown/Dropdown'
 import api from '../services/api'
 import './GestaoPontosProprietario.css'
 import localStoragePlaceMaps from '../services/localStoragePlaceMaps';
+import axios from 'axios';
 
 export default function GestaoPontosProprietario() {
   const [paginaAtualPontos, setPaginaAtualPontos] = useState(1)
@@ -82,7 +83,7 @@ export default function GestaoPontosProprietario() {
       nome: nomeCriar,
       subTitulo: subtituloCriar
     })
-    const response = await api.post(`/api/ponto/categoria/${itemDropdownCriar.id}`, {
+    const response = await axios.post(`/api/ponto/categoria/${itemDropdownCriar.id}`, {
       ativo: true,
       contato: {
         telefone: telefoneCriar,
@@ -96,11 +97,6 @@ export default function GestaoPontosProprietario() {
       ],
       nome: nomeCriar,
       subTitulo: subtituloCriar
-    },
-    {
-      headers: {
-        'Authorization': localStoragePlaceMaps().token
-      },
     })
     console.log(response)
     alert('ok')
@@ -110,7 +106,7 @@ export default function GestaoPontosProprietario() {
   useEffect(() => {
     console.log(JSON.parse(localStorage.getItem('session')))
     async function get() {
-      const response = await api.get('/api/public/categoria')
+      const response = await axios.get('/api/public/categoria')
       setOptionsDropdown(response.data)
     }
     get()
@@ -118,11 +114,7 @@ export default function GestaoPontosProprietario() {
 
   const [dados, setDados] = useState([])
   const montarDados = async () => {
-    const response = await api.get(`/api/ponto/obter-pelo-proprietario?page=${paginaAtualPontos - 1}&size=${7}`, {
-      headers: {
-        'Authorization': localStoragePlaceMaps().token
-      }
-    })
+    const response = await axios.get(`/api/ponto/obter-pelo-proprietario?page=${paginaAtualPontos - 1}&size=${7}`)
     setDados(response.data)
   }
 
@@ -136,11 +128,7 @@ export default function GestaoPontosProprietario() {
   }
 
   const desativarPonto = async (id) => {
-    const response = await api.put(`/api/ponto/desativar/${id}`, {}, {
-      headers: {
-        'Authorization': localStoragePlaceMaps().token
-      }
-    })
+    const response = await axios.put(`/api/ponto/desativar/${id}`, {})
     console.log(response)
     alert('ponto desativado')
   }

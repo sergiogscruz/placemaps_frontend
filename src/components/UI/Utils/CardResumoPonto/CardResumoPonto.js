@@ -1,6 +1,6 @@
 import Botao from '../Botao/Botao';
 import './CardResumoPonto.css';
-import { AiFillCheckCircle } from 'react-icons/ai';
+import { AiFillCheckCircle, AiFillStar} from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import urlImagemPadrao from '../../imagens/default-image.jpg';
 import { useEffect } from 'react';
@@ -35,19 +35,31 @@ export default function CardResumoPonto(props) {
       });
   }
 
+  function montarEstrelas() {
+
+    let estrelaFracao = Math.ceil(props.nota)
+    let estrelas = [];
+    for(let i = 0; i < 5; i++){
+      if(i+1 <= estrelaFracao) {
+        estrelas.push(<AiFillStar color="yellow" />)
+      } else {
+        estrelas.push(<AiFillStar color="#fff" />)
+      }
+    }
+
+    return estrelas
+  }
+
   const patchPerfil = "/perfil/" + props.idPonto;
 
   return (
     <div className="cardResumoPonto row">
-      <div className="col-3 titulo coluna d-flex flex-column align-items-center justify-content-around">
-        <h5 className="text-center">{props.titulo}</h5>
+      <div className="col-3 titulo coluna d-flex flex-column align-items-center justify-content-around" style={{padding: "15px"}}>
+        <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+          <h5 className="text-center">{props.titulo}</h5>
+          <div> { montarEstrelas() } </div>
+        </div>
         <Link to={patchPerfil}><Botao>+ Visualizar</Botao></Link>
-      </div>
-
-      <div className="col-4 coluna d-flex flex-column align-items-center justify-content-around">
-        <ul className="list-unstyled w-100">
-          {itensDescricao()}
-        </ul>
       </div>
 
       <div className="col coluna d-flex flex-column align-items-center justify-content-around img" style={style}>
